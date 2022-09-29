@@ -1,10 +1,9 @@
-import * as React from 'react';
-// @ts-ignore
+import React, {FC} from 'react';
 import {Routes, Route} from 'react-router-dom';
 import Main from './pages/Main';
 import Home from './pages/Home';
 
-const App: React.FC = () => (
+const App: FC = () => (
     <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/main" element={<Main/>}/>

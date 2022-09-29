@@ -1,8 +1,10 @@
 const path = require('path')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
+const TerserWebpackPlugin = require('terser-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
 
 const isProd = process.env.NODE_ENV === 'production'
 const isDev = !isProd
@@ -92,5 +94,17 @@ module.exports = {
                 use: "file-loader"
             }
         ]
+    },
+    optimization: {
+        minimizer: [
+            new TerserWebpackPlugin({
+                extractComments: false
+            })
+        ]
+    },
+    performance: {
+        hints: false,
+        maxEntrypointSize: 512000,
+        maxAssetSize: 512000
     }
 }

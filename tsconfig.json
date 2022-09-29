@@ -1,28 +1,23 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    // Strict Checks
-    "baseUrl": "./src",
-    "alwaysStrict": true,
+    "outDir": "dist",
+    //    "rootDir": "src",
+    "sourceMap": true,
+    "strict": true,
     "noImplicitAny": true,
-    "strictNullChecks": true,
-    "strictPropertyInitialization": true,
-    "strictFunctionTypes": true,
-    "noImplicitThis": true,
-    "strictBindCallApply": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noUncheckedIndexedAccess": true,
-    // Linter Checks
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "allowUnreachableCode": false,
-    "allowUnusedLabels": false,
-    "noImplicitUseStrict": false,
-    "suppressExcessPropertyErrors": false,
-    "suppressImplicitAnyIndexErrors": false,
-    "noStrictGenericChecks": false,
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "moduleResolution": "node",
+    "module": "commonJS",
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "target": "ES5",
     "jsx": "react-jsx"
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }
