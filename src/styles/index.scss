@@ -1,3 +1,9 @@
 body {
   background-color: blueviolet;
+  overflow: hidden;
+  animation: ease-in-out 1ms backwards;
+
+  &:fullscreen {
+    overflow: hidden;
+  }
 }
