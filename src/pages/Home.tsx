@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/index.scss';
+import '../styles/index.module.scss';
 
-const Home: FC = () => {
+const Home = () => {
   const str = 'this is home';
 
   return (

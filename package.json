@@ -2,11 +2,11 @@
   "name": "react-kanban",
   "version": "1.0.0",
   "description": "",
-  "main": "webpack.config.js",
+  "main": "webpack.prod.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cross-env NODE_ENV=development webpack-dev-server --open",
-    "build": "cross-env NODE_ENV=production webpack --mode production"
+    "dev": "webpack-dev-server --config webpack.dev.js --open",
+    "prod": "webpack --config webpack.prod.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/le0n8914/react-kanban#readme",
   "private": true,
+  "browserslist": "> 0.25%, not dead",
   "devDependencies": {
     "@babel/core": "^7.19.3",
     "@babel/node": "^7.19.1",
@@ -33,7 +34,6 @@
     "babel-loader": "^8.2.5",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
-    "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
     "eslint": "^8.2.0",
     "eslint-config-airbnb": "^19.0.4",
@@ -42,7 +42,6 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "eslint-webpack-plugin": "^3.2.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.1",
@@ -51,8 +50,8 @@
     "postcss-loader": "^7.0.1",
     "postcss-preset-env": "^7.8.2",
     "sass-loader": "^13.0.2",
+    "style-loader": "^3.3.1",
     "terser-webpack-plugin": "^5.3.6",
-    "ts-loader": "^9.4.1",
     "typescript": "^4.8.4",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",

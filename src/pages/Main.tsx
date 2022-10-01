@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Main: FC = () => {
+const Main = () => {
   const str = 'this is main';
 
   return (

@@ -8,6 +8,7 @@
     "project": "./tsconfig.json"
   },
   "rules": {
-    "react/function-component-definition": "off"
+    "react/function-component-definition": "off",
+    "import/no-extraneous-dependencies": "off"
   }
 }
