@@ -1,30 +1,23 @@
 const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   mode: 'development',
-  entry: ['@babel/polyfill', './index.tsx'],
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-  },
+  entry: ['./index.tsx'],
   resolve: {
     extensions: ['.tsx', '.ts', '.jsx', '.js'],
   },
-  // todo посмотреть source-map vs inline -source-map
   devtool: 'inline-source-map',
   devServer: {
-    static: './dist',
     port: 3000,
     hot: true,
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx|ts|tsx)$/,
+        test: /\.(ts|js)x?$/i,
         exclude: /node_modules/,
         use: 'babel-loader',
       },
@@ -32,15 +25,14 @@ module.exports = {
         test: /\.module.scss$/,
         use: [
           'style-loader',
+          'css-loader',
+          'postcss-loader',
           {
-            loader: 'css-loader',
+            loader: 'sass-loader',
             options: {
-              sourceMap: true,
-              modules: true,
+              sourceMap: true
             },
           },
-          'postcss-loader',
-          'sass-loader',
         ],
       },
       {
@@ -50,7 +42,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new HTMLWebpackPlugin({
       template: 'index.html',
       minify: {
