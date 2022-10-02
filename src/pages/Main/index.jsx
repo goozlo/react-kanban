@@ -1,8 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 const Main = () => {
-  const str = 'this is main';
+  const str = 'this is main'
 
   return (
     <div>
@@ -13,4 +12,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Main
