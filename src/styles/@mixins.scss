@@ -1,0 +1,34 @@
+@mixin heading-xl {
+  font-size: 24px;
+  line-height: 30px;
+}
+
+@mixin heading-l {
+  font-size: 18px;
+  line-height: 23px;
+}
+
+@mixin heading-m {
+  font-size: 15px;
+  line-height: 19px;
+}
+
+@mixin heading-s {
+  font-size: 12px;
+  line-height: 15px;
+
+  //такого свойства нет в css, только костыль ввиде letter-spacing
+  //font-kerning: ;
+}
+
+@mixin paragraph {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 23px;
+}
+
+@mixin paragraph-s {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+}
