@@ -1,28 +1,24 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    // Strict Checks
-    "baseUrl": "./src",
-    "alwaysStrict": true,
+    "target": "ESNext",
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "rootDir": "./src",
+    "allowJs": true,
+    "checkJs": false,
+    "inlineSourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
     "noImplicitAny": true,
-    "strictNullChecks": true,
-    "strictPropertyInitialization": true,
-    "strictFunctionTypes": true,
-    "noImplicitThis": true,
-    "strictBindCallApply": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noUncheckedIndexedAccess": true,
-    // Linter Checks
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
+    "alwaysStrict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "allowUnreachableCode": false,
-    "allowUnusedLabels": false,
-    "noImplicitUseStrict": false,
-    "suppressExcessPropertyErrors": false,
-    "suppressImplicitAnyIndexErrors": false,
-    "noStrictGenericChecks": false,
-    "jsx": "react-jsx"
+    "skipLibCheck": true
   }
 }
