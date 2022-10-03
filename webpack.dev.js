@@ -11,7 +11,7 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   devServer: {
-    port: 3000,
+    // port: 3000,
     hot: true,
     // todo посомтртеть почему без этой штуки
     // не работают роуты
@@ -25,7 +25,7 @@ module.exports = {
         use: 'babel-loader',
       },
       {
-        test: /\.module.scss$/,
+        test: /\.scss$/,
         use: [
           'style-loader',
           'css-loader',
