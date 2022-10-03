@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './themeSwitch.scss'
-import darkThemeIcon from "../../images/darkThemeIcon"
-import lightThemeIcon from "../../images/lightThemeIcon"
+// import darkThemeIcon from "../../images/darkThemeIcon"
+// import lightThemeIcon from "../../images/lightThemeIcon"
 
 const ThemeSwitch = () => {
     const [checkBoxActive, setCheckboxActive] = useState(false);
@@ -18,12 +18,12 @@ const ThemeSwitch = () => {
     // }
     return (
         <div className='themeSwiper'>
-            <img src={lightThemeIcon} />
+            {/* <img src={lightThemeIcon} /> */}
             <input type="checkbox" className="swiper" aria-label="Toggle something"
             // onChange={handleCheckbox}
             // checked={checkBoxActive ? true : false}
             />
-            <img src={darkThemeIcon} />
+            {/* <img src={darkThemeIcon} /> */}
         </div>
 
     )
