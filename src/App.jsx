@@ -1,15 +1,16 @@
 import { Routes, Route } from 'react-router-dom'
-import Main from './pages/Main'
 import Home from './pages/Home'
-import style from './styles/@global.module.scss'
+import Layout from './components/Layout';
+import Authorization from './pages/ Authorization';
+// import style from './styles/@global.module.scss'
 
 const App = () => (
-  <div className={style}>
+  <Layout>
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/main" element={<Main />} />
+      <Route path="/auth" element={<Authorization />} />
     </Routes>
-  </div>
+  </Layout>
 )
 
 export default App
