@@ -8,7 +8,7 @@
     "jsx": "react-jsx",
     "module": "ESNext",
     "rootDir": "./src",
-    "checkJs": false,
+    "checkJs": true,
     "inlineSourceMap": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
@@ -18,8 +18,16 @@
     "alwaysStrict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "skipLibCheck": true
-  }
-
-
+    "skipLibCheck": true,
+    "typeRoots": [],
+    "types": []
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "**/ * .d.ts",
+    "dist",
+    "node_modules"
+  ]
 }
