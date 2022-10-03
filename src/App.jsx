@@ -2,7 +2,6 @@ import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Layout from './components/Layout';
 import Authorization from './pages/ Authorization';
-// import style from './styles/@global.module.scss'
 
 const App = () => (
   <Layout>
