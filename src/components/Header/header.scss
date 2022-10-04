@@ -1,3 +1,42 @@
 .header {
+display: flex;
+flex-direction: row;
+align-items: center;
+margin: 32px 34px 37px;
+}
+
+.header__logo {
+width: 300px;
+border-right: 1px solid #E4EBFA;
+
+}
+
+.header__title {
+    margin: 0;
+    
+
+}
+
+.header__main {
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-between;
+width: 100%;
+}
+
+.header__desk-title {
+
+}
+
+.header__buttons {
+
+}
+
+.header__new-task {
+
+}
+
+.header__board-settings {
 
 }

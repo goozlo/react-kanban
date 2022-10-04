@@ -1,0 +1,34 @@
+.sidebar {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    width: 300px;
+    height: 90vh;
+    border-right: 1px solid #E4EBFA;
+    align-items: center;
+    margin: 0 auto;
+    bottom: 0;
+    left: 0;
+}
+
+.sidebar__container {
+    max-width: 300px;
+    height: 90vh;
+    position: fixed;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.sidebar__navigation {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.sidebar__links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
