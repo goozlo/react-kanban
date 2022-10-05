@@ -4,6 +4,7 @@ import Layout from './components/Layout';
 import Authorization from './pages/ Authorization';
 import ThemeSwiper from './components/ThemeSwiper';
 import SideBar from './components/SideBar/index';
+import './styles/@global.scss'
 
 const App = () => (
   <Layout>
