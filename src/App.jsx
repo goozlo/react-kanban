@@ -11,6 +11,7 @@ const App = () => (
       <Route path="/auth" element={<Authorization />} />
     </Routes>
   </Layout>
+
 )
 
 export default App

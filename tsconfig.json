@@ -8,7 +8,6 @@
     "jsx": "react-jsx",
     "module": "ESNext",
     "rootDir": "./src",
-    "checkJs": true,
     "inlineSourceMap": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
