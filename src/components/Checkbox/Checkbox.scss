@@ -1,0 +1,48 @@
+@import '../../styles/@variables';
+@import '../../styles/@mixins';
+
+.checkbox {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding: 12px;
+  border-radius: 4px;
+}
+
+.checkbox__label {
+  font-size: 12px;
+  line-height: 15px;
+  color: inherit;
+}
+
+.checkbox__fake-input {
+  position: relative;
+  display: block;
+  width: 16px;
+  height: 16px;
+  margin-right: 16px;
+  border-radius: 2px;
+  background: $main-purple;
+}
+
+.checkbox__input {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+
+  &:checked + .checkbox__fake-input::after {
+    content: '';
+    position: absolute;
+    background: url('./check.svg') no-repeat center;
+    width: 16px;
+    height: 16px;
+  }
+}
+
+
+

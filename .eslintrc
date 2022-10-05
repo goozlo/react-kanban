@@ -1,12 +1,20 @@
 {
   "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "project": "./tsconfig.json"
-  },
-  "extends": [
-    "airbnb",
-    "airbnb/hooks",
-    "airbnb-typescript"
+  "overrides": [
+    {
+      "files": [
+        "*.ts",
+        "*.tsx"
+      ],
+      "parserOptions": {
+        "project": "./tsconfig.json"
+      },
+      "extends": [
+        "airbnb",
+        "airbnb/hooks",
+        "airbnb-typescript"
+      ]
+    }
   ],
   "rules": {
     "react/function-component-definition": "off",
@@ -16,7 +24,8 @@
     "react-hooks/exhaustive-deps": "warn",
     "react/prop-types": "off",
     "@typescript-eslint/semi": "off",
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "no-plusplus": "off"
   },
   "settings": {
     "react": {
