@@ -1,22 +1,28 @@
-import {createSlice} from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
+
+// todo подумать что сделать с no-undef у локал сторадж
+/* eslint-disable no-undef */
 
 const initialState = {
-    mode: true,
-}
+  mode: !!JSON.parse(localStorage.getItem('mode')),
+};
 
-//mode.true === light
-//mode.false === dark
+// mode.true === light
+// mode.false === dark
 
 export const modeSlice = createSlice({
-    name: 'mode',
-    initialState,
-    reducers: {
-        changeMode: (state) => {
-            state.mode = !state.mode
-        }
+  /* eslint-disable no-param-reassign */
+  name: 'mode',
+  initialState,
+  reducers: {
+    changeMode: (state) => {
+      state.mode = !state.mode;
+      localStorage.setItem('mode', state.mode);
     },
-})
+  },
+  /* eslint-enable no-param-reassign */
+});
 
-export const {changeMode} = modeSlice.actions
+export const { changeMode } = modeSlice.actions;
 
-export default modeSlice.reducer
+export default modeSlice.reducer;

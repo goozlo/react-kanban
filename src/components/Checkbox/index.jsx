@@ -10,7 +10,6 @@ const Checkbox = ({label = 'label wasn\'t provided'}) => {
   const darkStyle = {background: '#20212C', color: '#FFF'}
   const lightStyle = {background: '#F4F7FD', color: '#000112'}
 
-
   return (
       <label
           className="checkbox"
