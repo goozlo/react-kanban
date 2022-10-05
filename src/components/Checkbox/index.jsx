@@ -1,8 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './Checkbox.scss'
 
 export const Checkbox = (data) => {
-  const {label = 'label wasn\'t provided', theme = 'dark'} = data
+  const {label = 'label wasn\'t provided', mode = 'dark'} = data
   const [checked, setChecked] = React.useState(false)
 
   //todo: позже решить куда убрать эту штуку
@@ -13,7 +14,7 @@ export const Checkbox = (data) => {
   return (
       <label
           className="checkbox"
-          style={theme === 'dark' ? darkStyle : lightStyle}
+          style={mode === 'dark' ? darkStyle : lightStyle}
           htmlFor="checkbox"
       >
         <input
@@ -33,3 +34,8 @@ export const Checkbox = (data) => {
   )
 };
 
+//при переносе на typescript удалить бибилотеку prop-types
+Checkbox.propTypes = {
+  label: PropTypes.string,
+  mode: PropTypes.oneOf(['dark', 'light'])
+}
