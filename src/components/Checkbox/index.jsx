@@ -1,7 +1,7 @@
 import React from 'react'
 import './Checkbox.scss'
 
-const Checkbox = (data) => {
+export const Checkbox = (data) => {
   const {label = 'label wasn\'t provided', theme = 'dark'} = data
   const [checked, setChecked] = React.useState(false)
 
@@ -33,4 +33,3 @@ const Checkbox = (data) => {
   )
 };
 
-export default Checkbox

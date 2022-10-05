@@ -3,6 +3,7 @@ import Home from './pages/Home'
 import Layout from './components/Layout';
 import Authorization from './pages/ Authorization'
 import './styles/@global.scss'
+import {Checkbox} from "./components/Checkbox";
 
 const App = () => (
     <Layout>
