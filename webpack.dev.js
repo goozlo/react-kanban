@@ -13,8 +13,6 @@ module.exports = {
   devServer: {
     // port: 3000,
     hot: true,
-    // todo посомтртеть почему без этой штуки
-    // не работают роуты
     historyApiFallback: true
   },
   module: {
@@ -25,7 +23,7 @@ module.exports = {
         use: 'babel-loader',
       },
       {
-        test: /\.scss$/,
+        test: /\.(scss)$/,
         use: [
           'style-loader',
           'css-loader',

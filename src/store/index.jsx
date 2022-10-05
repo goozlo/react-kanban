@@ -1,10 +1,10 @@
-import { configureStore } from '@reduxjs/toolkit'
-import sliceExample from './slices/sliceExample'
+import {configureStore} from '@reduxjs/toolkit'
+import modeReducer from './slices/modeSlice'
 
 const store = configureStore({
   reducer: {
-    example: sliceExample
-  },
+    mode: modeReducer
+  }
 })
 
 export default store

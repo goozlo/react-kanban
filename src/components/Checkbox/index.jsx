@@ -1,19 +1,19 @@
 import React from 'react'
+import {useSelector} from "react-redux";
 import './Checkbox.scss'
 
-const Checkbox = (data) => {
-  const {label = 'label wasn\'t provided', theme = 'dark'} = data
+const Checkbox = ({label = 'label wasn\'t provided'}) => {
   const [checked, setChecked] = React.useState(false)
+  const {mode} = useSelector(state => state.mode)
 
   //todo: позже решить куда убрать эту штуку
   const darkStyle = {background: '#20212C', color: '#FFF'}
   const lightStyle = {background: '#F4F7FD', color: '#000112'}
 
-
   return (
       <label
           className="checkbox"
-          style={theme === 'dark' ? darkStyle : lightStyle}
+          style={mode ? darkStyle : lightStyle}
           htmlFor="checkbox"
       >
         <input
