@@ -1,6 +1,6 @@
 import React from 'react';
-import ThemeSwiper from '../ThemeSwiper/index';
-import { Link } from "react-router-dom";
+import {Swiper} from '../Swiper'
+import {Link} from "react-router-dom";
 import './sideBar.scss'
 import BordsList from './BordsList';
 
@@ -11,10 +11,9 @@ const SideBar = () => {
 
     <div className="sidebar">
       <div className="sidebar__container">
-        <BordsList />
-        <ThemeSwiper />
+        <BordsList/>
+        <Swiper/>
       </div>
-
     </div>
   </>)
 
