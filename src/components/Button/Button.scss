@@ -1,0 +1,58 @@
+@import "../../styles/@mixins";
+@import "../../styles/@variables";
+
+.button_primaryL {
+  height: 48px;
+  background-color: $main-purple;
+  @include heading-m-bold;
+  color: $white;
+  border: none;
+  border-radius: 24px;
+  transition: background-color .3s ease-in-out;
+}
+
+.button_primaryL:hover {
+  background-color: $main-purple-hover;
+}
+
+.button_primaryS {
+  height: 40px;
+  background-color: $main-purple;
+  @include paragraph-bold;
+  color: $white;
+  border: none;
+  border-radius: 20px;
+  transition: background-color .3s ease-in-out;
+}
+
+.button_primaryS:hover {
+  background-color: $main-purple-hover;
+}
+
+.button_secondary {
+  height: 40px;
+  background-color: $main-purple-light;
+  @include paragraph-bold;
+  color: $main-purple;
+  border: none;
+  border-radius: 20px;
+  transition: background-color .3s ease-in-out;
+}
+
+.button_secondary:hover {
+  background-color: $main-purple-light-hover;
+}
+
+.button_destructive {
+  height: 40px;
+  background-color: $red;
+  @include paragraph-bold;
+  color: $white;
+  border: none;
+  border-radius: 20px;
+  transition: background-color .3s ease-in-out;
+}
+
+.button_destructive:hover {
+  background-color: $red-hover;
+}
