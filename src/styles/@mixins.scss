@@ -34,3 +34,9 @@
   font-size: 12px;
   line-height: 15px;
 }
+
+@mixin transition($property) {
+  transition-property: $property;
+  transition-duration: .4s;
+  transition-timing-function: linear;
+}

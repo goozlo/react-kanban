@@ -1,15 +1,20 @@
-import { Routes, Route } from 'react-router-dom'
-import './styles/@global.scss'
+import React from "react";
+import {Routes, Route} from 'react-router-dom'
 import MainPage from './components/MainPage/MainPage';
-import {Checkbox} from "./components/Checkbox";
+import {Modal} from "./components/Modal";
+import './styles/@global.scss'
 
-const App = () => (
-    <>
-        <Checkbox/>
-        <Routes>
-            <Route path="/" element={<MainPage/>}/>
-        </Routes>
-    </>
-)
+const App = () => {
+
+
+    return (
+        <>
+            <Modal/>
+            <Routes>
+                <Route path="/" element={<MainPage/>}/>
+            </Routes>
+        </>
+    )
+}
 
 export default App
