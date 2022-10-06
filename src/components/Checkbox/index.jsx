@@ -1,19 +1,16 @@
 import React from 'react'
-import {useSelector} from "react-redux";
+import {useSelector} from "react-redux"
 import './Checkbox.scss'
 
-const Checkbox = ({label = 'label wasn\'t provided'}) => {
+export const Checkbox = ({label = 'label wasn\'t provided'}) => {
   const [checked, setChecked] = React.useState(false)
-  const {mode} = useSelector(state => state.mode)
+  const {mode} = useSelector(state => state?.mode)
 
-  //todo: позже решить куда убрать эту штуку
-  const darkStyle = {background: '#20212C', color: '#FFF'}
-  const lightStyle = {background: '#F4F7FD', color: '#000112'}
+  const styleMode = mode ? 'dark-mode' : 'light-mode'
 
   return (
       <label
-          className="checkbox"
-          style={mode ? darkStyle : lightStyle}
+          className={`checkbox ${styleMode}`}
           htmlFor="checkbox"
       >
         <input
@@ -31,6 +28,5 @@ const Checkbox = ({label = 'label wasn\'t provided'}) => {
         </span>
       </label>
   )
-};
+}
 
-export default Checkbox

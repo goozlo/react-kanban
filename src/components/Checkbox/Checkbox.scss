@@ -44,5 +44,14 @@
   }
 }
 
+.dark-mode {
+  background: $very-dark-grey;
+  color: $white;
+}
+
+.light-mode {
+  background: $light-grey;
+  color: $black;
+}
 
 
