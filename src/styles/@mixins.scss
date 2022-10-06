@@ -37,6 +37,6 @@
 
 @mixin transition($property) {
   transition-property: $property;
-  transition-duration: .4s;
+  transition-duration: .3s;
   transition-timing-function: linear;
 }

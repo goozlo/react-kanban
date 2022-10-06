@@ -20,7 +20,7 @@ export const Swiper = () => {
                 type="checkbox"
                 onChange={handleCheckbox}
             />
-            <span className="swiper__fake-input">
+            <span className="swiper__fake-input" aria-hidden>
                 <span
                     className="swiper__toggle "
                     style={mode ? {left: 3} : {left: 'calc(100% - 17px)'}}

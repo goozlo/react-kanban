@@ -1,17 +1,17 @@
-import React from 'react'
-import { createRoot } from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from './store'
-import App from './App'
+import store from './store';
+import App from './App';
 
-const el = document.getElementById('root')
+const el = document.getElementById('root');
 
 if (el === null) {
-  throw new Error('Root container missing in index.html')
+  throw new Error('Root container missing in index.html');
 }
 
-const root = createRoot(el)
+const root = createRoot(el);
 root.render(
   // когда prod, strict mode выключаем!!!
   <React.StrictMode>
@@ -20,5 +20,5 @@ root.render(
         <App />
       </Provider>
     </BrowserRouter>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

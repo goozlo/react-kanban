@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import {useSelector} from "react-redux"
 import './Checkbox.scss'
 
@@ -23,11 +24,15 @@ export const Checkbox = ({label = 'label wasn\'t provided', toggle}) => {
             checked={checked}
             type="checkbox"
         />
-        <span className="checkbox__fake-input"/>
-        <span className={`checkbox__label ${checked ? 'active' : ''}`.trim()} aria-hidden>
+        <span className="checkbox__fake-input" aria-hidden/>
+        <span className={`checkbox__label ${checked ? 'active' : ''}`.trim()}>
           {label}
         </span>
       </label>
   )
 }
 
+//при переносе на typescript удалить бибилотеку prop-types
+Checkbox.propTypes = {
+  label: PropTypes.string,
+}
