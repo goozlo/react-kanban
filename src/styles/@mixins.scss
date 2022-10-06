@@ -35,6 +35,8 @@
   line-height: 15px;
 }
 
-@mixin transition {
-  transition: all .4s linear;
+@mixin transition($property) {
+  transition-property: $property;
+  transition-duration: .4s;
+  transition-timing-function: linear;
 }
