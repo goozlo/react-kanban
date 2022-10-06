@@ -1,5 +1,5 @@
 import React from 'react';
-import {AgreementList} from "../../src/components/Checkbox/AgreementList";
+import {AgreementList} from "./AgreementList";
 import './EditTask.scss'
 
 const TEMP_DATA = {

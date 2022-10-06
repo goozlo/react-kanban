@@ -1,5 +1,5 @@
 import React from 'react';
-import {Checkbox} from "./index";
+import {Checkbox} from "../../components/Checkbox";
 import './AgreementList.scss'
 
 export const AgreementList = ({agreements}) => {

@@ -21,7 +21,7 @@ export const Checkbox = ({label = 'label wasn\'t provided'}) => {
             type="checkbox"
         />
         <span className="checkbox__fake-input"/>
-        <span className={`checkbox__label ${checked ? 'active' : ''}`} aria-hidden>
+        <span className={`checkbox__label ${checked ? 'active' : ''}`.trim()} aria-hidden>
           {label}
         </span>
       </label>
