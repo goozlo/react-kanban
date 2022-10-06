@@ -1,38 +1,33 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import {useSelector} from "react-redux"
 import './Checkbox.scss'
 
-export const Checkbox = (data) => {
-  const {label = 'label wasn\'t provided', mode = 'dark'} = data
+export const Checkbox = ({label = 'label wasn\'t provided'}) => {
   const [checked, setChecked] = React.useState(false)
+  const {mode} = useSelector(state => state?.mode)
 
-  //todo: позже решить куда убрать эту штуку
-  const darkStyle = {background: '#20212C', color: '#FFF'}
-  const lightStyle = {background: '#F4F7FD', color: '#000112'}
-
+  const styleMode = mode ? 'dark-mode' : 'light-mode'
 
   return (
       <label
-          className="checkbox"
-          style={mode === 'dark' ? darkStyle : lightStyle}
+          className={`checkbox ${styleMode}`}
           htmlFor="checkbox"
       >
         <input
             className="checkbox__input"
+            onChange={() => setChecked(prev => !prev)}
             checked={checked}
             id="checkbox"
             type="checkbox"
-            onChange={() => setChecked(!checked)}
         />
         <span className="checkbox__fake-input"/>
-        <span className="checkbox__label"
-              style={checked ? {opacity: .5, textDecoration: 'line-through'} : {}}
-        >
+        <span className={`checkbox__label ${checked ? 'active' : ''}`.trim()} aria-hidden>
           {label}
         </span>
       </label>
   )
-};
+}
 
 //при переносе на typescript удалить бибилотеку prop-types
 Checkbox.propTypes = {
