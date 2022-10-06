@@ -1,0 +1,23 @@
+@import "../../styles/@mixins.scss";
+
+.task {
+  max-width: 280px;
+  padding: 23px 16px;
+
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(54, 78, 126, 0.101545);
+
+  &__title {
+    margin-bottom: 8px;
+    @include heading-m;
+    font-weight: 700;
+    color: #000112;
+  }
+
+  &__subscribe {
+    font-weight: 700;
+    @include heading-s;
+    color: #828FA3;
+  }
+}

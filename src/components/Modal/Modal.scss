@@ -1,0 +1,40 @@
+@import "../../styles/@variables";
+@import "../../styles/@mixins";
+
+.modal {
+  position: fixed;
+  //todo убрать когда поифкшу другой компонент
+  z-index: 10;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.5);
+
+  opacity: 0;
+  pointer-events: none;
+  @include transition('opacity, background');
+
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+.modal__frame {
+  width: 480px;
+  padding: 32px;
+  border-radius: 6px;
+  background: $white;
+  word-wrap: break-word;
+
+  transform: scale(.5);
+  @include transition(transform);
+
+  &.active {
+    transform: scale(1);
+  }
+}

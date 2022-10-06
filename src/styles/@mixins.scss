@@ -1,3 +1,5 @@
+@import './@variables';
+
 @mixin heading-xl {
   font-size: 24px;
   line-height: 30px;
@@ -17,7 +19,7 @@
   font-size: 12px;
   line-height: 15px;
 
-  //такого свойства нет в css, только костыль ввиде letter-spacing
+  //todo такого свойства нет в css, только костыль ввиде letter-spacing
   //font-kerning: ;
 }
 
@@ -31,4 +33,10 @@
   font-weight: 700;
   font-size: 12px;
   line-height: 15px;
+}
+
+@mixin transition($property) {
+  transition-property: $property;
+  transition-duration: .4s;
+  transition-timing-function: linear;
 }

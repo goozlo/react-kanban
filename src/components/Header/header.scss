@@ -1,3 +1,44 @@
 .header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 
 }
+
+.header__logo {
+    min-width: 300px;
+    border-right: 1px solid #E4EBFA;
+    padding-top: 33px;
+    padding-bottom: 37px;
+    text-align: center;
+
+
+}
+
+.header__title {
+    margin: 0;
+    margin-left: 34px;
+}
+
+.header__main {
+    padding-bottom: 37px;
+    padding-top: 33px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid #E4EBFA;
+}
+
+.header__desk-title {
+    margin-left: 24px;
+}
+
+.header__buttons {
+    margin-right: 32px;
+}
+
+.header__new-task {}
+
+.header__board-settings {}
