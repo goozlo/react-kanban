@@ -3,12 +3,12 @@ import {AgreementList} from "./AgreementList";
 import './EditTask.scss'
 
 const TEMP_DATA = {
-    title: 'Research pricing points of various competitors and trial different business models',
+    title: 'Research pricing points of various competitors and trial different business',
     body: "We know what we're planning to build for version one. Now we need to finalise the first pricing model we'll use. Keep iterating the subtasks until we have a coherent proposition.",
     agreements: [
         'Research competitor pricing and business models',
         'Outline a business model that works for our solution',
-        'Talk to potential customers about our proposed solution and ask for fair price expectancy'
+        'Talk to potential customers about our proposed solution and ask for fair price expectancy',
     ]
 }
 
