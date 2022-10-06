@@ -15,15 +15,13 @@ export const Checkbox = ({label = 'label wasn\'t provided'}) => {
       >
         <input
             className="checkbox__input"
+            onChange={() => setChecked(prev => !prev)}
             checked={checked}
             id="checkbox"
             type="checkbox"
-            onChange={() => setChecked(!checked)}
         />
         <span className="checkbox__fake-input"/>
-        <span className="checkbox__label"
-              style={checked ? {opacity: .5, textDecoration: 'line-through'} : {}}
-        >
+        <span className={`checkbox__label ${checked ? 'active' : ''}`} aria-hidden>
           {label}
         </span>
       </label>

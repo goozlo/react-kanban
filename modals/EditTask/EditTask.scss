@@ -1,0 +1,30 @@
+.edit-task {
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title {
+    margin-bottom: 24px;
+    font-size: 18px;
+    line-height: 23px;
+    color: #000112;
+  }
+
+  &__action-menu {
+    width: 5px;
+    height: 20px;
+    //padding-left: 24px;
+    cursor: pointer;
+  }
+
+  &__body {
+    margin-bottom: 24px;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 23px;
+    color: #828FA3;
+  }
+}
+

@@ -7,7 +7,9 @@
   align-items: center;
   width: 100%;
   padding: 12px;
+  margin-bottom: 8px;
   border-radius: 4px;
+  cursor: pointer;
   @include transition('background, color');
 }
 
@@ -15,11 +17,16 @@
   font-size: 12px;
   line-height: 15px;
   color: inherit;
+
+  &.active {
+    opacity: .5;
+    text-decoration: line-through;
+  }
 }
 
 .checkbox__fake-input {
   position: relative;
-  display: block;
+  flex-shrink: 0;
   width: 16px;
   height: 16px;
   margin-right: 16px;
@@ -44,6 +51,7 @@
     height: 16px;
   }
 }
+
 
 .dark-mode {
   background: $very-dark-grey;
