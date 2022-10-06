@@ -10,7 +10,7 @@
   height: 48px;
   padding: 14px;
   border-radius: 6px;
-  @include transition;
+  @include transition('background, color');
 }
 
 .swiper__input {
@@ -56,7 +56,7 @@
     height: 14px;
     border-radius: 100%;
     background: $white;
-    @include transition;
+    @include transition(left);
   }
 }
 
