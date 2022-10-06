@@ -34,3 +34,7 @@
   font-size: 12px;
   line-height: 15px;
 }
+
+@mixin transition {
+  transition: all .4s linear;
+}
