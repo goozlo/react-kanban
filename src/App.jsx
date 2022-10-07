@@ -11,10 +11,9 @@ const App = () => {
 
     return (
         <>
-        
-            <Modal>{<EditTask />}</Modal>
+            <Modal>{<EditTask/>}</Modal>
             <Routes>
-                <Route path="/" element={<MainPage />} />
+                <Route path="/" element={<MainPage/>}/>
             </Routes>
         </>
     )

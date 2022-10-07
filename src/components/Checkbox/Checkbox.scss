@@ -11,6 +11,10 @@
   border-radius: 4px;
   cursor: pointer;
   @include transition('background, color');
+
+  &:hover {
+
+  }
 }
 
 .checkbox__label {
@@ -31,7 +35,8 @@
   height: 16px;
   margin-right: 16px;
   border-radius: 2px;
-  background: $main-purple;
+  border: 1px solid rgba(130, 143, 163, 0.248914);
+  background: $white;
 }
 
 .checkbox__input {
@@ -43,10 +48,17 @@
   white-space: nowrap;
   width: 1px;
 
+  &:checked + .checkbox__fake-input {
+    background: $main-purple;
+    border: 1px solid $main-purple;
+  }
+
   &:checked + .checkbox__fake-input::after {
     content: '';
     position: absolute;
-    background: url('./check.svg') no-repeat center;
+    top: 3px;
+    left: 2px;
+    background: url('./check.svg') no-repeat;
     width: 16px;
     height: 16px;
   }

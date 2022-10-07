@@ -1,6 +1,8 @@
 import React from 'react';
 import {AgreementList} from "./AgreementList";
 import './EditTask.scss'
+import Dropdown from "react-dropdown";
+import DropDown from "../../components/DropDown";
 
 const TEMP_DATA = {
     title: 'Research pricing points of various competitors and trial different business',
@@ -25,6 +27,7 @@ export const EditTask = () => {
             </div>
             <p className='edit-task__body'>{TEMP_DATA.body}</p>
             <AgreementList agreements={TEMP_DATA.agreements}/>
+            <DropDown/>
         </div>
     );
 };
