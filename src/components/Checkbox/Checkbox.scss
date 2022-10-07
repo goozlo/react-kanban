@@ -9,6 +9,8 @@
   padding: 12px;
   margin-bottom: 8px;
   border-radius: 4px;
+  background: var(--bg1);
+  color: var(--typography);
   cursor: pointer;
   @include transition('background, color');
 
@@ -36,7 +38,7 @@
   margin-right: 16px;
   border-radius: 2px;
   border: 1px solid rgba(130, 143, 163, 0.248914);
-  background: $white;
+  background: var(--check);
 }
 
 .checkbox__input {
@@ -64,15 +66,5 @@
   }
 }
 
-
-.dark-mode {
-  background: $very-dark-grey;
-  color: $white;
-}
-
-.light-mode {
-  background: $light-grey;
-  color: $black;
-}
 
 

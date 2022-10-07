@@ -1,20 +1,24 @@
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {changeMode} from '../../store/slices/modeSlice';
+import {useColor} from "../../util/hooks/useColor";
 import './Swiper.scss';
 
 export const Swiper = () => {
     const dispatch = useDispatch();
     const {mode} = useSelector(state => state?.mode)
 
+    React.useEffect(() => {
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        useColor(mode)
+    }, [mode])
+
     const handleCheckbox = () => {
         dispatch(changeMode());
     };
 
-    const styleMode = mode ? 'dark-mode' : 'light-mode'
-
     return (
-        <label className={`swiper ${styleMode}`}>
+        <label className='swiper'>
             <input
                 className="swiper__input"
                 type="checkbox"

@@ -1,9 +1,9 @@
 import React from "react";
-import { Routes, Route } from 'react-router-dom'
+import {Routes, Route} from 'react-router-dom'
 import MainPage from './components/MainPage/MainPage';
-import { Modal } from "./components/Modal";
-import { EditTask } from "./modals/EditTask";
-import { Remove } from "./modals/Remove";
+import {Modal} from "./components/Modal";
+import {EditTask} from "./modals/EditTask";
+import {Remove} from "./modals/Remove";
 
 import './styles/@global.scss'
 
