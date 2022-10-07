@@ -1,8 +1,8 @@
 import React from 'react';
+import {Popup} from "../../components/Popup";
 import {AgreementList} from "./AgreementList";
-import './EditTask.scss'
-import Dropdown from "react-dropdown";
 import DropDown from "../../components/DropDown";
+import './EditTask.scss'
 
 const TEMP_DATA = {
     title: 'Research pricing points of various competitors and trial different business',
@@ -13,17 +13,27 @@ const TEMP_DATA = {
         'Talk to potential customers about our proposed solution and ask for fair price expectancy',
     ]
 }
+const TEMP_DATA_FOR_POPUP = [
+    {
+        label: 'Edit Task',
+        color: '#828FA3'
+    },
+    {
+        label: 'Delete Task',
+        color: '#EA5555'
+    }
+]
+
 
 export const EditTask = () => {
+    const [visiblePopup, setVisiblePopup] = React.useState(false)
+    const state = {visiblePopup, setVisiblePopup}
+
     return (
         <div className='edit-task'>
             <div className='edit-task__wrapper'>
                 <h3 className='edit-task__title'>{TEMP_DATA.title}</h3>
-                <svg className='edit-task__action-menu' width="5" height="20" viewBox="0 0 5 20" fill="none">
-                    <circle cx="2.30769" cy="2.30769" r="2.30769" fill="#828FA3"/>
-                    <circle cx="2.30769" cy="10" r="2.30769" fill="#828FA3"/>
-                    <circle cx="2.30769" cy="17.6923" r="2.30769" fill="#828FA3"/>
-                </svg>
+                <Popup options={TEMP_DATA_FOR_POPUP} width={'200px'} visibility={state}/>
             </div>
             <p className='edit-task__body'>{TEMP_DATA.body}</p>
             <AgreementList agreements={TEMP_DATA.agreements}/>

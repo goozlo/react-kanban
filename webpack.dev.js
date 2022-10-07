@@ -6,7 +6,9 @@ module.exports = {
   context: path.resolve(__dirname, 'src'),
   mode: 'development',
   entry: './index.tsx',
-
+  output: {
+    path: path.resolve(__dirname, '/dist')
+  },
   resolve: {
     extensions: ['.tsx', '.ts', '.jsx', '.js'],
   },
