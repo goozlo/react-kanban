@@ -15,7 +15,7 @@
   @include transition('background, color');
 
   &:hover {
-
+    background: rgba(99, 95, 199, .25)
   }
 }
 
@@ -38,7 +38,7 @@
   margin-right: 16px;
   border-radius: 2px;
   border: 1px solid rgba(130, 143, 163, 0.248914);
-  background: var(--check);
+  background: var(--frame);
 }
 
 .checkbox__input {

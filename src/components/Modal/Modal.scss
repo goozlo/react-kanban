@@ -28,7 +28,7 @@
   width: 480px;
   padding: 32px;
   border-radius: 6px;
-  background: $white;
+  background: var(--frame);
   word-wrap: break-word;
 
   transform: scale(.5);

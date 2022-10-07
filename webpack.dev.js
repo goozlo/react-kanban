@@ -5,15 +5,17 @@ const CopyPlugin = require('copy-webpack-plugin');
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   mode: 'development',
-  entry: ['./index.tsx'],
+  entry: './index.tsx',
+
   resolve: {
     extensions: ['.tsx', '.ts', '.jsx', '.js'],
   },
   devtool: 'inline-source-map',
   devServer: {
-    // port: 3000,
+    port: 3003,
     hot: true,
-    historyApiFallback: true
+    historyApiFallback: true,
+    open: true
   },
   module: {
     rules: [
