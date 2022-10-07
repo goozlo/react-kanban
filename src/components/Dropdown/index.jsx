@@ -1,12 +1,21 @@
 import React from 'react';
+import {useSelector} from "react-redux";
 import {useLocalStorage} from "../../util/hooks/useLocalStorage";
 import './Dropdown.scss'
 
 export const Dropdown = ({data}) => {
     const [isVisible, setIsVisible] = React.useState(false)
+    const isVisibleModal = useSelector(state => state.modal.isVisible)
+
+    // закрывает дропдаун при закрытии модалки
+    React.useEffect(() => {
+        setIsVisible(false)
+    }, [isVisibleModal])
 
     const getLabelById = (id) => data.options[id].label
 
+    // получает начальный стейт в зависимости от занчение в локал сторадж
+    // если их там нет, то берет за стейт первое занчение данных
     const getOptionId = () => {
         const key = data.label
         // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -21,7 +30,7 @@ export const Dropdown = ({data}) => {
 
     const [selectedId, setSelectedId] = React.useState(getOptionId())
 
-
+    // функция изменения выбранной опции
     const pickOption = (id) => {
         setIsVisible(false)
 
@@ -43,7 +52,7 @@ export const Dropdown = ({data}) => {
                 )}
             </select>
             <span className='dropdown__label'>{data.label}</span>
-            <div className='dropdown__fake-select'>
+            <div className='dropdown__fake-select' aria-hidden>
                 <span className='dropdown__fake-select__picker'
                       onClick={() => setIsVisible(prev => !prev)}>{getLabelById(selectedId)}</span>
                 <div className={`dropdown__fake-select__options ${isVisible && 'active'}`}>
