@@ -10,7 +10,7 @@ export const AgreementList = ({agreements}) => {
     const [state, dispatch] = React.useReducer(countReducer, initialState);
 
     return (
-        <>
+        <div className='agreement-list__wrapper'>
             <span className='agreement-list'>Subtasks ({state.count} of {agreements.length})</span>
             {agreements.map((agreement, index) =>
                 <Checkbox
@@ -19,7 +19,7 @@ export const AgreementList = ({agreements}) => {
                     label={agreement}
                 />
             )}
-        </>
+        </div>
     )
 }
 

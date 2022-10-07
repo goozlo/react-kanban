@@ -1,8 +1,7 @@
 import React from 'react';
 import {AgreementList} from "./AgreementList";
+import {Dropdown} from "../../components/Dropdown";
 import './EditTask.scss'
-import Dropdown from "react-dropdown";
-import DropDown from "../../components/DropDown";
 
 const TEMP_DATA = {
     title: 'Research pricing points of various competitors and trial different business',
@@ -11,7 +10,27 @@ const TEMP_DATA = {
         'Research competitor pricing and business models',
         'Outline a business model that works for our solution',
         'Talk to potential customers about our proposed solution and ask for fair price expectancy',
-    ]
+    ],
+    select: {
+        label: 'Current Status',
+        options: [
+            {
+                id: 0,
+                label: 'Todo',
+                value: 'Todo'
+            },
+            {
+                id: 1,
+                label: 'Doing',
+                value: 'Doing'
+            },
+            {
+                id: 2,
+                label: 'Done',
+                value: 'Done'
+            }
+        ]
+    }
 }
 
 export const EditTask = () => {
@@ -27,7 +46,7 @@ export const EditTask = () => {
             </div>
             <p className='edit-task__body'>{TEMP_DATA.body}</p>
             <AgreementList agreements={TEMP_DATA.agreements}/>
-            <DropDown/>
+            <Dropdown data={TEMP_DATA.select}/>
         </div>
     );
 };
