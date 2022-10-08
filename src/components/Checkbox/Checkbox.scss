@@ -42,14 +42,6 @@
 }
 
 .checkbox__input {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-
   &:checked + .checkbox__fake-input {
     background: $main-purple;
     border: 1px solid $main-purple;

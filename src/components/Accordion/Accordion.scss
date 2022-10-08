@@ -2,19 +2,19 @@
 @import "../../styles/@mixins";
 
 
-.popup {
+.accordion {
   position: relative;
   flex-shrink: 0;
 }
 
-.popup__action-menu {
+.accordion__action-menu {
   width: 24px;
   margin-right: -12px;
   cursor: pointer;
 }
 
 
-.popup__frame {
+.accordion__frame {
   position: absolute;
   top: 36px;
   right: 0;

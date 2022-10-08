@@ -17,7 +17,7 @@ export const Checkbox = ({label = 'label wasn\'t provided', toggle}) => {
           className='checkbox'
       >
         <input
-            className="checkbox__input"
+            className="checkbox__input hidden"
             onChange={() => toggleCheckbox()}
             checked={checked}
             type="checkbox"

@@ -1,7 +1,7 @@
 @import "../../styles/@variables";
 @import "../../styles/@mixins";
 
-.swiper {
+.toggle {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,17 +14,7 @@
   @include transition('background, color');
 }
 
-.swiper__input {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.swiper__fake-input {
+.toggle__fake-input {
   position: relative;
   width: 40px;
   height: 20px;
@@ -49,7 +39,7 @@
     right: -44px;
   }
 
-  .swiper__toggle {
+  .toggle__circle {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);

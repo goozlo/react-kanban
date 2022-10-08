@@ -1,5 +1,5 @@
 import React from 'react';
-import {Swiper} from '../Swiper'
+import {Toggle} from '../Toggle'
 import {Link} from "react-router-dom";
 import './sideBar.scss'
 import BordsList from './BordsList';
@@ -12,7 +12,7 @@ const SideBar = () => {
     <div className="sidebar">
       <div className="sidebar__container">
         <BordsList/>
-        <Swiper/>
+        <Toggle/>
       </div>
     </div>
   </>)

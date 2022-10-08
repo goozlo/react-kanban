@@ -2,9 +2,9 @@ import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {changeMode} from '../../store/slices/modeSlice';
 import {useColor} from "../../util/hooks/useColor";
-import './Swiper.scss';
+import './Toggle.scss';
 
-export const Swiper = () => {
+export const Toggle = () => {
     const dispatch = useDispatch();
     const {mode} = useSelector(state => state?.mode)
 
@@ -18,15 +18,15 @@ export const Swiper = () => {
     };
 
     return (
-        <label className='swiper'>
+        <label className='toggle'>
             <input
-                className="swiper__input"
+                className="toggle__input hidden"
                 type="checkbox"
                 onChange={handleCheckbox}
             />
-            <span className="swiper__fake-input" aria-hidden>
+            <span className="toggle__fake-input" aria-hidden>
                 <span
-                    className="swiper__toggle "
+                    className="toggle__circle"
                     style={mode ? {left: 3} : {left: 'calc(100% - 17px)'}}
                 />
             </span>
