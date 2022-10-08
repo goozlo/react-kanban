@@ -1,0 +1,45 @@
+{
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "es6": true,
+    "commonjs": true,
+    "node": true
+  },
+  "globals": {
+    "document": false
+  },
+  "extends": [
+    "airbnb"
+  ],
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": "error",
+    "import/prefer-default-export": "off",
+    "import/no-unresolved": "off",
+    "react/no-unescaped-entities": "off",
+    "click-events-have-key-events": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "comma-dangle": "off",
+    "react/function-component-definition": "off",
+    "import/no-extraneous-dependencies": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "react/no-array-index-key": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "react/require-default-props": "off",
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "no-plusplus": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off"
+  }
+}

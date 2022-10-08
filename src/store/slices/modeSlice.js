@@ -7,9 +7,6 @@ const initialState = {
   mode: !!JSON.parse(localStorage.getItem('mode')),
 };
 
-// mode.true === light
-// mode.false === dark
-
 export const modeSlice = createSlice({
   /* eslint-disable no-param-reassign */
   name: 'mode',

@@ -1,66 +1,66 @@
-const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
+const path = require('path');
 
 module.exports = {
-  context: path.resolve(__dirname, 'src'),
   mode: 'development',
-  entry: './index.tsx',
+  entry: {
+    bundle: path.resolve(__dirname, 'src/index.jsx'),
+  },
   output: {
-    path: path.resolve(__dirname, '/dist')
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].js',
+    assetModuleFilename: '[name].[ext]',
+    clean: true,
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.jsx', '.js'],
+    extensions: ['.jsx', '.js'],
+    alias: {
+      '@components': `${__dirname}/src/components`,
+      '@pages': `${__dirname}/src/pages`,
+      '@modals': `${__dirname}/src/modals`,
+      '@util': `${__dirname}/src/util`,
+      '@styles': `${__dirname}/src/styles`,
+      '@store': `${__dirname}/src/store`,
+      '@assets': `${__dirname}/src/assets`,
+    },
   },
-  devtool: 'inline-source-map',
+  resolveLoader: {
+    modules: ['node_modules'],
+    extensions: ['.js', '.json'],
+    mainFields: ['loader', 'main'],
+  },
+  devtool: 'source-map',
   devServer: {
-    port: 3003,
+    static: {
+      directory: path.resolve(__dirname, 'dist'),
+    },
+    port: 8080,
+    open: true,
     hot: true,
+    compress: true,
     historyApiFallback: true,
-    open: true
   },
   module: {
     rules: [
       {
-        test: /\.(ts|js)x?$/i,
-        exclude: /node_modules/,
+        test: /\.[jt]sx?$/,
         use: 'babel-loader',
+        exclude: /node_modules/,
+        include: path.resolve(__dirname, 'src'),
       },
       {
-        test: /\.(scss)$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'postcss-loader',
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true
-            },
-          },
-        ],
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
       },
       {
-        test: /\.(jpe?g|png|svg)$/,
-        type: "asset"
+        test: /\.(png|svg|jpg|jpeg|gif)$/,
+        type: 'asset/resource',
       },
     ],
   },
   plugins: [
     new HTMLWebpackPlugin({
-      template: 'index.html',
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-      },
-    }),
-    new CopyPlugin({
-      patterns: [
-        {
-          from: path.resolve(__dirname, 'src/favicon.ico'),
-          to: path.resolve(__dirname, 'dist'),
-        },
-      ],
+      template: path.resolve(__dirname, 'src/index.html'),
     }),
   ],
 };

@@ -1,5 +1,5 @@
-@import "../../styles/@variables";
-@import "../../styles/@mixins";
+@import "@styles/@variables";
+@import "@styles/@mixins";
 
 .toggle {
   display: flex;
@@ -11,7 +11,7 @@
   padding: 14px;
   border-radius: 6px;
   background: var(--bg1);
-  @include transition('background, color');
+  @include transition("background, color");
 }
 
 .toggle__fake-input {
@@ -22,7 +22,7 @@
   background: $main-purple;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     background: url("./moon.svg") no-repeat;
     width: 20px;
@@ -31,7 +31,7 @@
   }
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     background: url("./sun.svg") no-repeat;
     width: 20px;

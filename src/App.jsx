@@ -1,20 +1,17 @@
-import React from "react";
-import {Routes, Route} from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom';
+import { Modal } from '@components/Modal';
 import MainPage from './components/MainPage/MainPage';
-import {Modal} from "./components/Modal";
+import './styles/@global.scss';
 
-import './styles/@global.scss'
-
-const App = () => {
-
-    return (
-        <>
-            <Modal/>
-            <Routes>
-                <Route path="/" element={<MainPage/>}/>
-            </Routes>
-        </>
-    )
+function App() {
+  return (
+    <>
+      <Modal />
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+      </Routes>
+    </>
+  );
 }
 
-export default App
+export default App;

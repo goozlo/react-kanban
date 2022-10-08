@@ -5,13 +5,13 @@ import { Provider } from 'react-redux';
 import store from './store';
 import App from './App';
 
-const el = document.getElementById('root');
+const $element = document.getElementById('root');
 
-if (el === null) {
+if ($element === null) {
   throw new Error('Root container missing in index.html');
 }
 
-const root = createRoot(el);
+const root = createRoot($element);
 root.render(
   // когда prod, strict mode выключаем!!!
   <React.StrictMode>
@@ -20,5 +20,5 @@ root.render(
         <App />
       </Provider>
     </BrowserRouter>
-  </React.StrictMode>,
+  </React.StrictMode>
 );
