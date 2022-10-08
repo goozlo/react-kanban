@@ -15,7 +15,9 @@ const Header = () => {
                 <h2 className='header__desk-title'>Platform Launch</h2>
 
                 <div className='header__buttons'>
-                    <button className='header__new-task' onClick={() => dispatch(showModal())}>+ Add New Task</button>
+                    <button className='header__new-task' onClick={() => dispatch(showModal('EditTask'))}>
+                        + Add New Task
+                    </button>
                     <button className='header__board-settings'>...</button>
                 </div>
             </div>

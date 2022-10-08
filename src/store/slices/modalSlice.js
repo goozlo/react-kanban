@@ -1,7 +1,8 @@
 import {createSlice} from '@reduxjs/toolkit';
 
 const initialState = {
-    isVisible: false
+    isVisible: false,
+    type: 'none'
 };
 
 export const modalSlice = createSlice({
@@ -9,8 +10,9 @@ export const modalSlice = createSlice({
     name: 'modal',
     initialState,
     reducers: {
-        showModal: (state) => {
+        showModal: (state, action) => {
             state.isVisible = !state.isVisible;
+            state.type = action?.payload ?? 'none'
         },
     },
     /* eslint-enable no-param-reassign */

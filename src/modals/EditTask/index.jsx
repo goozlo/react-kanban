@@ -26,14 +26,12 @@ const TEMP_DATA_FOR_POPUP = [
 
 
 export const EditTask = () => {
-    const [visibleAccordion, setVisibleAccordion] = React.useState(false)
-    const state = {visibleAccordion, setVisibleAccordion}
 
     return (
         <div className='edit-task'>
             <div className='edit-task__wrapper'>
                 <h3 className='edit-task__title'>{TEMP_DATA.title}</h3>
-                <Accordion options={TEMP_DATA_FOR_POPUP} width={'200px'} visibility={state}/>
+                <Accordion options={TEMP_DATA_FOR_POPUP} width={'200px'}/>
             </div>
             <p className='edit-task__body'>{TEMP_DATA.body}</p>
             <AgreementList agreements={TEMP_DATA.agreements}/>
