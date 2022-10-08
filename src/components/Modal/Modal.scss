@@ -16,7 +16,7 @@
 
   opacity: 0;
   pointer-events: none;
-  @include transition('opacity, background');
+  @include transition("opacity, background");
 
   &.active {
     opacity: 1;
@@ -32,7 +32,7 @@
   color: var(--typography);
   word-wrap: break-word;
 
-  transform: scale(.5);
+  transform: scale(0.5);
   @include transition(transform);
 
   &.active {

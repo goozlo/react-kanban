@@ -1,24 +1,23 @@
 .sidebar {
-    display: flex;
-    position: absolute;
-    flex-direction: column;
-    width: 300px;
-    height: 90vh;
-    border-right: 1px solid #E4EBFA;
-    align-items: center;
-    margin: 0 auto;
-    bottom: 0;
-    left: 0;
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  width: 300px;
+  height: 90vh;
+  border-right: 1px solid #e4ebfa;
+  align-items: center;
+  margin: 0 auto;
+  bottom: 0;
+  left: 0;
 }
 
 .sidebar__container {
-    max-width: 300px;
-    height: 90vh;
-    position: fixed;
-    justify-content: space-between;
-    display: flex;
-    flex-direction: column;
-    padding-top: 15px;
-    padding-bottom: 47px;
-
+  max-width: 300px;
+  height: 90vh;
+  position: fixed;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  padding-top: 15px;
+  padding-bottom: 47px;
 }

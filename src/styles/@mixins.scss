@@ -1,4 +1,4 @@
-@import './@variables';
+@import "./@variables";
 
 @mixin heading-xl {
   font-size: 24px;
@@ -37,6 +37,6 @@
 
 @mixin transition($property) {
   transition-property: $property;
-  transition-duration: .2s;
+  transition-duration: 0.2s;
   transition-timing-function: linear;
 }

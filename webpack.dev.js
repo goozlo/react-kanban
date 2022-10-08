@@ -4,25 +4,25 @@ const path = require('path');
 module.exports = {
   mode: 'development',
   entry: {
-    bundle: path.resolve(__dirname, 'src/index.jsx')
+    bundle: path.resolve(__dirname, 'src/index.jsx'),
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: "[name].js",
-    assetModuleFilename: "[name].[ext]",
-    clean: true
+    filename: '[name].js',
+    assetModuleFilename: '[name].[ext]',
+    clean: true,
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.jsx', '.js'],
+    extensions: ['.jsx', '.js'],
     alias: {
-      '@components': __dirname + '/src/components',
-      '@pages': __dirname + '/src/pages',
-      '@modals': __dirname + '/src/modals',
-      '@util': __dirname + '/src/util',
-      '@styles': __dirname + '/src/styles',
-      '@store': __dirname + '/src/store',
-      '@assets': __dirname + '/src/assets',
-    }
+      '@components': `${__dirname}/src/components`,
+      '@pages': `${__dirname}/src/pages`,
+      '@modals': `${__dirname}/src/modals`,
+      '@util': `${__dirname}/src/util`,
+      '@styles': `${__dirname}/src/styles`,
+      '@store': `${__dirname}/src/store`,
+      '@assets': `${__dirname}/src/assets`,
+    },
   },
   resolveLoader: {
     modules: ['node_modules'],
@@ -32,33 +32,25 @@ module.exports = {
   devtool: 'source-map',
   devServer: {
     static: {
-      directory: path.resolve(__dirname, 'dist')
+      directory: path.resolve(__dirname, 'dist'),
     },
     port: 8080,
     open: true,
     hot: true,
     compress: true,
-    historyApiFallback: true
+    historyApiFallback: true,
   },
   module: {
     rules: [
       {
         test: /\.[jt]sx?$/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              "@babel/preset-env",
-              ["@babel/preset-react", {runtime: 'automatic'}]
-            ]
-          }
-        },
+        use: 'babel-loader',
         exclude: /node_modules/,
         include: path.resolve(__dirname, 'src'),
       },
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', "postcss-loader", 'resolve-url-loader', 'sass-loader'],
+        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/,
@@ -68,7 +60,7 @@ module.exports = {
   },
   plugins: [
     new HTMLWebpackPlugin({
-      template: path.resolve(__dirname, 'src/index.html')
-    })
-  ]
+      template: path.resolve(__dirname, 'src/index.html'),
+    }),
+  ],
 };

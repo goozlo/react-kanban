@@ -1,5 +1,5 @@
-@import '../../styles/@variables';
-@import '../../styles/@mixins';
+@import "../../styles/@variables";
+@import "../../styles/@mixins";
 
 .checkbox {
   display: flex;
@@ -12,10 +12,10 @@
   background: var(--bg1);
   color: var(--typography);
   cursor: pointer;
-  @include transition('background, color');
+  @include transition("background, color");
 
   &:hover {
-    background: rgba(99, 95, 199, .25)
+    background: rgba(99, 95, 199, 0.25);
   }
 }
 
@@ -25,7 +25,7 @@
   color: inherit;
 
   &.active {
-    opacity: .5;
+    opacity: 0.5;
     text-decoration: line-through;
   }
 }
@@ -48,15 +48,12 @@
   }
 
   &:checked + .checkbox__fake-input::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 3px;
     left: 2px;
-    background: url('./check.svg') no-repeat;
+    background: url("./check.svg") no-repeat;
     width: 16px;
     height: 16px;
   }
 }
-
-
-

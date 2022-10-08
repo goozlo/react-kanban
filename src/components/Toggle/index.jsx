@@ -1,36 +1,29 @@
-import React from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {changeMode} from '@store/slices/modeSlice';
-import {useColor} from "@util/hooks/useColor";
+import React, { useState } from 'react';
+import { useLocalStorage } from '@util/hooks/useLocalStorage';
+import { useColor } from '@util/hooks/useColor';
 import './Toggle.scss';
 
 export const Toggle = () => {
-    const dispatch = useDispatch();
-    const {mode} = useSelector(state => state?.mode)
+  // mode.true === dark
+  // mode.false === light
 
-    React.useEffect(() => {
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        useColor(mode)
-    }, [mode])
+  const [mode, setMode] = useState(!useLocalStorage('mode'));
 
-    const handleCheckbox = () => {
-        dispatch(changeMode());
-    };
+  const toggleMode = () => {
+    setMode((prev) => !prev);
+    localStorage.setItem('mode', JSON.stringify(mode));
+  };
 
-    return (
-        <label className='toggle'>
-            <input
-                className="toggle__input hidden"
-                type="checkbox"
-                onChange={handleCheckbox}
-            />
-            <span className="toggle__fake-input" aria-hidden>
-                <span
-                    className="toggle__circle"
-                    style={mode ? {left: 3} : {left: 'calc(100% - 17px)'}}
-                />
-            </span>
-        </label>
-    )
-}
+  React.useEffect(() => {
+    useColor(mode);
+  }, [mode]);
 
+  return (
+    <label className="toggle">
+      <input className="toggle__input hidden" type="checkbox" onChange={() => toggleMode()} />
+      <span className="toggle__fake-input" aria-hidden>
+        <span className="toggle__circle" style={mode ? { left: 3 } : { left: 'calc(100% - 17px)' }} />
+      </span>
+    </label>
+  );
+};

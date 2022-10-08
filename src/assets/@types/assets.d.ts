@@ -1,5 +1,5 @@
 // пока мы используем js, чтобы не было ошибок при импорте декларируем все
-declare module '*';
+declare module "*";
 
 // declare module '*.png' {
 //   const value: any;
