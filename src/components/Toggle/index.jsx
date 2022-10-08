@@ -1,7 +1,7 @@
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {changeMode} from '../../store/slices/modeSlice';
-import {useColor} from "../../util/hooks/useColor";
+import {changeMode} from '@store/slices/modeSlice';
+import {useColor} from "@util/hooks/useColor";
 import './Toggle.scss';
 
 export const Toggle = () => {

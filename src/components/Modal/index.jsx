@@ -1,9 +1,9 @@
 import React from "react";
-import './Modal.scss'
 import {useSelector, useDispatch} from "react-redux";
-import {showModal} from "../../store/slices/modalSlice";
-import {EditTask} from "../../modals/EditTask";
-import {Remove} from "../../modals/Remove";
+import {showModal} from "@store/slices/modalSlice";
+import {EditTask} from "@modals/EditTask";
+import {Remove} from "@modals/Remove";
+import './Modal.scss'
 
 export const Modal = () => {
     const dispatch = useDispatch()
@@ -11,7 +11,7 @@ export const Modal = () => {
 
     return (
         <div className={`modal ${isVisible && 'active'}`}
-             onClick={() => dispatch(showModal())}
+             onClick={() => dispatch(showModal(type))}
         >
             <div
                 className={`modal__frame ${isVisible && 'active'}`}
