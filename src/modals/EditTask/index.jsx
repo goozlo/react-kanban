@@ -1,6 +1,7 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useState} from 'react';
 import {AgreementList} from "./AgreementList";
 import {Dropdown} from "../../components/Dropdown";
+import { SmallMenu } from '../SmallMenu';
 import './EditTask.scss'
 
 const TEMP_DATA = {
@@ -34,11 +35,19 @@ const TEMP_DATA = {
 }
 
 export const EditTask = () => {
+
+    // Стейт для компонента Small Menu, которое открывается по нажатию на три точки
+    const [isSmallMenuOpened, setIsSmallMenuOpened] = useState(false);
+    // Обработчик клика на три точки для открытия-закрытия Small Menu
+    const handleClickOnSmallMenu = () => {
+        setIsSmallMenuOpened(!isSmallMenuOpened);
+    }
+
     return (
         <div className='edit-task'>
             <div className='edit-task__wrapper'>
                 <h3 className='edit-task__title'>{TEMP_DATA.title}</h3>
-                <svg className='edit-task__action-menu' width="5" height="20" viewBox="0 0 5 20" fill="none">
+                <svg className='edit-task__action-menu' onClick={handleClickOnSmallMenu} width="5" height="20" viewBox="0 0 5 20" fill="none">
                     <circle cx="2.30769" cy="2.30769" r="2.30769" fill="#828FA3"/>
                     <circle cx="2.30769" cy="10" r="2.30769" fill="#828FA3"/>
                     <circle cx="2.30769" cy="17.6923" r="2.30769" fill="#828FA3"/>
@@ -47,6 +56,7 @@ export const EditTask = () => {
             <p className='edit-task__body'>{TEMP_DATA.body}</p>
             <AgreementList agreements={TEMP_DATA.agreements}/>
             <Dropdown data={TEMP_DATA.select}/>
+            <SmallMenu isSmallMenuOpened={isSmallMenuOpened} />
         </div>
     );
 };
