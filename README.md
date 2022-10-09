@@ -1,6 +1,13 @@
-![](public/logo.svg)
+# The React Kanban : smile :
 
-### Description
+## Project setup
+
+```
+npm install
+npm run serve
+```
+
+## Description
 
 ---
 
@@ -11,7 +18,7 @@ pet-project to the portfolio and develop hard-skills.
 
 ![](public/screen.png)
 
-### Our stack
+## Our stack
 
 ---
 
@@ -19,7 +26,7 @@ pet-project to the portfolio and develop hard-skills.
 
 **Backend**:
 
-### Our team
+## Our team
 
 ---
 
