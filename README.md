@@ -1,7 +1,4 @@
-<div style="display: flex; align-items: center">
-    <h1 style="margin-right: 6px">The React Kanban</h1>
-    <img src="./public/rocket.svg" width="40px" alt="octocat">
-</div>
+# The React Kanban
 
 ![](public/home.png)
 
