@@ -1,4 +1,4 @@
-# The React Kanban : smile :
+# The React Kanban :ribbon:
 
 ## Project setup
 
