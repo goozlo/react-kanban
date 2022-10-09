@@ -1,0 +1,95 @@
+@import "../../styles/@variables";
+@import "../../styles/@mixins";
+
+.dropdown {
+
+}
+
+.dropdown__select {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.dropdown__label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 12px;
+  line-height: 15px;
+  color: $medium-grey;
+}
+
+.dropdown__fake-select {
+  position: relative;
+  width: 100%;
+  min-width: 350px;
+
+
+  &__picker {
+    position: relative;
+    display: block;
+    padding: 8px 50px 8px 16px;
+    margin-bottom: 8px;
+    border: 1px solid $main-purple;
+    border-radius: 4px;
+    word-wrap: break-word;;
+    cursor: pointer;
+
+    &::after {
+      content: '';
+      position: absolute;
+      background: url('path.svg') no-repeat center;
+      width: 20px;
+      height: 20px;
+      top: 50%;
+      right: 14px;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+  }
+
+  &__options {
+    position: absolute;
+    left: 0;
+    right: 0;
+
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(54, 78, 126, 0.25);
+    background: $white;
+
+    transform: scale(80%);
+    opacity: 0;
+    pointer-events: none;
+    @include transition('transform opacity');
+
+    &.active {
+      transform: scale(100%);
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  &__option {
+    display: block;
+    width: 100%;
+    margin-bottom: 8px;
+
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 23px;
+    color: $medium-grey;
+
+    cursor: pointer;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+
