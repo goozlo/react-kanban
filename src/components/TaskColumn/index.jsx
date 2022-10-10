@@ -1,28 +1,35 @@
-import Task from "../Task/index.jsx";
+import Task from "@components/Task";
 
 let tasksArray = [
   {
+    id: 0,
     title: 'Build UI for onboarding flow',
     subtasks: '0 of 3 substasks'
   },
   {
-    title: 'Build UI for search' ,
+    id: 1,
+    title: 'Build UI for search',
     subtasks: '0 of 1 substasks'
   },
   {
-    title: 'Create template structures' ,
+    id: 2,
+    title: 'Create template structures',
     subtasks: '0 of 2 substasks'
   },
   {
-    title: 'QA and test all major user journeys' ,
+    id: 3,
+    title: 'QA and test all major user journeys',
     subtasks: '0 of 2 substasks'
   }
 ]
 
 const TaskColumn = () => {
-  return (<> {tasksArray.map((task) => {
-    <Task taskContent={task.title} checklist={task.subtasks} />
-  })} </>)
+  return (
+      <div>
+        <h3>doing (2/3)</h3>
+        {tasksArray.map(task => <Task key={task.id} data={task}/>)}
+      </div>
+  )
 }
 
 
