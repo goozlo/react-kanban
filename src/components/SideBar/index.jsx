@@ -3,6 +3,7 @@ import { Toggle } from "../Toggle";
 import { Link } from "react-router-dom";
 import "./sideBar.scss";
 import BordsList from "./BordsList";
+import { NewBoardBtn } from "../NewBoardBtn"
 
 const SideBar = () => {
   return (
@@ -10,6 +11,7 @@ const SideBar = () => {
       <div className="sidebar">
         <div className="sidebar__container">
           <BordsList />
+          <NewBoardBtn />
           <Toggle />
         </div>
       </div>

@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { showModal } from '@store/slices/modalSlice';
 import { EditTask } from '@modals/EditTask';
 import { Remove } from '@modals/Remove';
+import { AddBoard } from '@modals/AddBoard';
 import './Modal.scss';
 
 export function Modal() {
@@ -14,6 +15,7 @@ export function Modal() {
         {type === 'none' && <span>content wasn't provided</span>}
         {type === 'EditTask' && <EditTask />}
         {type === 'Remove' && <Remove />}
+        {type === 'AddBoard' && <AddBoard />}
       </div>
     </div>
   );

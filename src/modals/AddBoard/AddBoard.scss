@@ -1,0 +1,21 @@
+@import "../../styles/@mixins";
+
+.add-board {
+  &__title {
+    margin-bottom: 24px;
+  }
+
+  &__input {
+
+    margin-bottom: 24px;
+
+    span {
+      margin-bottom: 8px;
+      color: #828FA3;
+      @include heading-s;
+    }
+
+    display: flex;
+    flex-direction: column;
+  }
+}
