@@ -1,9 +1,11 @@
-import { Provider } from "react-redux";
+import {Provider} from "react-redux";
 import store from "../src/store";
 import React from "react";
+import {useDispatch, useSelector} from "react-redux";
+import '../src/styles/@global.scss';
 
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
+  actions: {argTypesRegex: "^on[A-Z].*"},
   controls: {
     matchers: {
       color: /(background|color)$/i,
@@ -14,8 +16,8 @@ export const parameters = {
 
 export const decorators = [
   (Story) => (
-    <Provider store={store}>
-      <Story />
-    </Provider>
+      <Provider store={store}>
+        <Story/>
+      </Provider>
   ),
 ];

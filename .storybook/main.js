@@ -1,19 +1,12 @@
 const path = require("path");
+const custom = require("../webpack.dev.js")
 
 module.exports = {
   webpackFinal: async (config) => {
-    config.module.rules.push({
-      test: /\.scss$/,
-      use: ["style-loader", "css-loader", "sass-loader"],
-      include: path.resolve(__dirname, "../"),
-    });
+    custom.module.rules.forEach(rule => config.module.rules.push(rule))
+    config.resolve = custom.resolve
 
-    config.module.rules.push({
-      test: /\.(jpe?g|png|svg)$/,
-      type: "asset",
-    });
-
-    return config;
+    return config
   },
   stories: ["../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
