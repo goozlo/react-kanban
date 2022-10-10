@@ -1,7 +1,7 @@
 import React from 'react';
-import { Dropdown } from '@components/Dropdown';
-import { AgreementList } from './AgreementList';
-import { SmallMenu } from '../SmallMenu';
+import {Dropdown} from '@components/Dropdown';
+import {EditMenu} from '@components/EditMenu';
+import {AgreementList} from './AgreementList';
 import './EditTask.scss';
 
 const TEMP_DATA = {
@@ -30,39 +30,44 @@ const TEMP_DATA = {
         label: 'Done',
         value: 'Done',
       },
+      // {
+      //   id: 3,
+      //   label: 'Done',
+      //   value: 'Done',
+      // },
+      // {
+      //   id: 4,
+      //   label: 'Done',
+      //   value: 'Done',
+      // },
+      // {
+      //   id: 5,
+      //   label: 'Done',
+      //   value: 'Done',
+      // },
     ],
   },
 };
 
-export const EditTask = () => {
-  // Стейт для компонента Small Menu, которое открывается по нажатию на три точки
-  const [isSmallMenuOpened, setIsSmallMenuOpened] = React.useState(false);
-  // Обработчик клика на три точки для открытия-закрытия Small Menu
-  const handleClickOnSmallMenu = () => {
-    setIsSmallMenuOpened(!isSmallMenuOpened);
-  };
+const TEMP_DATA_FOR_POPUP = [
+  {
+    label: 'Edit Task',
+    color: '#828FA3',
+  },
+  {
+    label: 'Delete Task',
+    color: '#EA5555',
+  },
+];
 
-  return (
+export const EditTask = () => (
     <div className="edit-task">
       <div className="edit-task__wrapper">
         <h3 className="edit-task__title">{TEMP_DATA.title}</h3>
-        <svg
-          className="edit-task__action-menu"
-          onClick={handleClickOnSmallMenu}
-          width="5"
-          height="20"
-          viewBox="0 0 5 20"
-          fill="none"
-        >
-          <circle cx="2.30769" cy="2.30769" r="2.30769" fill="#828FA3" />
-          <circle cx="2.30769" cy="10" r="2.30769" fill="#828FA3" />
-          <circle cx="2.30769" cy="17.6923" r="2.30769" fill="#828FA3" />
-        </svg>
+        <EditMenu options={TEMP_DATA_FOR_POPUP} width="200px"/>
       </div>
       <p className="edit-task__body">{TEMP_DATA.body}</p>
-      <AgreementList agreements={TEMP_DATA.agreements} />
-      <Dropdown data={TEMP_DATA.select} />
-      <SmallMenu isSmallMenuOpened={isSmallMenuOpened} />
+      <AgreementList agreements={TEMP_DATA.agreements}/>
+      <Dropdown data={TEMP_DATA.select}/>
     </div>
-  );
-};
+);

@@ -1,18 +1,18 @@
 @import "@styles/@variables";
 @import "@styles/@mixins";
 
-.accordion {
+.edit-menu {
   position: relative;
   flex-shrink: 0;
 }
 
-.accordion__action-menu {
+.edit-menu__action-menu {
   width: 24px;
   margin-right: -12px;
   cursor: pointer;
 }
 
-.accordion__frame {
+.edit-menu__frame {
   position: absolute;
   top: 36px;
   right: 0;

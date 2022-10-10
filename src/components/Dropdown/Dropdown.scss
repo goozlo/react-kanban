@@ -36,7 +36,8 @@
     margin-bottom: 8px;
     border: 1px solid $main-purple;
     border-radius: 4px;
-    word-wrap: break-word;;
+    word-wrap: break-word;
+    color: var(--typography);
     cursor: pointer;
 
     &::after {

@@ -1,9 +1,9 @@
 import React from 'react';
-import { Accordion } from '.';
+import { EditMenu } from '.';
 
 export default {
-  title: 'Accordion',
-  component: Accordion,
+  title: 'EditMenu',
+  component: EditMenu,
   argTypes: {
     label: {
       description: '...',
@@ -12,7 +12,7 @@ export default {
 };
 
 // eslint-disable-next-line react/jsx-props-no-spreading
-const Template = (args) => <Accordion {...args} />;
+const Template = (args) => <EditMenu {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
