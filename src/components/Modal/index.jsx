@@ -5,16 +5,16 @@ import { Remove } from '@modals/Remove';
 import './Modal.scss';
 
 export function Modal() {
-  const dispatch = useDispatch();
-  const { isVisible, type } = useSelector((state) => state.modal);
+    const dispatch = useDispatch();
+    const {isVisible, type} = useSelector((state) => state.modal);
 
-  return (
-    <div className={`modal ${isVisible && 'active'}`} onClick={() => dispatch(showModal(type))}>
-      <div className={`modal__frame ${isVisible && 'active'}`} onClick={(e) => e.stopPropagation()}>
-        {type === 'none' && <span>content wasn't provided</span>}
-        {type === 'EditTask' && <EditTask />}
-        {type === 'Remove' && <Remove />}
-      </div>
-    </div>
-  );
+    return (
+        <div className={`modal ${isVisible && 'active'}`} onClick={() => dispatch(showModal(type))}>
+            <div className={`modal__frame ${isVisible && 'active'}`} onClick={(e) => e.stopPropagation()}>
+                {type === null && <span>content wasn't provided</span>}
+                {type === 'EditTask' && <EditTask/>}
+                {type === 'Remove' && <Remove/>}
+            </div>
+        </div>
+    );
 }

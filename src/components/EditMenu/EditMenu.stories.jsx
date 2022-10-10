@@ -1,5 +1,7 @@
 import React from 'react';
-import { EditMenu } from '.';
+import {EditMenu} from '.';
+import {Provider} from "react-redux";
+import store from "@store";
 
 export default {
   title: 'EditMenu',
@@ -9,6 +11,13 @@ export default {
       description: '...',
     },
   },
+  decorators: [
+    (Story) => (
+        <div style={{position: "relative"}}>
+          <Story/>
+        </div>
+    )
+  ]
 };
 
 // eslint-disable-next-line react/jsx-props-no-spreading
@@ -33,8 +42,5 @@ Primary.args = {
     },
   ],
   width: '200px',
-  visibility: {
-    visiblePopup: true,
-    setVisiblePopup: () => {},
-  },
+  show: true
 };

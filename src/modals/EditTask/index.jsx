@@ -1,11 +1,15 @@
 import React from 'react';
-import {Dropdown} from '@components/Dropdown';
+import {useSelector} from "react-redux";
+import {stopPropagation} from "@util/hooks/usePropagination";
+
 import {EditMenu} from '@components/EditMenu';
+import {Dropdown} from '@components/Dropdown';
 import {AgreementList} from './AgreementList';
+import Dots from '@assets/images/dots.svg'
 import './EditTask.scss';
 
 const TEMP_DATA = {
-  title: 'Research pricing points of various competitors and trial different business',
+  title: 'Research pricing points of various competitors and trial different business models',
   body: "We know what we're planning to build for version one. Now we need to finalise the first pricing model we'll use. Keep iterating the subtasks until we have a coherent proposition.",
   agreements: [
     'Research competitor pricing and business models',
@@ -60,14 +64,43 @@ const TEMP_DATA_FOR_POPUP = [
   },
 ];
 
-export const EditTask = () => (
-    <div className="edit-task">
-      <div className="edit-task__wrapper">
-        <h3 className="edit-task__title">{TEMP_DATA.title}</h3>
-        <EditMenu options={TEMP_DATA_FOR_POPUP} width="200px"/>
+export const EditTask = () => {
+  const [showEdit, setShowEdit] = React.useState(false)
+  const [showDrop, setShowDrop] = React.useState(false)
+  const isVisibleModal = useSelector((state) => state.modal.isVisible);
+
+  const clickOnModal = () => {
+    setShowEdit(false)
+    setShowDrop(false)
+  }
+
+  const clickOnEditMenu = (e) => {
+    stopPropagation(e)
+    setShowEdit(prev => !prev)
+  }
+
+  const clickOnDropdown = (e) => {
+    stopPropagation(e)
+    setShowDrop(prev => !prev)
+  }
+
+  React.useEffect(() => {
+    setShowEdit(false);
+    setShowDrop(false);
+  }, [isVisibleModal]);
+
+  return (
+      <div className="edit-task" onClick={clickOnModal}>
+        <div className="edit-task__wrapper">
+          <h3 className="edit-task__title">{TEMP_DATA.title}</h3>
+          <div className="action-menu">
+            <img className="action-menu__dots" onClick={clickOnEditMenu} src={Dots} alt="action-menu"/>
+            <EditMenu options={TEMP_DATA_FOR_POPUP} width="200px" show={showEdit}/>
+          </div>
+        </div>
+        <p className="edit-task__body">{TEMP_DATA.body}</p>
+        <AgreementList agreements={TEMP_DATA.agreements}/>
+        <Dropdown data={TEMP_DATA.select} clickToShow={clickOnDropdown} show={showDrop}/>
       </div>
-      <p className="edit-task__body">{TEMP_DATA.body}</p>
-      <AgreementList agreements={TEMP_DATA.agreements}/>
-      <Dropdown data={TEMP_DATA.select}/>
-    </div>
-);
+  )
+};
