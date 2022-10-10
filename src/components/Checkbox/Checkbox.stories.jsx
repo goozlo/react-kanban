@@ -1,12 +1,12 @@
-import React from "react";
-import { Checkbox } from "./";
+import React from 'react';
+import { Checkbox } from '.';
 
 export default {
-  title: "Checkbox",
+  title: 'Checkbox',
   component: Checkbox,
   argTypes: {
     label: {
-      description: "Строка, описывающая соглашение на которое влияет checkbox",
+      description: 'Строка, описывающая соглашение на которое влияет checkbox',
     },
   },
 };

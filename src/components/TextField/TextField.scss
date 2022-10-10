@@ -1,0 +1,46 @@
+@import "@styles/@variables.scss";
+@import "@styles/@mixins.scss";
+
+.input {
+  padding: 4px 16px 8px;
+  background: $white;
+  border: 1px solid rgba(130, 143, 163, 0.25);
+  border-radius: 4px;
+
+  &__field {
+    all: unset;
+    border: none;
+    font-weight: 500;
+    //@include heading-l;
+    font-size: 13px;
+    line-height: 23px;
+    color: var(--typography);
+    cursor: text;
+
+    &::placeholder {
+      color: #000112;
+      opacity: 0.25;
+    }
+  }
+
+  &.error {
+    position: relative;
+    border: 1px solid $red;
+
+    &::after {
+      content: "Can't be empty";
+
+      position: absolute;
+      right: 16px;
+
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 23px;
+      text-align: right;
+      color: $red;
+    }
+  }
+}
+
+
+
