@@ -5,6 +5,7 @@ import BordsList from "./BordsList";
 import SideBarStatus from "./SideBarStatus";
 
 const SideBar = () => {
+
   return (
     <div className="sidebar">
       <div className="sidebar__container">

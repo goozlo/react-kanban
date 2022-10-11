@@ -1,0 +1,37 @@
+@import "../../styles/@variables";
+@import "../../styles/@mixins";
+
+.board {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.board__container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+    align-items: center;
+    margin-bottom: 96px;
+}
+
+.board__title {
+    color: $medium-grey
+}
+
+.board__new-column {
+    background-color: $main-purple;
+    border: none;
+    color: $white;
+    width: 100%;
+    border-radius: 20px;
+    width: 200px;
+    cursor: pointer;
+    height: 40px;
+    transition: $transition-duration;
+}
+
+.board__new-column:hover {
+    background-color: $main-purple-hover;
+} 

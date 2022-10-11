@@ -1,25 +1,50 @@
+@import "../../styles/@variables";
+@import "../../styles/@mixins";
+
 .sidebar {
   display: flex;
-  position: absolute;
   flex-direction: column;
   width: 300px;
-  height: 90vh;
   border-right: 1px solid;
   border-color: var(--line);;
   align-items: center;
-  margin: 0 auto;
-  bottom: 0;
-  left: 0;
+  margin: 0;
   background: var(--frame);
+  height: 100%;
 }
 
 .sidebar__container {
   max-width: 300px;
-  height: 90vh;
-  position: fixed;
-  justify-content: space-between;
   display: flex;
   flex-direction: column;
   padding-top: 15px;
   padding-bottom: 47px;
+  height: 100%;
+
+}
+
+.sidebar__hide-btn {
+  display: flex;
+  padding-left: 7px;
+  margin-top: 22px;
+  column-gap: 15px;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  transition: $transition-duration;
+}
+
+.sidebar__hide-btn:hover {
+  cursor: pointer;
+  opacity: 70%;
+} 
+
+.sidebar__hide-icon {
+  background-image: url('./eye-slash.svg');
+  width: 18px;
+  height: 16px;
+}
+
+.sidebar__hide-title {
+  color: $medium-grey;
 }
