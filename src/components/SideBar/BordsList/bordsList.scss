@@ -1,3 +1,6 @@
+@import "../../../styles/@variables";
+@import "../../../styles/@mixins";
+
 .bordsList {
   display: flex;
   flex-direction: column;
@@ -7,5 +10,32 @@
 .bordsList__links {
   display: flex;
   flex-direction: column;
+}
+
+.bordslist__count {
+  @include heading-s;
+  color: var(--typography2)
+} 
+
+.bordsList__link {
+  @include heading-m;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: $medium-grey;
+}
+
+.bordsList__link-icon {
+  background-image: url(../../../assets/images/desk.svg);
+  width: 16px;
+  height: 16px;
+  margin-right: 16px;
+}
+
+.link-box {
+  display: flex;
+
   align-items: center;
 }

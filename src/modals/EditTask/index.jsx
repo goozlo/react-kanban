@@ -7,7 +7,7 @@ import {Dropdown} from '@components/Dropdown';
 import {AgreementList} from './AgreementList';
 import Dots from '@assets/images/dots.svg'
 import './EditTask.scss';
-
+ 
 const TEMP_DATA = {
   title: 'Research pricing points of various competitors and trial different business models',
   body: "We know what we're planning to build for version one. Now we need to finalise the first pricing model we'll use. Keep iterating the subtasks until we have a coherent proposition.",

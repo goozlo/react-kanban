@@ -11,7 +11,7 @@ export const useColor = (mode) => {
     changeProperty('--bg2', '#2B2C37');
     changeProperty('--typography', '#FFF');
     changeProperty('--typography2', '#FFF');
-    changeProperty('--line', '#E4EBFA');
+    changeProperty('--line', '#3E3F4E' );
     changeProperty('--frame', '#2B2C37');
     changeProperty('--option', '#20212C');
   } else {
@@ -22,7 +22,7 @@ export const useColor = (mode) => {
     changeProperty('--bg2', '#828FA3');
     changeProperty('--typography', '#000112');
     changeProperty('--typography2', '#828FA3');
-    changeProperty('--line', '#3E3F4E');
+    changeProperty('--line', '#E4EBFA');
     changeProperty('--frame', '#FFF');
     changeProperty('--option', '#FFF');
   }

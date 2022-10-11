@@ -4,11 +4,13 @@
   flex-direction: column;
   width: 300px;
   height: 90vh;
-  border-right: 1px solid #e4ebfa;
+  border-right: 1px solid;
+  border-color: var(--line);;
   align-items: center;
   margin: 0 auto;
   bottom: 0;
   left: 0;
+  background: var(--frame);
 }
 
 .sidebar__container {
