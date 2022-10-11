@@ -2,7 +2,7 @@
 @import "../../styles/@mixins";
 
 .dropdown {
-
+  position: relative;
 }
 
 .dropdown__select {
@@ -27,7 +27,6 @@
   position: relative;
   width: 100%;
   min-width: 350px;
-
 
   &__picker {
     position: relative;
@@ -57,29 +56,13 @@
     position: absolute;
     left: 0;
     right: 0;
-
-    padding: 16px;
-    border-radius: 8px;
-    box-shadow: 0 10px 20px rgba(54, 78, 126, 0.25);
-    // todo поменять на переменную
-    background: $white;
-
-    transform: scale(80%);
-    opacity: 0;
-    pointer-events: none;
-    @include transition('transform opacity');
-
-    &.active {
-      transform: scale(100%);
-      opacity: 1;
-      pointer-events: all;
-    }
   }
 
   &__option {
     display: block;
     width: 100%;
-    margin-bottom: 8px;
+    padding: 16px;
+    background: var(--option);
 
     font-weight: 500;
     font-size: 13px;
@@ -88,10 +71,37 @@
 
     cursor: pointer;
 
+
+    &:first-child {
+      border-radius: 8px 8px 0 0;
+      box-shadow: 0 10px 20px 0 #364E7E40;
+    }
+
     &:last-child {
-      margin-bottom: 0;
+      border-radius: 0 0 8px 8px;
+    }
+
+
+    transform: rotateX(90deg);
+    opacity: 0;
+
+
+    &.open {
+      transform: rotateX(0deg);
+      opacity: 1;
     }
   }
 }
+
+//@for $i from 0 through 5 {
+//  .option-#{$i}.open {
+//    transition: all $transition-duration ($i * 240) + ms linear;
+//  }
+//  .option-#{$i} {
+//    transition: all $transition-duration ((5 - $i) * 240) + ms linear;
+//  }
+//}
+
+
 
 

@@ -1,5 +1,10 @@
-const custom = require('./webpack.dev');
+const props = {
+    label: 'click',
+    size: 'large',
+    with: '200px',
+    color: {
+        main: '#FFF',
+        hover: '#000'
+    }
+}
 
-// console.log(custom.resolve);
-
-console.log(custom.module.rules);
