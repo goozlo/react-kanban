@@ -3,6 +3,7 @@
 
 .modal {
   position: fixed;
+  overflow-x: auto;
   //todo убрать когда поифкшу другой компонент
   z-index: 10;
   top: 0;
