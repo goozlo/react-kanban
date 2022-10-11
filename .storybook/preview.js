@@ -1,5 +1,5 @@
 import {Provider} from "react-redux";
-import store from "../src/store";
+import store from "@store/store";
 import React from "react";
 import {useDispatch, useSelector} from "react-redux";
 import '../src/styles/@global.scss';

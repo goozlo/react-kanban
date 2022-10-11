@@ -7,7 +7,7 @@
 // module.exports = {
 //   context: path.resolve(__dirname, "src"),
 //   mode: "production",
-//   entry: ["@babel/polyfill", "./index.jsx"],
+//   entry: ["@babel/polyfill", "./store.jsx"],
 //   output: {
 //     filename: "bundle.[contenthash].js",
 //     path: path.resolve(__dirname, "dist"),
