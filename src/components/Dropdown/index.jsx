@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useLocalStorage} from "@util/hooks/useLocalStorage";
 import './Dropdown.scss'
 
@@ -29,6 +29,14 @@ export const Dropdown = ({data, clickToShow, show}) => {
         console.log(id)
     }
 
+    const getTransition = (i) => {
+        if (show) {
+            return {transition: `all .4s ${i * 240}ms linear`}
+        }
+
+        return {transition: `all .4s ${(data.options.length - i) * 240}ms linear`}
+    }
+
     return (
         <label className='dropdown'>
             <select className='dropdown__select' defaultValue={data.options[selectedId].value}>
@@ -41,6 +49,7 @@ export const Dropdown = ({data, clickToShow, show}) => {
                 )}
             </select>
             <span className='dropdown__label'>{data.label}</span>
+
             <div className='dropdown__fake-select' aria-hidden>
                 <span
                     className='dropdown__fake-select__picker'
@@ -48,16 +57,20 @@ export const Dropdown = ({data, clickToShow, show}) => {
                 >
                     {getLabelById(selectedId)}
                 </span>
-                <div className={`dropdown__fake-select__options ${show && 'active'}`}>
-                    {data.options.map(option =>
-                        <span className='dropdown__fake-select__option'
-                              onClick={() => pickOption(option.id)}
-                              key={option.id}
+
+
+                <ul className='dropdown__fake-select__options'>
+                    {data.options.map((option, index) =>
+                        <li className={`dropdown__fake-select__option option-${index} ${show && 'open'}`}
+                            style={getTransition(index)}
+                            onClick={() => pickOption(option.id)}
+                            key={option.id}
                         >
-                                {option.label}
-                            </span>
+                            {option.label}
+                        </li>
                     )}
-                </div>
+                </ul>
+
             </div>
         </label>
     );

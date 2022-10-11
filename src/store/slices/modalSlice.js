@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  isVisible: false,
-  type: 'none',
+  isVisible: true,
+  type: 'EditTask',
 };
 
 export const modalSlice = createSlice({
