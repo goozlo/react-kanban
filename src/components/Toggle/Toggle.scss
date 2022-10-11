@@ -12,6 +12,7 @@
   border-radius: 6px;
   background: var(--bg1);
   @include transition("background, color");
+  margin-top: auto;
 }
 
 .toggle__fake-input {
