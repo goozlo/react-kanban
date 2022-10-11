@@ -23,28 +23,3 @@
 
 }
 
-.sidebar__hide-btn {
-  display: flex;
-  padding-left: 7px;
-  margin-top: 22px;
-  column-gap: 15px;
-  align-items: center;
-  background-color: transparent;
-  border: none;
-  transition: $transition-duration;
-}
-
-.sidebar__hide-btn:hover {
-  cursor: pointer;
-  opacity: 70%;
-} 
-
-.sidebar__hide-icon {
-  background-image: url('./eye-slash.svg');
-  width: 18px;
-  height: 16px;
-}
-
-.sidebar__hide-title {
-  color: $medium-grey;
-}
