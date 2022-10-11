@@ -6,6 +6,8 @@
     flex-grow: 1;
     justify-content: center;
     align-items: center;
+    border-top: 1px solid;
+    border-color: var(--line);
 }
 
 .board__container {
