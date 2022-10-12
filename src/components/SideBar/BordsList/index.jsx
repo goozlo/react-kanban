@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./bordsList.scss";
-import { bords } from "../../../tempDataBase"
+import { bords } from "../../../TEMP_DATA_BASE"
 
 
 const BordsList = () => {
@@ -18,3 +18,4 @@ const BordsList = () => {
 };
 
 export default BordsList;
+ 
