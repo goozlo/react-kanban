@@ -9,13 +9,12 @@ const BordsList = () => {
     <div className="bordsList">
       <h2 className="bordslist__count">ALL BOARDS ({bords.length})</h2>
       <div className="bordsList__links">
-        {bords.map(bord => <div className="link-box">
-        <span className="bordsList__link-icon"></span>
-        <Link className="bordsList__link" key={bord.bord_id}>{bord.bordName}</Link></div>)}
+        {bords.map(bord => <div className="link-box" key={bord.bord_id}>
+          <span className="bordsList__link-icon"></span>
+          <Link className="bordsList__link" >{bord.bordName}</Link></div>)}
       </div>
     </div>
   );
 };
 
 export default BordsList;
- 
