@@ -3,8 +3,8 @@ import modalReducer from './slices/modalSlice';
 
 const store = configureStore({
   reducer: {
-    modal: modalReducer,
-  },
+    modal: modalReducer
+  }
 });
 
 export default store;

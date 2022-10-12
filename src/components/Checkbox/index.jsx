@@ -21,5 +21,5 @@ export const Checkbox = ({ label = "label wasn't provided", toggle }) => {
 
 // при переносе на typescript удалить бибилотеку prop-types
 Checkbox.propTypes = {
-  label: PropTypes.string,
+  label: PropTypes.string
 };

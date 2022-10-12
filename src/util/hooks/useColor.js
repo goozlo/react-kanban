@@ -3,17 +3,19 @@ export const useColor = (mode) => {
     document.documentElement.style.setProperty(name, value);
   };
 
+
+  //todo перевести все в один объект
   if (mode) {
     // dark mode
-    changeProperty('--shadow', '');
+    changeProperty("--shadow", "");
 
-    changeProperty('--bg1', '#20212C');
-    changeProperty('--bg2', '#2B2C37');
-    changeProperty('--typography', '#FFF');
-    changeProperty('--typography2', '#FFF');
-    changeProperty('--line', '#3E3F4E' );
-    changeProperty('--frame', '#2B2C37');
-    changeProperty('--option', '#20212C');
+    changeProperty("--bg1", "#20212C");
+    changeProperty("--bg2", "#2B2C37");
+    changeProperty("--typography", "#FFF");
+    changeProperty("--typography2", "#FFF");
+    changeProperty("--line", "#3E3F4E");
+    changeProperty("--frame", "#2B2C37");
+    changeProperty("--option", "#20212C");
   } else {
     // light mode
     changeProperty('--shadow', '0 10px 20px rgba(54, 78, 126, 0.25)');
