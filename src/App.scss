@@ -1,0 +1,41 @@
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:root {
+  --sidebar-width: 140px;
+  --header-height: 80px;
+}
+
+._header {
+  background: red;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: var(--sidebar-width);
+  height: var(--header-height);
+}
+
+._sidebar {
+  background: green;
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: var(--sidebar-width);
+}
+
+._main {
+  background: yellow;
+
+  position: absolute;
+  top: var(--header-height);
+  right: 0;
+  bottom: 0;
+  left: var(--sidebar-width);
+}
+
