@@ -4,8 +4,12 @@
 import React from 'react';
 import './Button.scss';
 
-const Button = ({ 
-  label = 'button', isLarge = 'true', isSecondary = false, isFullWidth = false, isDestructive = false
+const Button = ({
+  label = 'button',
+  isLarge = false,
+  isSecondary = false,
+  isFullWidth = false,
+  isDestructive = false
 }) => (
   <button
     className={[
@@ -13,7 +17,7 @@ const Button = ({
       isLarge ? 'large' : 'small',
       isSecondary ? 'secondary' : '',
       isDestructive ? 'destructive' : '',
-      isFullWidth ? 'buttonFull' : '',
+      isFullWidth ? 'buttonFull' : ''
     ].join(' ')}
   >
     {label}
