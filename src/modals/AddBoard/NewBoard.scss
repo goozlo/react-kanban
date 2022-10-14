@@ -1,0 +1,75 @@
+@import "@styles/@mixins.scss";
+@import "@styles/@variables.scss";
+
+
+.add-board {
+
+  button {
+    cursor: pointer;
+  }
+  
+  &__title {
+    margin-bottom: 24px;
+  }
+
+  &__input-title {
+    margin-bottom: 8px;
+    @include paragraph-s;
+    color: #828FA3;
+  }
+
+  &__board-name {
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  &__create-column {
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  &__column-name {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    label {
+      margin-right: 16px;
+    }
+  }
+}
+
+.button {
+
+  @include paragraph-bold;
+
+  &.secondary {
+    margin-bottom: 12px;
+  }
+}
+
+.new-board__btn {
+  border: none;
+}
+
+.new-board {
+
+  display: flex;
+  align-items: center;
+
+  &__btn {
+    height: 48px;
+    color: var(--main-purple);
+    cursor: pointer;
+    @include heading-m-bold;
+    background: none;
+  }
+
+  &__icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 16px;
+    background-image: url(../../assets/images/desk-prpl.svg);
+    background-repeat: no-repeat;
+  }
+}

@@ -4,6 +4,7 @@ import { EditTask } from '@modals/EditTask';
 import { Remove } from '@modals/Remove';
 import { showModal } from '@store/slices/modalSlice';
 import './Modal.scss';
+import { AddBoard } from '@modals/AddBoard';
 
 export function Modal() {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ export function Modal() {
         {type === 'none' && <span>content wasn't provided</span>}
         {type === 'EditTask' && <EditTask />}
         {type === 'Remove' && <Remove />}
+        {type === 'AddBoard' && <AddBoard />}
       </div>
     </div>
   );
