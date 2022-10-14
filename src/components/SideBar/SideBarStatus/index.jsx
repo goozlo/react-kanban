@@ -1,15 +1,15 @@
 import "./sideBarStatus.scss";
-import open from '@assets/images/eye.svg'
+
 import close from '@assets/images/eyeSlash.svg'
+import { useDispatch } from 'react-redux';
+import { hideSideBar } from '../../../store/slices/sideBarSlice';
 
 const SideBarStatus = () => {
 
-    function handleHideSideBar() {
-
-    }
+    const dispatch = useDispatch();
 
     return (
-        <button className="sideBarStatus" onClick={handleHideSideBar}>
+        <button className="sideBarStatus" onClick={() => dispatch(hideSideBar())}>
             <img className="sideBarStatus__img" src={close} alt="hide sidebar" />
             <p className="sideBarStatus__text" >Hide Sidebar</p>
         </button>
@@ -17,3 +17,4 @@ const SideBarStatus = () => {
 };
 
 export default SideBarStatus;
+ 
