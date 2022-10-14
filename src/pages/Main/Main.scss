@@ -1,11 +1,11 @@
-.main-page {
+.main {
     display: flex;
     flex-direction: column;
     height: 100vh;
     background: var(--bg1);
 }
 
-.main-page__container {
+.main__container {
     display: flex;
     flex-grow: 1;
 }

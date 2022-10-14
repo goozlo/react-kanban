@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { Modal } from '@components/Modal';
-import MainPage from '@components/MainPage/MainPage';
+import { Main } from '@pages/Main/Main';
 import './styles/@global.scss';
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <>
       <Modal />
       <Routes>
-        <Route path='/' element={<MainPage />} />
+        <Route path='/' element={<Main />} />
       </Routes>
     </>
   );
