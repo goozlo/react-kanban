@@ -7,7 +7,7 @@
   button {
     cursor: pointer;
   }
-  
+
   &__title {
     margin-bottom: 24px;
   }
@@ -59,12 +59,12 @@
 
   &__btn {
     height: 48px;
-    color: var(--main-purple);
+    color: $main-purple;
     cursor: pointer;
     @include heading-m-bold;
     background: none;
   }
-
+ 
   &__icon {
     width: 16px;
     height: 16px;
