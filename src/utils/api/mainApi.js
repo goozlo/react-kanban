@@ -1,4 +1,4 @@
-  class BoardsApi {
+  class mainBoardApi {
     constructor({ baseUrl, headers }) {
         this._baseUrl = baseUrl;
         this._headers = headers;
@@ -19,7 +19,7 @@
             .then(this._checkResponse)
     }
 }
-export const BoardApi = new BoardsApi({
+export const mainApi = new mainBoardApi({
     baseUrl: 'https://6349a83e5df952851404f70d.mockapi.io/api/v1/',
     headers: {
         Accept: "application/json",

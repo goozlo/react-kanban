@@ -5,7 +5,7 @@ import { Main } from '@pages/Main/Main';
 import './styles/@global.scss';
 
 import { useState, useEffect } from 'react';
-import { BoardApi } from "./utils/api/boardsApi.js";
+import { mainApi } from "./utils/api/mainApi.js";
 
 function App() {
 
@@ -17,7 +17,7 @@ function App() {
   }, []);
 
   function getBoards() {
-    BoardApi.getBoards()
+    mainApi.getBoards()
       .then((boards) => {
         setBoards(boards)
       })
