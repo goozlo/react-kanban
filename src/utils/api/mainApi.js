@@ -1,4 +1,6 @@
-  class mainBoardApi {
+  import { API_URL } from '../constants';
+  
+  class MainBoardApi {
     constructor({ baseUrl, headers }) {
         this._baseUrl = baseUrl;
         this._headers = headers;
@@ -18,9 +20,27 @@
             })
             .then(this._checkResponse)
     }
+
+    getColumns() {
+        return fetch(`${this._baseUrl}/columns`,
+        {
+            headers: this._headers,
+        })
+        .then(this._checkResponse)
+    }
+
+    getTasks() {
+        return fetch(`${this._baseUrl}/tasks`,
+        {
+            headers: this._headers,
+        })
+        .then(this._checkResponse)
+    }
+
+
 }
-export const mainApi = new mainBoardApi({
-    baseUrl: 'https://6349a83e5df952851404f70d.mockapi.io/api/v1/',
+export const mainApi = new MainBoardApi({
+    baseUrl: API_URL,
     headers: {
         Accept: "application/json",
         "Content-Type": "application/json",

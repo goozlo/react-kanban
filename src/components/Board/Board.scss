@@ -3,11 +3,12 @@
 
 .board {
     display: flex;
-    flex-grow: 1;
+    margin: 0 auto 0;
     justify-content: center;
     align-items: center;
     border-top: 1px solid;
     border-color: var(--line);
+  
 }
 
 .board__container {
@@ -16,6 +17,17 @@
     row-gap: 32px;
     align-items: center;
     margin-bottom: 96px;
+}
+
+.board__container_type_with-columns {
+    flex-direction: row;
+    column-gap: 24px;
+    width: 100%;
+    padding: 24px 0 0 24px;
+    align-self: flex-start;
+    align-items: flex-start;
+    overflow: hidden;
+    overflow-x: scroll;
 }
 
 .board__title {
