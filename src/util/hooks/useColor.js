@@ -1,34 +1,66 @@
-export const useColor = (mode) => {
-  const changeProperty = (name, value) => {
-    document.documentElement.style.setProperty(name, value);
-  };
+const COLOR_DATA_BASE = [
+  {
+    name: 'shadow',
+    dark: '',
+    light: '0 10px 20px rgba(54, 78, 126, 0.25)'
+  },
+  {
+    name: 'bg1',
+    dark: '#20212C',
+    light: '#F4F7FD'
+  },
+  {
+    name: 'bg2',
+    dark: '#2B2C37',
+    light: '#828FA3'
+  },
+  {
+    name: 'typography',
+    dark: '#FFF',
+    light: '#000112'
+  },
+  {
+    name: 'typography2',
+    dark: '#FFF',
+    light: '#828FA3'
+  },
+  {
+    name: 'line',
+    dark: '#3E3F4E',
+    light: '#E4EBFA'
+  },
+  {
+    name: 'frame',
+    dark: '#2B2C37',
+    light: '#FFF'
+  },
+  {
+    name: 'option',
+    dark: '#20212C',
+    light: '#FFF'
+  },
+  {
+    name: '-btn-bg',
+    dark: '#FFF',
+    light: 'rgba(99, 95, 199, 0.1)'
+  },
+  {
+    name: '-btn-bg-hover',
+    dark: '#FFF',
+    light: 'rgba(99, 95, 199, 0.25)'
+  }
+];
 
-  //todo перевести все в один объект
+const changeProperty = (name, value) => {
+  document.documentElement.style.setProperty(name, value);
+};
+
+export const useColor = mode => {
   if (mode) {
     // dark mode
-    changeProperty('--shadow', '');
-
-    changeProperty('--bg1', '#20212C');
-    changeProperty('--bg2', '#2B2C37');
-    changeProperty('--typography', '#FFF');
-    changeProperty('--typography2', '#FFF');
-    changeProperty('--line', '#3E3F4E');
-    changeProperty('--frame', '#2B2C37');
-    changeProperty('--option', '#20212C');
-    changeProperty('--btn-bg', '#FFF');
-    changeProperty('--btn-bg-hover', '#FFF');
+    COLOR_DATA_BASE.forEach(i => changeProperty(`--${i.name}`, i.dark));
   } else {
     // light mode
-    changeProperty('--shadow', '0 10px 20px rgba(54, 78, 126, 0.25)');
-
-    changeProperty('--bg1', '#F4F7FD');
-    changeProperty('--bg2', '#828FA3');
-    changeProperty('--typography', '#000112');
-    changeProperty('--typography2', '#828FA3');
-    changeProperty('--line', '#E4EBFA');
-    changeProperty('--frame', '#FFF');
-    changeProperty('--option', '#FFF');
-    changeProperty('--btn-bg', 'rgba(99, 95, 199, 0.1)');
-    changeProperty('--btn-bg-hover', 'rgba(99, 95, 199, 0.25)');
+    COLOR_DATA_BASE.forEach(i => changeProperty(`--${i.name}`, i.light));
   }
 };

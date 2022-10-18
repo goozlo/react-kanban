@@ -24,9 +24,6 @@
 @mixin heading-s {
   font-size: 12px;
   line-height: 15px;
-
-  //todo такого свойства нет в css, только костыль ввиде letter-spacing
-  //font-kerning: ;
 }
 
 @mixin paragraph {

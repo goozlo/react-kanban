@@ -43,6 +43,10 @@
   margin-right: 32px;
   align-items: center;
   display: flex;
+
+  .edit-menu__frame {
+    right: 85px;
+  }
 }
 
 .header__new-task {

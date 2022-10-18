@@ -2,7 +2,8 @@
 @import "@styles/@mixins.scss";
 
 .input {
-  padding: 4px 16px 8px;
+  display: block;
+  padding: 8px 16px 8px;
   background: $white;
   border: 1px solid rgba(130, 143, 163, 0.25);
   border-radius: 4px;
@@ -14,7 +15,7 @@
     //@include heading-l;
     font-size: 13px;
     line-height: 23px;
-    color: var(--typography);
+    color: var(--black);
     cursor: text;
 
     &::placeholder {
