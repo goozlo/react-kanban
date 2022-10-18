@@ -7,7 +7,7 @@
   box-sizing: border-box;
   font-family: "Plus Jakarta Sans", sans-serif;
   font-weight: 700;
-  color: $black;
+  color: var(--typography);
 }
 
 .hidden {
@@ -26,6 +26,6 @@
   --typography: #FFF;
   --typography2: #FFF;
   --line: #E4EBFA;
-  --frame: #2B2C37;
+  --frame: rgba(130, 143, 163, 0.25);
   --option: #20212C;
 }

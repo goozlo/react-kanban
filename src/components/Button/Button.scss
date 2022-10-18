@@ -12,6 +12,7 @@
 
 .button:hover {
   background-color: $main-purple-hover;
+  cursor: pointer;
 }
 
 .large {
@@ -45,5 +46,5 @@
 }
 
 .buttonFull {
-  width: 100%
+  width: 100%;
 }

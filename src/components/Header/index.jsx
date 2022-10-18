@@ -21,7 +21,7 @@ const Header = () => {
         <h2 className="header__desk-title">Platform Launch</h2>
 
         <div className="header__buttons">
-          <button className="header__new-task" onClick={() => dispatch(showModal('EditTask'))}>
+          <button className="header__new-task" onClick={() => dispatch(showModal('CreateTask'))}>
             + Add New Task
           </button>
           <img className="header__board-settings" onClick={clickOnEditBordMenu} src={Dots} alt="bord edit menu"/>

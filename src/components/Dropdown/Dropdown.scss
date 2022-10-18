@@ -20,13 +20,13 @@
   margin-bottom: 8px;
   font-size: 12px;
   line-height: 15px;
-  color: $medium-grey;
+  // color: $medium-grey;
+  color: var(--typography);
 }
 
 .dropdown__fake-select {
   position: relative;
   width: 100%;
-  min-width: 350px;
 
   &__picker {
     position: relative;

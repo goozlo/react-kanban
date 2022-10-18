@@ -1,0 +1,73 @@
+@import '../../styles/@global.scss';
+
+.task-form {
+  border-radius: 6px;
+}
+
+.task-form__heading,
+.task-form__label,
+.task-form__dropdown {
+  color: var(—-typography);
+}
+
+.task-form__heading,
+.task-form__input {
+  margin-bottom: 24px;
+}
+
+.task-form__input,
+.task-form__subtask {
+  padding: 8px 16px;
+  width: 100%;
+  @include paragraph;
+  color: $white;
+  background-color: var(--bg2);
+  border: 1px $medium-grey solid;
+  border-radius: 4px;
+  opacity: .25;
+}
+
+.task-form__input::placeholder,
+.task-form__subtask::placeholder {
+  color: var(--typography2);
+  opacity: .25;
+}
+
+.task-form__description {
+  resize: none;
+}
+
+.task-form__subtasks-wrapper,
+.task-form .dropdown__fake-select__picker {
+  margin-bottom: 24px;
+}
+
+.task-form__subtask-frame {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.task-form__subtask {
+  margin-right: 16px;
+}
+
+.task-form__subtask-btn {
+  background-color: transparent;
+  border: none;
+}
+
+.task-form__subtask-btn-picture {
+  width: 15px;
+  height: 15px;
+  background: url('../../assets/images/crossSign.svg') center center no-repeat transparent;
+}
+
+.task-form__label {
+  margin-bottom: 8px;
+}
+
+.task-form__dropdown {
+  margin-bottom: 8px;
+}
