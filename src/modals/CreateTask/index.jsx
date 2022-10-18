@@ -5,7 +5,7 @@
 import React from 'react';
 import '../../styles/@mixins.scss';
 import '../../styles/@variables.scss'; 
-import { stopPropagation } from '@util/hooks/usePropagination';
+import { stopPropagation } from '@utils/hooks/usePropagination';
 import { Dropdown } from '@components/Dropdown';
 import Button from '../../components/Button/index';
 import './CreateTask.scss';

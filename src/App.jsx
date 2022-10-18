@@ -1,12 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
 import { Modal } from '@components/Modal';
 import CreateTask from '@modals/CreateTask';
-import MainPage from './components/MainPage/MainPage';
 import { Main } from '@pages/Main/Main';
 import './styles/@global.scss';
 
 import { useState, useEffect } from 'react';
-import { BoardApi } from "./util/api/boardsApi.js";
+import { BoardApi } from "./utils/api/boardsApi.js";
 
 function App() {
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocalStorage } from '@util/hooks/useLocalStorage';
+import { useLocalStorage } from '@utils/hooks/useLocalStorage';
 import './Dropdown.scss';
 
 export const Dropdown = ({ data, clickToShow, show }) => {

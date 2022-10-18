@@ -1,6 +1,6 @@
 import React from "react";
 import { Checkbox } from "../../components/Checkbox";
-import { countReducer } from "../../util/reducers/countReducer";
+import { countReducer } from "../../utils/reducers/countReducer";
 import "./AgreementList.scss";
 
 const initialState = { count: 0 };

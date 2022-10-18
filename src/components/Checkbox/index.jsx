@@ -23,3 +23,4 @@ export const Checkbox = ({ label = "label wasn't provided", toggle }) => {
 Checkbox.propTypes = {
   label: PropTypes.string
 };
+ 

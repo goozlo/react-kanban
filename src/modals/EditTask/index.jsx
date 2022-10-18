@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { stopPropagation } from '@util/hooks/usePropagination';
+import { stopPropagation } from '@utils/hooks/usePropagination';
 
 import { EditMenu } from '@components/EditMenu';
 import { Dropdown } from '@components/Dropdown';

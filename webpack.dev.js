@@ -18,7 +18,7 @@ module.exports = {
       '@components': `${__dirname}/src/components`,
       '@pages': `${__dirname}/src/pages`,
       '@modals': `${__dirname}/src/modals`,
-      '@util': `${__dirname}/src/util`,
+      '@utils': `${__dirname}/src/utils`,
       '@styles': `${__dirname}/src/styles`,
       '@store': `${__dirname}/src/store`,
       '@assets': `${__dirname}/src/assets`

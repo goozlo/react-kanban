@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useLocalStorage } from '@util/hooks/useLocalStorage';
-import { useColor } from '@util/hooks/useColor';
+import { useLocalStorage } from '@utils/hooks/useLocalStorage';
+import { useColor } from '@utils/hooks/useColor';
 import './Toggle.scss';
 
 export const Toggle = () => {

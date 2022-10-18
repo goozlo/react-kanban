@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './boardsList.scss';
-import { bords } from '../../../TEMP_DATA_BASE';
 
 export const BoardsList = ({boards}) => {
   return (
