@@ -4,12 +4,13 @@ import Header from '@components/Header/index';
 import Board from '@components/Board/index';
 import './Main.scss';
 
-export function Main() {
+export function Main({boards}) {
+  
   return (
     <main className='main'>
       <Header />
       <div className='main__container'>
-        <SideBar />
+        <SideBar boards={boards} />
         <Board />
       </div>
     </main>

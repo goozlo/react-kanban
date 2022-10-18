@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { hideSideBar } from '@store/slices/sideBarSlice';
 import open from '@assets/images/eye.svg'
 
-const SideBar = () => {
+const SideBar = ({boards}) => {
 
   const { isHidden } = useSelector(state => state.sideBar);
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ const SideBar = () => {
     <>
       <div className={`sidebar ${isHidden && 'hidden'}`}>
         <div className='sidebar__container'>
-          <BoardsList />
+          <BoardsList boards={boards} />
           <NewBoardBtn />
           <Toggle />
           <SideBarStatus />
