@@ -38,6 +38,16 @@ const COLOR_DATA_BASE = [
     name: 'option',
     dark: '#20212C',
     light: '#FFF'
+  },
+  {
+    name: '-btn-bg',
+    dark: '#FFF',
+    light: 'rgba(99, 95, 199, 0.1)'
+  },
+  {
+    name: '-btn-bg-hover',
+    dark: '#FFF',
+    light: 'rgba(99, 95, 199, 0.25)'
   }
 ];
 

@@ -2,8 +2,8 @@
 $main-purple: #635fc7;
 $main-purple-hover: #a8a4ff;
 
-$main-purple-light: rgba(99, 95, 199, 0.1);
-$main-purple-light-hover: rgba(99, 95, 199, 0.25);
+$main-purple-light: var(--btn-bg);
+$main-purple-light-hover: var(--btn-bg-hover);
 
 $red: #ea5555;
 $red-hover: #ff9898;

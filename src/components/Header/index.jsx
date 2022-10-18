@@ -34,8 +34,8 @@ const Header = () => {
       <div className='header__main'>
         <h2 className='header__desk-title'>Platform Launch</h2>
 
-        <div className='header__buttons'>
-          <button className='header__new-task' onClick={() => dispatch(showModal('EditTask'))}>
+        <div className="header__buttons">
+          <button className="header__new-task" onClick={() => dispatch(showModal('CreateTask'))}>
             + Add New Task
           </button>
           <div className='action-menu'>
