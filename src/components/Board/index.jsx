@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 const Board = ({ columns = [], tasks = [] }) => {
   return (
-    <div className='board'>
+    <div className={`board ${columns.length !== 0 ? 'board_type_with-columns' : ''}`}>
       <div className={`board__container ${columns.length !== 0 ? 'board__container_type_with-columns' : ''}`}>
         {columns.length === 0 ? (
           <>
