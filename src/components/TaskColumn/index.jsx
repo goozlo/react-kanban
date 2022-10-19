@@ -13,8 +13,14 @@ const TaskColumn = ({ column, tasks }) => {
 
   return (
       <div className='column'>
-        <h3>{`${column.name.toUpperCase()} ( ${properTasks.length} )`}</h3>
-        {properTasks.map(task => <Task key={task.id} data={task}/>)}
+        <div className='column__header'>
+          <div className='column__header-circle'></div>
+          <h3 className='column__header-title'>{`${column.name.toUpperCase()} (${properTasks.length})`}</h3>
+        </div>
+        
+        <div className="column__tasks-container">
+           {properTasks.map(task => <Task key={task.id} data={task}/>)}
+        </div>
       </div>
   )
 }
