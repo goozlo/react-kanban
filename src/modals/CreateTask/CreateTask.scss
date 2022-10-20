@@ -4,9 +4,14 @@
   border-radius: 6px;
 }
 
-.task-form__heading,
+.task-form__heading {
+  @include heading-l;
+  color: var(—-typography);
+}
+
 .task-form__label,
 .task-form__dropdown {
+  @include heading-s;
   color: var(—-typography);
 }
 
@@ -20,7 +25,7 @@
   padding: 8px 16px;
   width: 100%;
   @include paragraph;
-  color: $white;
+  color: var(-typography);
   background-color: var(--bg2);
   border: 1px $medium-grey solid;
   border-radius: 4px;
@@ -29,8 +34,13 @@
 
 .task-form__input::placeholder,
 .task-form__subtask::placeholder {
-  color: var(--typography2);
-  opacity: .25;
+  opacity: .5;
+}
+
+.task-form__input,
+.task-form__subtask {
+  opacity: 1;
+  outline: none;
 }
 
 .task-form__description {
@@ -42,6 +52,10 @@
   margin-bottom: 24px;
 }
 
+.task-form__subtasks-title {
+  margin-bottom: 8px;
+}
+
 .task-form__subtask-frame {
   display: flex;
   align-items: center;
@@ -51,6 +65,7 @@
 
 .task-form__subtask {
   margin-right: 16px;
+  margin-bottom: 12px;
 }
 
 .task-form__subtask-btn {

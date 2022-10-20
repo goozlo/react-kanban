@@ -1,0 +1,22 @@
+.layout__wrapper {
+    display: grid;
+    grid-template-columns: var(--sidebar-width) minmax(320px, 1fr);
+    grid-template-rows: 96px 1fr;
+
+    min-height: 100vh;
+    grid-template-areas:
+        "sidebar header"
+        "sidebar main"
+}
+
+.layout__header {
+    grid-area: header;
+}
+
+.layout__main {
+    grid-area: main;
+}
+
+.layout__sidebar {
+    grid-area: sidebar;
+}
