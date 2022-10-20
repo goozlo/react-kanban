@@ -12,7 +12,7 @@ const COLOR_DATA_BASE = [
   {
     name: 'bg2',
     dark: '#2B2C37',
-    light: '#828FA3'
+    light: '#FFF'
   },
   {
     name: 'typography',
@@ -40,12 +40,12 @@ const COLOR_DATA_BASE = [
     light: '#FFF'
   },
   {
-    name: '-btn-bg',
+    name: 'btn-bg',
     dark: '#FFF',
     light: 'rgba(99, 95, 199, 0.1)'
   },
   {
-    name: '-btn-bg-hover',
+    name: 'btn-bg-hover',
     dark: '#FFF',
     light: 'rgba(99, 95, 199, 0.25)'
   }

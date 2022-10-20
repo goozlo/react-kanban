@@ -5,6 +5,7 @@ import React from 'react';
 import './Button.scss';
 
 const Button = ({
+  fn,
   label = 'button',
   isLarge = false,
   isSecondary = false,
@@ -19,6 +20,7 @@ const Button = ({
       isDestructive ? 'destructive' : '',
       isFullWidth ? 'buttonFull' : ''
     ].join(' ')}
+    onClick={fn}
   >
     {label}
   </button>
