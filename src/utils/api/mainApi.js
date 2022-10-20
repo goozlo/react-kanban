@@ -37,6 +37,19 @@
         .then(this._checkResponse)
     }
 
+    ////подумать над body
+    addNewBoard() {
+        return fetch(`${this._baseUrl}/boards`,
+        {
+            headers: this._headers,
+            body: {
+                name: data.name,
+                columns: []
+            }
+        })
+        .then(this._checkResponse)
+    }
+
 
 }
 export const mainApi = new MainBoardApi({
