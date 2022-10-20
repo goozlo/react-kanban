@@ -2,12 +2,13 @@
 /* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable prettier/prettier */
-import React from 'react';
+import React, { useState } from 'react';
 import '../../styles/@mixins.scss';
 import '../../styles/@variables.scss'; 
 import { stopPropagation } from '@utils/hooks/usePropagination';
 import { Dropdown } from '@components/Dropdown';
 import Button from '../../components/Button/index';
+import Subtask from '../../components/Subtask';
 import './CreateTask.scss';
 
 const TEMP_DATA = {
@@ -55,24 +56,37 @@ const TEMP_DATA = {
   },
 };
 
-// const [data, setData] = useState({
-//   title: '',
-//   description: ''
-// })
-
-// const handleChange = (e) => {
-//   const { name, value } = e.target;
-//   setData((oldData) => ({ ...oldData, [name]: value }));
-// };
-
 const CreateTask = ({ mainTitle = 'Add New Task' }) => {
+  const [data, setData] = useState({
+    title: '',
+    description: ''
+  });
+  
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setData((oldData) => ({ ...oldData, [name]: value }));
+  };
+  
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log('sent form');
+  };
+  
+  const addSubtask = (event) => {
+    event.preventDefault();
+    // const tasksWrapper = document.querySelector('.task-form__subtasks-wrapper');
+    // const subtask = document.createElement(<Subtask placeholder='title1' i='1' />);
+    console.log('add task');
+    // tasksWrapper.append(subtask);
+  };
+
   const [showDrop, setShowDrop] = React.useState(false);
   const clickOnDropdown = (e) => {
     stopPropagation(e);
     setShowDrop(prev => !prev);
   };
   return (
-    <form className='task-form'>
+    <form className='task-form' onSubmit={handleSubmit}>
       <h2 className='task-form__heading'>
         {mainTitle}
       </h2> 
@@ -85,9 +99,8 @@ const CreateTask = ({ mainTitle = 'Add New Task' }) => {
           placeholder='e.g. Take coffee break'
           type='text'
           name='title'
-          required
-          // onChange={handleChange}
-          // value={data.title} 
+          onChange={handleChange}
+          value={data.title} 
 
         />
       </label>
@@ -100,37 +113,20 @@ const CreateTask = ({ mainTitle = 'Add New Task' }) => {
           placeholder='e.g. It’s always good to take a break. This 15 minute break will recharge the batteries a little.'
           type='text'
           name='description'
-          // onChange={handleChange}
-          // value={data.description} 
+          onChange={handleChange}
+          value={data.description} 
         />
       </label>
       <div className='task-form__subtasks-wrapper'>
-        <div className="task-form__subtask-frame">
-          <input 
-            className='task-form__subtask'
-            placeholder='e.g. Make coffee'
-            type='text'
-            name='subtask1'
-          />
-          <button className="task-form__subtask-btn">
-            <div className="task-form__subtask-btn-picture" />
-          </button>
-        </div>
-        <div className="task-form__subtask-frame">
-          <input 
-            className='task-form__subtask'
-            placeholder='e.g. Drink coffee & smile'
-            type='text'
-            name='subtask2'
-          />
-          <button className="task-form__subtask-btn">
-            <div className="task-form__subtask-btn-picture" />
-          </button>
-        </div> 
-        <Button label='+ Add New Subtask' isLarge isSecondary isFullWidth isDestructive={false} />
+        <p className="task-form__subtasks-title">
+          Subtasks
+        </p>
+        <Subtask placeholder='e.g. Make coffee' i='1' />
+        <Subtask placeholder='e.g. Drink coffee & smile' i='2' />
+        <Button fn={addSubtask} type='button' label='+ Add New Subtask' isLarge isSecondary isFullWidth isDestructive={false} />
       </div>
       <Dropdown data={TEMP_DATA.select} clickToShow={clickOnDropdown} show={showDrop} />
-      <Button label='Create task' isLarge isSecondary={false} isFullWidth isDestructive={false} />
+      <Button fnSumbit={handleSubmit} typre='submit' label='Create task' isLarge isSecondary={false} isFullWidth isDestructive={false} />
     </form>
   );
 };
