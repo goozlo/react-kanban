@@ -4,7 +4,7 @@ import './TaskColumn.scss';
 
 const TaskColumn = ({ column, tasks }) => {
   const [properTasks, setProperTasks] = useState([]);
-
+  
   // Колонка получает на вход массив со всеми тасками доски. Функция фильтрует таски для конкретной колонки
   useEffect(() => {
     const filteredTasks = tasks.filter(task => task.columnId === column.id);
