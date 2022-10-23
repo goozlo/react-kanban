@@ -1,6 +1,6 @@
-  import { API_URL } from '../constants';
-  
-  class MainBoardApi {
+import { API_URL } from '../constants';
+
+class MainBoardApi {
     constructor({ baseUrl, headers }) {
         this._baseUrl = baseUrl;
         this._headers = headers;
@@ -23,31 +23,36 @@
 
     getColumns() {
         return fetch(`${this._baseUrl}/columns`,
-        {
-            headers: this._headers,
-        })
-        .then(this._checkResponse)
+            {
+                headers: this._headers,
+            })
+            .then(this._checkResponse)
     }
 
     getTasks() {
         return fetch(`${this._baseUrl}/tasks`,
-        {
-            headers: this._headers,
-        })
-        .then(this._checkResponse)
+            {
+                headers: this._headers,
+            })
+            .then(this._checkResponse)
     }
 
     ////подумать над body
-    addNewBoard() {
+    addNewBoard(data) {
         return fetch(`${this._baseUrl}/boards`,
-        {
-            headers: this._headers,
-            body: {
-                name: data.name,
-                columns: []
-            }
-        })
-        .then(this._checkResponse)
+            {
+                method: 'POST',
+                headers: this._headers,
+                body: {
+                    name: data.boardName,
+                    // columns: [
+                    //     {
+                    //         name: data.columnsName
+                    //     }
+                    // ]
+                }
+            })
+            .then(this._checkResponse)
     }
 
 

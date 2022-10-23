@@ -1,14 +1,14 @@
 import React from 'react';
 import './TextField.scss';
 
-export const TextField = ({ label, type, placeholder, width }) => {
+export const TextField = ({ label, type, placeholder, width,  setResult, name }) => {
   const [value, setValue] = React.useState('');
+  const [inputName, setInputName] = React.useState('');
   const [error, setError] = React.useState(false);
   const ref = React.useRef(true);
 
   React.useEffect(() => {
     const firstRender = ref.current;
-    console.log(firstRender);
     // eslint-disable-next-line no-unused-expressions
     !firstRender && setError(!value.length);
     ref.current = false;
@@ -16,7 +16,9 @@ export const TextField = ({ label, type, placeholder, width }) => {
 
   const onChangeInput = e => {
     e.preventDefault();
+    setInputName(e.target.name)
     setValue(e.target.value);
+    setResult(state=>({ ...state, [inputName]: value }))
   };
 
   return (
@@ -26,9 +28,10 @@ export const TextField = ({ label, type, placeholder, width }) => {
         className='input__field'
         style={{ width }}
         value={value}
-        onChange={onChangeInput}
         type={type}
         placeholder={placeholder}
+        name={name}
+        onChange={onChangeInput}
       />
     </label>
   );

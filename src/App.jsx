@@ -14,7 +14,6 @@ function App() {
 
   useEffect(() => {
     getBoards();
-    console.log('test');
   }, []);
 
   function getBoards() {
@@ -42,11 +41,11 @@ function App() {
       .catch(err => console.log(err));
 
     mainApi.getTasks()
-    .then(tasks => {
-      const properTasks = tasks.filter(task => task.boardId === boardId);
-      setTasks(properTasks);
-    })
-    .catch(err => console.log(err));  
+      .then(tasks => {
+        const properTasks = tasks.filter(task => task.boardId === boardId);
+        setTasks(properTasks);
+      })
+      .catch(err => console.log(err));
   };
 
   return (
@@ -55,10 +54,10 @@ function App() {
       <Routes>
         <Route
           path='/'
-          element={<Main 
-            boards={boards} 
-            columns={columns} 
-            handleClickProperBoard={handleClickProperBoard} 
+          element={<Main
+            boards={boards}
+            columns={columns}
+            handleClickProperBoard={handleClickProperBoard}
             tasks={tasks}
           />}
         />
