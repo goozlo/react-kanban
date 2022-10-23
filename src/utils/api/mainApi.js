@@ -45,7 +45,7 @@ class MainBoardApi {
                 headers: this._headers,
                 body: JSON.stringify({
                     name: data.boardName,
-                    // columns: {name: data.columnsName}
+                    columns: [{name: data.columnsName}]
 
                 })
             })
