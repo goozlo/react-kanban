@@ -19,12 +19,6 @@ class MainBoardApi {
     }).then(this._checkResponse);
   }
 
-  getColumns() {
-    return fetch(`${this._baseUrl}/columns`, {
-      headers: this._headers
-    }).then(this._checkResponse);
-  }
-
   getTasks() {
     return fetch(`${this._baseUrl}/tasks`, {
       headers: this._headers
