@@ -3,50 +3,67 @@ import { Modal } from '@components/Modal';
 import CreateTask from '@modals/CreateTask';
 import { Main } from '@pages/Main/Main';
 import './styles/@global.scss';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { useState, useEffect } from 'react';
 import { mainApi } from './utils/api/mainApi.js';
+import { addAllBoards } from './store/slices/boardsSlice';
+import { addAllTasks } from './store/slices/tasksSlice';
 
 function App() {
   const [boards, setBoards] = useState([]);
-  const [columns, setColumns] = useState([]);
-  const [tasks, setTasks] = useState([]);
+  const [activeBoardId, setActiveBoardId] = useState();
 
-  useEffect(() => {
-    getBoards();
-  }, []);
+  // ***Доски и Store***
+  const dispatch = useDispatch();
+  // Сохранение всех досок в Store
+  const setAllBoards = boardsAll => dispatch(addAllBoards(boardsAll));
+  // Извлекаем список досок из Store
+  // const boardsStore = useSelector(state => state.boards.boards);
 
+  // ***Таски и Store***
+  // Сохранение всех досок в Store
+  const setAllTasks = tasksAll => dispatch(addAllTasks(tasksAll));
+  // Извлекаем список досок из Store
+  // const tasksStore = useSelector(state => state.tasks.tasks);
+
+  // Запрашиваем все доски из api
   function getBoards() {
     mainApi
       .getBoards()
       .then(boards => {
         setBoards(boards);
+        // Сохранение досок в Store (функция описана в "Доски и Store")
+        setAllBoards(boards);
+        // Берем первую доску из списка досок и устанавливаем ее id качестве активной доски
+        // чтобы после загрузке досок отображались задачи первой доски
+        const firstBoard = boards[0];
+        setActiveBoardId(firstBoard.id);
       })
       .catch(err => {
         console.log(err);
       });
   }
 
-  // Функция обрабатывает клик по названию конкретной доски, внутри себя: запрашивает список колонок с апи для этой доски
-  const handleClickProperBoard = boardId => {
+  const getTasks = () => {
     mainApi
-      .getColumns()
-      .then(columns => {
-        // В ответ от апи мы получаем список всех колонок. Поэтому нужно отфильтровать колонки только для конкретной доски.
-        // Когда появится бэк запрос к апи будет делаться по id доски и в ответе мы будем получать массив колонок для конкретной доски - это можно будет удалить.
-        const properColumns = columns.filter(el => el.boardId === boardId);
-        // Устанавливает отфильтрованный массив колнок в стейт переменной columns
-        setColumns(properColumns);
-      })
-      .catch(err => console.log(err));
-
-    mainApi.getTasks()
+      .getTasks()
       .then(tasks => {
-        const properTasks = tasks.filter(task => task.boardId === boardId);
-        setTasks(properTasks);
+        setAllTasks(tasks);
       })
       .catch(err => console.log(err));
   };
+
+  // Функция обрабатывает клик по названию конкретной доски и устанавливает id в стейт
+  const handleClickProperBoard = boardId => {
+    setActiveBoardId(boardId);
+  };
+
+  // При загрузке страницы запрашиваем все доски и таски
+  useEffect(() => {
+    getBoards();
+    getTasks();
+  }, []);
 
   return (
     <>
@@ -54,12 +71,13 @@ function App() {
       <Routes>
         <Route
           path='/'
-          element={<Main
-            boards={boards}
-            columns={columns}
-            handleClickProperBoard={handleClickProperBoard}
-            tasks={tasks}
-          />}
+          element={
+            <Main
+              boards={boards}
+              activeBoardId={activeBoardId}
+              handleClickProperBoard={handleClickProperBoard}
+            />
+          }
         />
       </Routes>
     </>

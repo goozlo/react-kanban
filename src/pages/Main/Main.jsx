@@ -4,18 +4,17 @@ import Header from '@components/Header/index';
 import Board from '@components/Board/index';
 import './Main.scss';
 
-export function Main({ boards, columns, handleClickProperBoard, tasks }) {
+export function Main({ boards, activeBoardId, handleClickProperBoard }) {
   
   return (
     <main className='main'>
       <Header />
       <div className='main__container'>
         <SideBar 
-          boards={boards} 
-          columns={columns} 
+          boards={boards}
           handleClickProperBoard={handleClickProperBoard} 
         />
-        <Board columns={columns} tasks={tasks} />
+        <Board activeBoardId={activeBoardId} />
       </div>
     </main>
   );
