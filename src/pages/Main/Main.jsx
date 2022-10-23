@@ -4,7 +4,7 @@ import Header from '@components/Header/index';
 import Board from '@components/Board/index';
 import './Main.scss';
 
-export function Main({ boards, activeBoardId, handleClickProperBoard }) {
+export function Main({ boards, handleClickProperBoard }) {
   
   return (
     <main className='main'>
@@ -14,7 +14,7 @@ export function Main({ boards, activeBoardId, handleClickProperBoard }) {
           boards={boards}
           handleClickProperBoard={handleClickProperBoard} 
         />
-        <Board activeBoardId={activeBoardId} />
+        <Board />
       </div>
     </main>
   );
