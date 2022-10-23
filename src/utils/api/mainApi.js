@@ -43,14 +43,11 @@ class MainBoardApi {
             {
                 method: 'POST',
                 headers: this._headers,
-                body: {
+                body: JSON.stringify({
                     name: data.boardName,
-                    // columns: [
-                    //     {
-                    //         name: data.columnsName
-                    //     }
-                    // ]
-                }
+                    // columns: {name: data.columnsName}
+
+                })
             })
             .then(this._checkResponse)
     }
