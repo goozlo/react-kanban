@@ -14,8 +14,8 @@ export function Modal() {
 
   //todo перевести все в функцию
   return (
-    <div className={`modal ${isVisible && 'active'}`} onClick={() => dispatch(showModal(type))}>
-      <div className={`modal__frame ${isVisible && 'active'}`} onClick={e => e.stopPropagation()}>
+    <div className={`modal ${isVisible && 'active'}`} onMouseDown={() => dispatch(showModal(type))}>
+      <div className={`modal__frame ${isVisible && 'active'}`} onMouseDown={e => e.stopPropagation()}>
         {type === 'none' && <span>content wasn't provided</span>}
         {type === 'EditTask' && <EditTask />}
         {type === 'Remove' && <Remove />}

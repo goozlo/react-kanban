@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './TextField.scss';
 
 export const TextField = ({ label, type, placeholder, width,  setResult, name }) => {
@@ -18,8 +18,13 @@ export const TextField = ({ label, type, placeholder, width,  setResult, name })
     e.preventDefault();
     setInputName(e.target.name)
     setValue(e.target.value);
-    setResult(state=>({ ...state, [inputName]: value }))
   };
+
+  useEffect(() => {
+    setResult(state=>({ ...state, [inputName]: value }))
+  }, [value]);
+  
+  
 
   return (
     <label className={`input ${error && 'error'}`}>
