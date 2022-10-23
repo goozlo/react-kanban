@@ -6,20 +6,32 @@ import { EditMenu } from '@components/EditMenu';
 import { showModal } from '../../store/slices/modalSlice';
 import './header.scss';
 
-const TEMP_DATA_FOR_POPUP = [
-  {
-    label: 'Edit Board',
-    color: '#828FA3'
-  },
-  {
-    label: 'Delete Board',
-    color: '#EA5555'
-  }
-];
+// const TEMP_DATA_FOR_POPUP = [
+//   {
+//     label: 'Edit Board',
+//     color: '#828FA3'
+//   },
+//   {
+//     label: 'Delete Board',
+//     color: '#EA5555'
+//   }
+// ];
 
 const Header = () => {
   const dispatch = useDispatch();
   const [showEdit, setShowEdit] = React.useState(false);
+
+  const TEMP_DATA_FOR_POPUP = [
+    {
+      label: 'Edit Board',
+      color: '#828FA3'
+    },
+    {
+      label: 'Delete Board',
+      color: '#EA5555',
+      action: () => dispatch(showModal('Remove'))
+    }
+  ];
 
   const clickOnEditBordMenu = e => {
     e.preventDefault();
@@ -40,7 +52,7 @@ const Header = () => {
           </button>
           <div className='action-menu'>
             <img className='action-menu__dots' onClick={clickOnEditBordMenu} src={Dots} alt='action-menu' />
-            <EditMenu options={TEMP_DATA_FOR_POPUP} width='200px' show={showEdit} />
+            <EditMenu options={TEMP_DATA_FOR_POPUP} width='200px' show={showEdit} setShowEdit={setShowEdit} />
           </div>
         </div>
       </div>

@@ -3,9 +3,12 @@ import TaskColumn from '../TaskColumn/index';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-const Board = ({ activeBoardId }) => {
+const Board = () => {
   // Достаем список досок из Store
   const boards = useSelector(state => state.boards.boards);
+
+  // Достаем аактивную доску из Store
+  const activeBoardId = useSelector(state => state.activeBoardId.activeBoardId);
 
   // Выбираем объект доски согласно id активной доски
   const activeBoard = boards.find(board => board.id === activeBoardId);

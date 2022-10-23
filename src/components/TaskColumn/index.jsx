@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { generateRandomColor } from '../../utils/randomColor';
 import Task from '@components/Task';
+import { generateRandomColor } from '../../utils/randomColor';
 import './TaskColumn.scss';
 
 const TaskColumn = ({ column }) => {
@@ -13,7 +12,6 @@ const TaskColumn = ({ column }) => {
 
   // Генерация случайного цвета для кружочка
   const color = generateRandomColor();
-  console.log(color);
 
   return (
     <div className='column'>

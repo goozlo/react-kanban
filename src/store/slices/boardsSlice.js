@@ -14,7 +14,7 @@ export const boardsSlice = createSlice({
       state.boards.push(action.payload.board);
     },
     removeBoard: (state, action) => {
-      state.boards.filter(board => board.id !== action.payload.board.id);
+      state.boards = state.boards.filter(board => board.id !== action.payload);
     }
   }
   /* eslint-enable no-param-reassign */

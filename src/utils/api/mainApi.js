@@ -19,6 +19,13 @@ class MainBoardApi {
     }).then(this._checkResponse);
   }
 
+  deleteBoard(id) {
+    return fetch(`${this._baseUrl}/boards/${id}`, {
+      method: 'DELETE',
+      headers: this._headers
+    }).then(this._checkResponse);
+  }
+
   getTasks() {
     return fetch(`${this._baseUrl}/tasks`, {
       headers: this._headers
