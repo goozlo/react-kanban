@@ -1,8 +1,16 @@
 import './Board.scss';
 import TaskColumn from '../TaskColumn/index';
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
-const Board = ({ columns = [], tasks = [] }) => {
+const Board = ({ activeBoardId }) => {
+  // Достаем список досок из Store
+  const boards = useSelector(state => state.boards.boards);
+
+  // Выбираем объект доски согласно id активной доски
+  const activeBoard = boards.find(board => board.id === activeBoardId);
+  const columns = activeBoard ? activeBoard.columns : [];
+
   return (
     <div className={`board ${columns.length !== 0 ? 'board_type_with-columns' : ''}`}>
       <div className={`board__container ${columns.length !== 0 ? 'board__container_type_with-columns' : ''}`}>
@@ -12,7 +20,7 @@ const Board = ({ columns = [], tasks = [] }) => {
             <button className='board__new-column'>+ Add New Column</button>
           </>
         ) : (
-          columns.map(column => <TaskColumn key={column.id} column={column} tasks={tasks} />)
+          columns.map(column => <TaskColumn key={column.id} column={column} />)
         )}
       </div>
     </div>

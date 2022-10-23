@@ -1,29 +1,29 @@
 import { useState, useEffect } from 'react';
-import Task from "@components/Task";
+import { useSelector } from 'react-redux';
+import Task from '@components/Task';
 import './TaskColumn.scss';
 
-const TaskColumn = ({ column, tasks }) => {
-  const [properTasks, setProperTasks] = useState([]);
-  
-  // Колонка получает на вход массив со всеми тасками доски. Функция фильтрует таски для конкретной колонки
-  useEffect(() => {
-    const filteredTasks = tasks.filter(task => task.columnId === column.id);
-    setProperTasks(filteredTasks);
-  }, [column, tasks]);
+const TaskColumn = ({ column }) => {
+  // Достаем список тасок из Store
+  const tasksStore = useSelector(state => state.tasks.tasks);
+
+  // Отфильтровываем из всех тасок таски для конкретной колонки
+  const tasks = tasksStore.filter(task => task.columnId === column.id);
 
   return (
-      <div className='column'>
-        <div className='column__header'>
-          <div className='column__header-circle'></div>
-          <h3 className='column__header-title'>{`${column.name.toUpperCase()} (${properTasks.length})`}</h3>
-        </div>
-        
-        <div className="column__tasks-container">
-           {properTasks.map(task => <Task key={task.id} data={task}/>)}
-        </div>
+    <div className='column'>
+      <div className='column__header'>
+        <div className='column__header-circle' />
+        <h3 className='column__header-title'>{`${column.name.toUpperCase()} (${tasks.length})`}</h3>
       </div>
-  )
-}
 
+      <div className='column__tasks-container'>
+        {tasks.map(task => (
+          <Task key={task.id} data={task} />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export default TaskColumn;
