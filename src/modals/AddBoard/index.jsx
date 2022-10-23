@@ -6,16 +6,21 @@ import Button from '../../components/Button';
 import { TextField } from '../../components/TextField';
 import { Delete } from './Delete';
 import { mainApi } from '../../utils/api/mainApi.js';
+import { showModal } from '@store/slices/modalSlice';
+import { useSelector, useDispatch } from 'react-redux';
 
 export const AddBoard = () => {
   const [result, setResult] = React.useState( );
 
+  const dispatch = useDispatch();
+  const { type } = useSelector(state => state?.modal);
 
   function handleNewBoard(e) {
     e.preventDefault()
     console.log(result, 'result')
     mainApi.addNewBoard(result)
     .then(res => {console.log(res)})
+    .finally(dispatch(showModal(type)))
 
   }
 
