@@ -41,16 +41,30 @@
   align-items: center;
 }
 
-.link-box_status_active {
+.link-box-wrapper_status_active {
+  position: relative;
+}
+
+.link-box-wrapper_status_active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: -34px;
   background-color: $main-purple;
   border-top-right-radius: 100px;
   border-bottom-right-radius: 100px;
 }
 
-.link-box_status_active .boardsList__link {
+.link-box-wrapper_status_active .boardsList__link {
+  position: relative;
+  z-index: 2;
   color: white;
 }
 
-.link-box_status_active .boardsList__link-icon {
+.link-box-wrapper_status_active .boardsList__link-icon {
+  position: relative;
+  z-index: 2;
   background-image: url(../../../assets/images/desk-white.svg);
 }
