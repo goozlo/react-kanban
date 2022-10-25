@@ -4,9 +4,11 @@ import './boardsList.scss';
 import { useSelector } from 'react-redux';
 
 export const BoardsList = ({ handleClickProperBoard }) => {
-
   // Достаем доски из Store
   const boards = useSelector(state => state.boards.boards);
+
+  // Достаем id из Store
+  const activeBoardId = useSelector(state => state.activeBoardId.activeBoardId);
 
   // Обрабатываем клик по конкретной доске и передаем в функцию handleClickProperBoard id доски
   const handleClickBoard = boardId => {
@@ -18,7 +20,7 @@ export const BoardsList = ({ handleClickProperBoard }) => {
       <h2 className='boardsList__count'>ALL BOARDS ({boards.length})</h2>
       <div className='boardsList__links'>
         {boards.map(bord => (
-          <div className='link-box' key={bord.id} onClick={() => handleClickBoard(bord.id)}>
+          <div className={`link-box ${bord.id === activeBoardId ? 'link-box_status_active' : ''}`} key={bord.id} onClick={() => handleClickBoard(bord.id)}>
             <span className='boardsList__link-icon' />
             <Link className='boardsList__link'>{bord.name}</Link>
           </div>

@@ -4,6 +4,7 @@
 .boardsList {
   display: flex;
   flex-direction: column;
+  padding-right: 24px;
 }
 
 .boardsList__links {
@@ -37,4 +38,18 @@
   display: flex;
 
   align-items: center;
+}
+
+.link-box_status_active {
+  background-color: $main-purple;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+}
+
+.link-box_status_active .boardsList__link {
+  color: white;
+}
+
+.link-box_status_active .boardsList__link-icon {
+  background-image: url(../../../assets/images/desk-white.svg);
 }
