@@ -14,7 +14,8 @@
 
 .boardsList__count {
   @include heading-s;
-  color: var(--typography2)
+  color: var(--typography2);
+  margin-bottom: 19px;
 }
 
 .boardsList__link {
