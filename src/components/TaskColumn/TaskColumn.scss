@@ -2,7 +2,7 @@
 @import "../../styles/@mixins";
 
 .column {
-    width: 280px;
+    min-width: 280px;
     display: flex;
     flex-direction: column;
     row-gap: 24px;

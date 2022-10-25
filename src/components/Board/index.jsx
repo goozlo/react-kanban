@@ -23,7 +23,14 @@ const Board = () => {
             <button className='board__new-column'>+ Add New Column</button>
           </>
         ) : (
-          columns.map(column => <TaskColumn key={column.id} column={column} />)
+          <>
+            {columns.map(column => (
+              <TaskColumn key={column.id} column={column} />
+            ))}
+            <div className='board__last-column'>
+              <button className='board__add-column'>+ New Column</button>
+            </div>
+          </>
         )}
       </div>
     </div>
