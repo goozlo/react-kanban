@@ -24,7 +24,8 @@ const Header = () => {
   const TEMP_DATA_FOR_POPUP = [
     {
       label: 'Edit Board',
-      color: '#828FA3'
+      color: '#828FA3',
+      action: () => dispatch(showModal('EditBoard'))
     },
     {
       label: 'Delete Board',
@@ -46,8 +47,8 @@ const Header = () => {
       <div className='header__main'>
         <h2 className='header__desk-title'>Platform Launch</h2>
 
-        <div className="header__buttons">
-          <button className="header__new-task" onClick={() => dispatch(showModal('CreateTask'))}>
+        <div className='header__buttons'>
+          <button className='header__new-task' onClick={() => dispatch(showModal('CreateTask'))}>
             + Add New Task
           </button>
           <div className='action-menu'>
