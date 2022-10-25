@@ -8,7 +8,7 @@ const TaskColumn = ({ column }) => {
   const tasksStore = useSelector(state => state.tasks.tasks);
 
   // Отфильтровываем из всех тасок таски для конкретной колонки
-  const tasks = tasksStore.filter(task => task.columnId === column.id);
+  const tasks = tasksStore.filter(task => task.columnId === column.columnId);
 
   // Генерация случайного цвета для кружочка
   const color = generateRandomColor();
