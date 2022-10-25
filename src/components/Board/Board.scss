@@ -8,10 +8,12 @@
     align-items: center;
     border-top: 1px solid;
     border-color: var(--line);
+    position: relative;
 }
 
 .board_type_with-columns {
     margin: 0;
+    overflow: hidden;
 }
 
 .board__container {
@@ -25,10 +27,13 @@
 .board__container_type_with-columns {
     flex-direction: row;
     column-gap: 24px;
-    width: 100%;
+    min-width: 100%;
+    min-height: 100%;
     padding: 24px 0 0 24px;
     align-self: flex-start;
     align-items: flex-start;
+
+    overflow-x: auto;
 }
 
 .board__title {
@@ -50,3 +55,27 @@
 .board__new-column:hover {
     background-color: $main-purple-hover;
 } 
+
+
+.board__last-column {
+    margin-top: 40px;
+    min-width: 280px;
+    background: linear-gradient(180deg, #E9EFFA 0%, rgba(233, 239, 250, 0.5) 100%);
+    border-radius: 6px;
+    height: 75vh;
+    display: flex;
+    align-items: center;
+}
+
+.board__add-column {
+    background-color: transparent;
+    border: none;
+    margin: auto;
+    color: $medium-grey;
+    @include heading-xl;
+}
+
+.board__add-column:hover {
+    cursor: pointer;
+
+}
