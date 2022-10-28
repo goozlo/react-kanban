@@ -18,13 +18,19 @@
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    
+}
+.column__header-circle:hover {
+    cursor: pointer;
 }
 
 .column__header-title {
     color: $medium-grey;
     @include heading-s;
     letter-spacing: 2.4px;
+}
+
+.column__header-title:hover {
+    cursor: pointer;
 }
 
 .column__tasks-container {
