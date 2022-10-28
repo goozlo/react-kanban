@@ -24,7 +24,8 @@ const Header = () => {
   const TEMP_DATA_FOR_POPUP = [
     {
       label: 'Edit Board',
-      color: '#828FA3'
+      color: '#828FA3',
+      action: () => dispatch(showModal('EditBoard'))
     },
     {
       label: 'Delete Board',
