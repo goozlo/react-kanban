@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './TextField.scss';
 
-export const TextField = ({ label, type, placeholder, width, setResult, name }) => {
+export const TextField = ({ label, type, placeholder, width, setResult = Function.prototype, name }) => {
   const [value, setValue] = React.useState('');
   const [inputName, setInputName] = React.useState('');
   const [error, setError] = React.useState(false);

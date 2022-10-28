@@ -1,9 +1,13 @@
 import './Board.scss';
-import TaskColumn from '../TaskColumn/index';
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { showModal } from '../../store/slices/modalSlice';
+import TaskColumn from '../TaskColumn/index';
 
 const Board = () => {
+
+  const dispatch = useDispatch();
+
   // Достаем список досок из Store
   const boards = useSelector(state => state.boards.boards);
 
@@ -20,7 +24,7 @@ const Board = () => {
         {columns.length === 0 ? (
           <>
             <p className='board__title'>This board is empty. Create a new column to get started.</p>
-            <button className='board__new-column'>+ Add New Column</button>
+            <button className='board__new-column' onClick={() => dispatch(showModal('AddColumn'))}>+ Add New Column</button>
           </>
         ) : (
           <>
@@ -28,7 +32,7 @@ const Board = () => {
               <TaskColumn key={column.id} column={column} />
             ))}
             <div className='board__last-column'>
-              <button className='board__add-column'>+ New Column</button>
+              <button className='board__add-column' onClick={() => dispatch(showModal('AddColumn'))}>+ New Column</button>
             </div>
           </>
         )}

@@ -126,7 +126,7 @@ const CreateTask = ({ mainTitle = 'Add New Task' }) => {
         <Button fn={addSubtask} type='button' label='+ Add New Subtask' isLarge isSecondary isFullWidth isDestructive={false} />
       </div>
       <Dropdown data={TEMP_DATA.select} clickToShow={clickOnDropdown} show={showDrop} />
-      <Button fnSumbit={handleSubmit} typre='submit' label='Create task' isLarge isSecondary={false} isFullWidth isDestructive={false} />
+      <Button fnSumbit={handleSubmit} type='submit' label='Create task' isLarge isSecondary={false} isFullWidth isDestructive={false} />
     </form>
   );
 };

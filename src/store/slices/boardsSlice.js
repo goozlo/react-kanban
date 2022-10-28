@@ -15,11 +15,14 @@ export const boardsSlice = createSlice({
     },
     removeBoard: (state, action) => {
       state.boards = state.boards.filter(board => board.id !== action.payload);
+    },
+    updateBoard: (state, action) => {
+      state.boards = state.boards.map(board => board.id === action.payload.id ? (board = action.payload) : board);
     }
   }
   /* eslint-enable no-param-reassign */
 });
 
-export const { addAllBoards, addNewBoard, removeBoard } = boardsSlice.actions;
+export const { addAllBoards, addNewBoard, removeBoard, updateBoard } = boardsSlice.actions;
 
 export default boardsSlice.reducer;

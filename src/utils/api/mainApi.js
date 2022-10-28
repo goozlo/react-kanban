@@ -32,6 +32,16 @@ class MainBoardApi {
     }).then(this._checkResponse);
   }
 
+  updateBoard(board) {
+    return fetch(`${this._baseUrl}/boards/${board.id}`, {
+      method: 'PUT',
+      headers: this._headers,
+      body: JSON.stringify(board)
+    }).then(this._checkResponse);
+  }
+
+
+
   ////подумать над body
   addNewBoard(data) {
     return fetch(`${this._baseUrl}/boards`, {
