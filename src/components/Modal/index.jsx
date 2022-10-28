@@ -6,6 +6,7 @@ import { showModal } from '@store/slices/modalSlice';
 import './Modal.scss';
 import CreateTask from '@modals/CreateTask';
 import { AddBoard } from '@modals/AddBoard';
+import AddColumn from '@modals/AddColumn';
 import { EditBoard } from '@modals/EditBoard';
 
 export function Modal() {
@@ -21,6 +22,7 @@ export function Modal() {
         {type === 'Remove' && <Remove />}
         {type === 'CreateTask' && <CreateTask />}
         {type === 'AddBoard' && <AddBoard />}
+        {type === 'AddColumn' && <AddColumn />}
         {type === 'EditBoard' && <EditBoard />}
       </div>
     </div>
