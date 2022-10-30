@@ -2,11 +2,14 @@
 import './NewBoard.scss';
 import React from 'react';
 import { showModal } from '@store/slices/modalSlice';
+import uniqid from 'uniqid';
 import { useSelector, useDispatch } from 'react-redux';
 import Button from '../../components/Button';
 import { TextField } from '../../components/TextField';
 import { mainApi } from '../../utils/api/mainApi';
 import { addNewBoard } from '../../store/slices/boardsSlice';
+import { setActiveBoardId } from '../../store/slices/activeBoardId';
+
 
 export const AddBoard = () => {
   const [result, setResult] = React.useState();
@@ -46,16 +49,18 @@ export const AddBoard = () => {
 
   // Создаем объект доски для отправки на бэк
   const createNewBoardObj = data => {
+    // Генерируем уникальный id для доски используя библиотеку
+    const boardId = uniqid();
     let newBoardObj = {};
     // Проверяем на заполненность поля названия колонки
     if (data.columnsName) {
       newBoardObj = {
         name: data.boardName,
-        id: boards.length + 1,
+        id: boardId,
         columns: [
           {
             name: data.columnsName,
-            columnId: `${boards.length + 1}_1`
+            columnId: `${boardId}_1`
           }
         ]
       };
@@ -80,6 +85,7 @@ export const AddBoard = () => {
       .then(res => {
         // Возвращенный объект с бэк добавляем в массив досок в Store
         dispatch(addNewBoard(res));
+        dispatch(setActiveBoardId(res.id));
       })
       .catch(err => console.error(err))
       .finally(dispatch(showModal(type)));
