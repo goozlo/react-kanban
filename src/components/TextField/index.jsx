@@ -1,9 +1,17 @@
 import React, { useEffect } from 'react';
 import './TextField.scss';
 
-export const TextField = ({ label, type, placeholder, width, setResult = Function.prototype, name }) => {
-  const [value, setValue] = React.useState('');
-  const [inputName, setInputName] = React.useState('');
+export const TextField = ({
+  label,
+  type,
+  placeholder,
+  width,
+  setResult = Function.prototype,
+  name = '',
+  initialValue = ''
+}) => {
+  const [value, setValue] = React.useState(initialValue);
+  const [inputName, setInputName] = React.useState(name);
   const [error, setError] = React.useState(false);
   const ref = React.useRef(true);
 
@@ -16,7 +24,7 @@ export const TextField = ({ label, type, placeholder, width, setResult = Functio
 
   const onChangeInput = e => {
     e.preventDefault();
-    setInputName(e.target.name)
+    setInputName(e.target.name);
     setValue(e.target.value);
   };
 
