@@ -7,6 +7,7 @@
   background: $white;
   border: 1px solid rgba(130, 143, 163, 0.25);
   border-radius: 4px;
+  width: 100%;
 
   &__field {
     all: unset;
@@ -17,6 +18,7 @@
     line-height: 23px;
     color: var(--black);
     cursor: text;
+    width: 100%;
 
     &::placeholder {
       color: #000112;
