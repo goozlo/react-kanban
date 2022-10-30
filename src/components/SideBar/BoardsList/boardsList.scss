@@ -20,25 +20,28 @@
 
 .boardsList__link {
   @include heading-m;
-  height: 48px;
-  display: flex;
-  justify-content: center;
   align-items: center;
   text-decoration: none;
   color: $medium-grey;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .boardsList__link-icon {
   background-image: url(../../../assets/images/desk.svg);
+  background-repeat: no-repeat;
   width: 16px;
   height: 16px;
-  margin-right: 16px;
+  flex-shrink: 0;
 }
 
 .link-box {
   display: flex;
-
+  height: 48px;
   align-items: center;
+  column-gap: 16px;
 }
 
 .link-box-wrapper_status_active {
