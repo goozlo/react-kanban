@@ -13,6 +13,7 @@ const TaskColumn = ({ column }) => {
   // Генерация случайного цвета для кружочка
   const color = generateRandomColor();
 
+
   return (
     <div className='column'>
       <div className='column__header'>

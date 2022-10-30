@@ -32,6 +32,14 @@ class MainBoardApi {
     }).then(this._checkResponse);
   }
 
+  createTask(task) {
+    return fetch(`${this._baseUrl}/tasks`, {
+      method: 'POST',
+      headers: this._headers,
+      body: JSON.stringify(task)
+    }).then(this._checkResponse);
+  }
+
   updateBoard(board) {
     return fetch(`${this._baseUrl}/boards/${board.id}`, {
       method: 'PUT',
@@ -47,10 +55,7 @@ class MainBoardApi {
     return fetch(`${this._baseUrl}/boards`, {
       method: 'POST',
       headers: this._headers,
-      body: JSON.stringify({
-        name: data.boardName,
-        columns: [{ name: data.columnsName }]
-      })
+      body: JSON.stringify(data)
     }).then(this._checkResponse);
   }
 }

@@ -31,8 +31,9 @@
   &__column-name {
     display: flex;
     align-items: center;
-    cursor: pointer;
-
+  
+    flex-direction: column;
+    row-gap: 12px;
     label {
       margin-right: 16px;
     }
@@ -71,4 +72,21 @@
     margin-right: 16px;
     background-image: url(../../assets/images/desk-prpl.svg);
   }
+}
+
+.add-board__column {
+  display: flex;
+  align-items: center;
+  border: 1px solid red;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.add-board__column-field-delete {
+  background-image: url(../../assets/images/crossSign.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
 }
