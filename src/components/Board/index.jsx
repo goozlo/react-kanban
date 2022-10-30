@@ -29,7 +29,7 @@ const Board = () => {
         ) : (
           <>
             {columns.map(column => (
-              <TaskColumn key={column.id} column={column} />
+              <TaskColumn key={column.columnId} column={column} />
             ))}
             <div className='board__last-column'>
               <button className='board__add-column' onClick={() => dispatch(showModal('AddColumn'))}>+ New Column</button>
