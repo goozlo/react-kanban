@@ -4,6 +4,7 @@
 .edit-menu {
   position: relative;
   flex-shrink: 0;
+  z-index: 1000;
 }
 
 .edit-menu__action-menu {

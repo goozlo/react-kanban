@@ -1,22 +1,26 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { showModal } from '@store/slices/modalSlice';
 import { mainApi } from '../../utils/api/mainApi';
 import './Remove.scss';
-import { showModal } from '@store/slices/modalSlice';
+import { removeBoard } from '../../store/slices/boardsSlice';
+
 export const Remove = () => {
   const activeBoardId = useSelector(state => state.activeBoardId.activeBoardId);
   const dispatch = useDispatch();
   const { type } = useSelector(state => state?.modal);
-  const handleOnClickDelete = () => {
-    mainApi.deleteBoard(activeBoardId)
-    .finally(closeModal())
-    
-  };
-
 
   function closeModal() {
-    dispatch(showModal(type))
+    dispatch(showModal(type));
   }
+
+  const handleOnClickDelete = () => {
+    mainApi
+      .deleteBoard(activeBoardId)
+      .then(() => dispatch(removeBoard(activeBoardId)))
+      .catch(err => console.error(err))
+      .finally(closeModal());
+  };
 
   return (
     <div className='remove-modal'>
@@ -28,8 +32,12 @@ export const Remove = () => {
           cannot be reversed.
         </p>
         <div className='remove-modal__buttons'>
-          <button className='remove-modal__remove-item' onClick={handleOnClickDelete}>Delete</button>
-          <button className='remove-modal__cancel-remove' onClick={() => dispatch(showModal(type))}>Cancel</button>
+          <button className='remove-modal__remove-item' onClick={handleOnClickDelete}>
+            Delete
+          </button>
+          <button className='remove-modal__cancel-remove' onClick={() => dispatch(showModal(type))}>
+            Cancel
+          </button>
         </div>
       </div>
     </div>
