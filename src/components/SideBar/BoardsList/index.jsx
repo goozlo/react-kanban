@@ -19,11 +19,11 @@ export const BoardsList = ({ handleClickProperBoard }) => {
     <div className='boardsList'>
       <h2 className='boardsList__count'>ALL BOARDS ({boards.length})</h2>
       <div className='boardsList__links'>
-        {boards.map(bord => (
-          <div className={`link-box-wrapper ${bord.id === activeBoardId ? 'link-box-wrapper_status_active' : ''}`}>
-            <div className={'link-box'} key={bord.id} onClick={() => handleClickBoard(bord.id)}>
+        {boards.map(board => (
+          <div className={`link-box-wrapper ${board.id === activeBoardId ? 'link-box-wrapper_status_active' : ''}`} key={board.id}>
+            <div className='link-box' key={board.id} onClick={() => handleClickBoard(board.id)}>
               <div className='boardsList__link-icon' />
-              <Link className='boardsList__link'>{bord.name}</Link>
+              <Link className='boardsList__link'>{board.name}</Link>
             </div>
           </div>
         ))}

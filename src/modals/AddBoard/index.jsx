@@ -46,16 +46,26 @@ export const AddBoard = () => {
 
   // Создаем объект доски для отправки на бэк
   const createNewBoardObj = data => {
-    const newBoardObj = {
-      name: data.boardName,
-      id: boards.length + 1,
-      columns: [
-        {
-          name: data.columnsName,
-          columnId: `${boards.length + 1}_1`
-        }
-      ]
-    };
+    let newBoardObj = {};
+    // Проверяем на заполненность поля названия колонки
+    if (data.columnsName) {
+      newBoardObj = {
+        name: data.boardName,
+        id: boards.length + 1,
+        columns: [
+          {
+            name: data.columnsName,
+            columnId: `${boards.length + 1}_1`
+          }
+        ]
+      };
+    } else {
+      newBoardObj = {
+        name: data.boardName,
+        id: boards.length + 1,
+        columns: []
+      };
+    }
     return newBoardObj;
   };
 
