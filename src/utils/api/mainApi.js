@@ -40,6 +40,14 @@ class MainBoardApi {
     }).then(this._checkResponse);
   }
 
+  updateTask(task) {
+    return fetch(`${this._baseUrl}/tasks/${task.id}`, {
+      method: 'PUT',
+      headers: this._headers,
+      body: JSON.stringify(task)
+    }).then(this._checkResponse);
+  }
+
   updateBoard(board) {
     return fetch(`${this._baseUrl}/boards/${board.id}`, {
       method: 'PUT',

@@ -3,6 +3,7 @@ import Task from '@components/Task';
 import { generateRandomColor } from '../../utils/randomColor';
 import './TaskColumn.scss';
 import { updateTask } from '../../store/slices/tasksSlice';
+import { mainApi } from '../../utils/api/mainApi';
 
 const TaskColumn = ({ column, setCurrentTask, setNewColumn, currentTask, newColumn, handleDropColumn }) => {
   const dispatch = useDispatch();
@@ -19,7 +20,10 @@ const TaskColumn = ({ column, setCurrentTask, setNewColumn, currentTask, newColu
   // Обработка создания нового объекта при перетаскивании и сохранение его в Store
   const handleDropTask = () => {
     const droppedTask = { ...currentTask, columnId: newColumn };
-    dispatch(updateTask(droppedTask));
+    mainApi
+      .updateTask(droppedTask)
+      .then(res => dispatch(updateTask(res)))
+      .catch(err => console.log(err));
   };
 
   const dragEndHandler = e => {

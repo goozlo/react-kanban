@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { showModal } from '../../store/slices/modalSlice';
 import { updateTask } from '../../store/slices/tasksSlice';
 import TaskColumn from '../TaskColumn/index';
+import { mainApi } from '../../utils/api/mainApi';
 
 const Board = () => {
   // Для реализации drag and drop устанавливаем стейт новой
@@ -24,13 +25,13 @@ const Board = () => {
   const activeBoard = boards.find(board => board.id === activeBoardId);
   const columns = activeBoard ? activeBoard.columns : [];
 
-  console.log(newColumn, currentTask, 'board')
-
-
   const handleDropColumn = () => {
     const droppedTask = { ...currentTask, columnId: newColumn };
-    dispatch(updateTask(droppedTask));
-  }
+    mainApi
+      .updateTask(droppedTask)
+      .then(res => dispatch(updateTask(res)))
+      .catch(err => console.log(err));
+  };
 
   return (
     <div className={`board ${columns.length !== 0 ? 'board_type_with-columns' : ''}`}>
