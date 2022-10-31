@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './TextField.scss';
 
 export const TextField = ({
@@ -8,18 +8,17 @@ export const TextField = ({
   width,
   setResult = Function.prototype,
   name = '',
-  initialValue = ''
+  initialValue = '',
+  setIsDisabled = Function.prototype,
 }) => {
-  const [value, setValue] = React.useState(initialValue);
-  const [inputName, setInputName] = React.useState(name);
-  const [error, setError] = React.useState(false);
-  const ref = React.useRef(true);
+  const [value, setValue] = useState(initialValue);
+  const [inputName, setInputName] = useState(name);
+  const [error, setError] = useState(false);
 
-  React.useEffect(() => {
-    const firstRender = ref.current;
-    // eslint-disable-next-line no-unused-expressions
-    !firstRender && setError(!value.length);
-    ref.current = false;
+  useEffect(() => {
+    if (value.length == 0) {
+      setError(true);
+    } else setError(false)
   }, [value]);
 
   const onChangeInput = e => {
@@ -30,6 +29,10 @@ export const TextField = ({
 
   useEffect(() => {
     setResult(state => ({ ...state, [inputName]: value }));
+    if (value.length == 0) {
+      setIsDisabled(true)}
+      else setIsDisabled(false)
+    
   }, [value]);
 
   return (

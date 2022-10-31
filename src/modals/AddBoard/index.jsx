@@ -10,9 +10,9 @@ import { mainApi } from '../../utils/api/mainApi';
 import { addNewBoard } from '../../store/slices/boardsSlice';
 import { setActiveBoardId } from '../../store/slices/activeBoardId';
 
-
 export const AddBoard = () => {
   const [result, setResult] = React.useState();
+  const [isDisabled, setIsDisabled] = React.useState(true);
   const [columnsFields, setColumnsFields] = React.useState(1);
 
   const dispatch = useDispatch();
@@ -97,15 +97,15 @@ export const AddBoard = () => {
       <form className='add-board__form'>
         <label className='add-board__board-name'>
           <p className='add-board__input-title'>Name</p>
-          <TextField placeholder='Name' type='text' name='boardName' setResult={setResult} />
+          <TextField placeholder='Name' type='text' name='boardName' setResult={setResult} setIsDisabled={setIsDisabled} />
         </label>
-        {/* create logic */}
         <label className='add-board__create-column'>
           <p className='add-board__input-title'>Columns</p>
           <div className='add-board__column-name'>{columnFieldsElements()}</div>
         </label>
         <Button label='+ Add New Column' isFullWidth isSecondary fn={handelColumnAddClick} />
-        <Button label='Create New Board' isFullWidth fn={handleNewBoard} />
+        {isDisabled ? <Button label='Create New Board' isFullWidth disabled/> : <Button label='Create New Board' isFullWidth fn={handleNewBoard}/>}
+          
       </form>
     </div>
   );
