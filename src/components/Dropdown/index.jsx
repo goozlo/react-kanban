@@ -1,26 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useLocalStorage } from '@utils/hooks/useLocalStorage';
 import './Dropdown.scss';
 
 export const Dropdown = ({ data, clickToShow, show, label, setColumn }) => {
   const getLabelById = id => data.find(item => item.columnId === id).name;
 
-  // const getOptionId = () => {
-  //   const key = label;
-  //   const valueInStorage = useLocalStorage(key);
-
-  //   if (valueInStorage) {
-  //     return valueInStorage;
-  //   }
-  //   return data[0].columnId;
-  // };
-
-  const [selectedId, setSelectedId] = React.useState(data[0].columnId);
+  const [selectedId, setSelectedId] = useState(data[0].columnId);
 
   const pickOption = id => {
-    const key = label;
-
-    useLocalStorage(key, id);
     setSelectedId(id);
   };
 
@@ -31,6 +19,11 @@ export const Dropdown = ({ data, clickToShow, show, label, setColumn }) => {
     return { transition: `all .4s ${(data.length - i) * 240}ms linear` };
   };
 
+  const getDefaultValue = () => {
+    const value = data.find(column => column.columnId === selectedId).name;
+    return value ? value : 'text';
+  };
+
   useEffect(() => {
     const status = {
       columnId: selectedId,
@@ -39,12 +32,9 @@ export const Dropdown = ({ data, clickToShow, show, label, setColumn }) => {
     setColumn(status);
   }, [selectedId]);
 
-  console.log(data)
-  console.log(selectedId)
-
   return (
     <label className='dropdown'>
-      <select className='dropdown__select' defaultValue={data.find(column => column.columnId === selectedId).name}>
+      <select className='dropdown__select' defaultValue={getDefaultValue}>
         {data.map(item => (
           <option key={item.columnId} value={item.name}>
             {item.name}

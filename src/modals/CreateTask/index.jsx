@@ -90,7 +90,6 @@ const CreateTask = ({ mainTitle = 'Add New Task' }) => {
       boardId: activeBoardId,
       title: data.title,
       description: data.description,
-      id: 777
     };
 
     mainApi

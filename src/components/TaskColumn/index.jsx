@@ -23,7 +23,7 @@ const TaskColumn = ({ column }) => {
 
       <div className='column__tasks-container'>
         {tasks.map(task => (
-          <Task key={task.id} data={task} />
+          <Task key={task.id} data={task} columnId={column.columnId} />
         ))}
       </div>
     </div>
