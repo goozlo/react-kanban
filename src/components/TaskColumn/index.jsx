@@ -17,7 +17,7 @@ const TaskColumn = ({ column, setCurrentTask, setNewColumn, currentTask, newColu
   // Генерация случайного цвета для кружочка
   const color = generateRandomColor();
 
-  // Обработка создания нового объекта при перетаскивании и сохранение его в Store
+  // DragAndDrop Обработка создания нового объекта при перетаскивании и сохранение его в Store
   const handleDropTask = () => {
     const droppedTask = { ...currentTask, columnId: newColumn };
     mainApi
@@ -26,16 +26,19 @@ const TaskColumn = ({ column, setCurrentTask, setNewColumn, currentTask, newColu
       .catch(err => console.log(err));
   };
 
+  // DragAndDrop Выполняем действия при окончании переноса (создаем новый объект и отправляем на бэк)
   const dragEndHandler = e => {
     e.preventDefault();
     handleDropColumn();
   };
 
+  // DragAndDrop Действия при переносе объекта на колонку - устанавливаем новый стейт колонки
   const dropTaskHandler = (e, id) => {
     e.preventDefault();
     setNewColumn(id);
   };
 
+  // DragAndDrop Исправление бага в реакте https://stackoverflow.com/questions/50230048/react-ondrop-is-not-firing
   const dropOverHandler = e => {
     const event = e;
     event.stopPropagation();

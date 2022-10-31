@@ -7,7 +7,7 @@ import TaskColumn from '../TaskColumn/index';
 import { mainApi } from '../../utils/api/mainApi';
 
 const Board = () => {
-  // Для реализации drag and drop устанавливаем стейт новой
+  // DragAndDrop Для реализации drag and drop устанавливаем стейт новой
   // колонки куда переместили таску и саму таску, которую перемещаем
   // стейты устанавливаются на уровне компонента Task
   const [newColumn, setNewColumn] = useState('');
@@ -25,6 +25,7 @@ const Board = () => {
   const activeBoard = boards.find(board => board.id === activeBoardId);
   const columns = activeBoard ? activeBoard.columns : [];
 
+  // DragAndDrop Описание обработки события по окончанию переноса объекта
   const handleDropColumn = () => {
     const droppedTask = { ...currentTask, columnId: newColumn };
     mainApi

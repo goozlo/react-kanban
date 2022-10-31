@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { showModal } from '@store/slices/modalSlice';
 import './task.scss';
 
 const Task = ({ data, setCurrentTask, setNewColumn, columnId, handleDropTask }) => {
@@ -8,9 +6,7 @@ const Task = ({ data, setCurrentTask, setNewColumn, columnId, handleDropTask }) 
   const { title, description, status, subtasks, checklist = '3 of 3 subtasks', id } = data;
   const [complitedSubtasks, setComplitedSubtasks] = useState(0);
 
-  const dispatch = useDispatch();
-
-  // Логика Drag and Drop
+  // DragAndDrop Логика Drag and Drop
   const dragStartHandler = (e, task) => {
     setCurrentTask(task);
   };
