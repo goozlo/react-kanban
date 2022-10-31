@@ -15,50 +15,6 @@ import './CreateTask.scss';
 import { mainApi } from '../../utils/api/mainApi';
 import { addNewTask } from '../../store/slices/tasksSlice';
 
-// const TEMP_DATA = {
-//   title: 'Research pricing points of various competitors and trial different business models',
-//   body: "We know what we're planning to build for version one. Now we need to finalise the first pricing model we'll use. Keep iterating the subtasks until we have a coherent proposition.",
-//   agreements: [
-//     'Research competitor pricing and business models',
-//     'Outline a business model that works for our solution',
-//     'Talk to potential customers about our proposed solution and ask for fair price expectancy',
-//   ],
-//   select: {
-//     label: 'Status',
-//     options: [
-//       {
-//         id: 0,
-//         label: 'Todo',
-//         value: 'Todo',
-//       },
-//       {
-//         id: 1,
-//         label: 'Doing',
-//         value: 'Doing',
-//       },
-//       {
-//         id: 2,
-//         label: 'Done',
-//         value: 'Done',
-//       },
-//       {
-//         id: 3,
-//         label: 'Done',
-//         value: 'Done',
-//       },
-//       {
-//         id: 4,
-//         label: 'Done',
-//         value: 'Done',
-//       },
-//       {
-//         id: 5,
-//         label: 'Done',
-//         value: 'Done',
-//       },
-//     ],
-//   },
-// };
 
 const CreateTask = ({ mainTitle = 'Add New Task' }) => {
   const [data, setData] = useState({
@@ -103,13 +59,9 @@ const CreateTask = ({ mainTitle = 'Add New Task' }) => {
     dispatch(showModal());
   };
 
-  const addSubtask = event => {
-    event.preventDefault();
-    // const tasksWrapper = document.querySelector('.task-form__subtasks-wrapper');
-    // const subtask = document.createElement(<Subtask placeholder='title1' i='1' />);
-    console.log('add task');
-    // tasksWrapper.append(subtask);
-  };
+  function handelSubtaskAddClick(e) {
+    e.preventDefault()
+  }
 
   const [showDrop, setShowDrop] = React.useState(false);
   const clickOnDropdown = e => {
@@ -143,16 +95,15 @@ const CreateTask = ({ mainTitle = 'Add New Task' }) => {
       </label>
       <div className='task-form__subtasks-wrapper'>
         <p className='task-form__subtasks-title'>Subtasks</p>
-        <Subtask placeholder='e.g. Make coffee' i='1' />
+        
         <Subtask placeholder='e.g. Drink coffee & smile' i='2' />
         <Button
-          fn={addSubtask}
+          fn={handelSubtaskAddClick}
           type='button'
           label='+ Add New Subtask'
           isLarge
           isSecondary
           isFullWidth
-          isDestructive={false}
         />
       </div>
       <Dropdown
