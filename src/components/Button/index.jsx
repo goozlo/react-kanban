@@ -7,6 +7,7 @@ import './Button.scss';
 const Button = ({
   fn,
   fnSubmit,
+  disabled = false,
   label = 'button',
   isLarge = false,
   isSecondary = false,
@@ -19,10 +20,12 @@ const Button = ({
       isLarge ? 'large' : 'small',
       isSecondary ? 'secondary' : '',
       isDestructive ? 'destructive' : '',
-      isFullWidth ? 'buttonFull' : ''
+      isFullWidth ? 'buttonFull' : '',
+      disabled ? 'disabled' : ''
     ].join(' ')}
     onClick={fn}
     onSubmit={fnSubmit}
+    disabled={disabled}
   >
     {label}
   </button>

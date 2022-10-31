@@ -11,6 +11,9 @@ const Subtask = ({ placeholder, i }) => {
     e.target.value = '';
   };
 
+  function handleRemoveSubTask(e) {
+    e.preventDefault()
+  }
   return (
     <div className="task-form__subtask-frame">
       <input 
@@ -20,7 +23,8 @@ const Subtask = ({ placeholder, i }) => {
         type='text'
         name={`subtask ${i}`}
       /> 
-      <button className="task-form__subtask-btn">
+      <button className="task-form__subtask-btn"
+      onClick={handleRemoveSubTask}>
         <div className="task-form__subtask-btn-picture" />
       </button>
     </div>
