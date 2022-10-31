@@ -9,6 +9,7 @@
     border-top: 1px solid;
     border-color: var(--line);
     position: relative;
+    overflow-y: hidden;
 }
 
 .board_type_with-columns {
@@ -21,7 +22,7 @@
     flex-direction: column;
     row-gap: 32px;
     align-items: center;
-    margin-bottom: 96px;
+    
 }
 
 .board__container_type_with-columns {
