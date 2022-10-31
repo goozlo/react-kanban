@@ -22,7 +22,6 @@
     flex-direction: column;
     row-gap: 32px;
     align-items: center;
-    
 }
 
 .board__container_type_with-columns {
@@ -34,6 +33,7 @@
     align-self: flex-start;
     align-items: flex-start;
     overflow-x: auto;
+    overflow-y: auto;
 }
 
 .board__title {

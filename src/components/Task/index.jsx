@@ -3,38 +3,34 @@ import { useDispatch } from 'react-redux';
 import { showModal } from '@store/slices/modalSlice';
 import './task.scss';
 
-const Task = ({ data }) => {
+const Task = ({ data, setCurrentTask, setNewColumn, columnId, handleDropTask }) => {
   // по айди понятно какую таску взяли/тыкнули/переносят и тд
-  const { title, description, status, subtasks, checklist = '3 of 3 subtasks', id, columnId } = data;
+  const { title, description, status, subtasks, checklist = '3 of 3 subtasks', id } = data;
   const [complitedSubtasks, setComplitedSubtasks] = useState(0);
 
   const dispatch = useDispatch();
 
-  const [dragTask, setDragTask] = useState();
-  console.log(dragTask, '!!!');
-
   // Логика Drag and Drop
   const dragStartHandler = (e, task) => {
-    console.log('drag', task);
-    setDragTask(task);
+    setCurrentTask(task);
   };
   const dragLeaveHandler = e => {
-    e.target.style.background = 'white';
+    e.target.style.opacity = '100%';
   };
   const dragEndHandler = e => {
-    e.target.style.background = 'white';
+    e.target.style.opacity = '100%';
+    handleDropTask();
   };
   const dragOverHandler = e => {
     e.preventDefault();
-    e.target.style.background = 'lightgrey';
+    if (e.target.className === 'task') {
+      e.target.style.opacity = '30%';
+    }
   };
-  const dropHandler = (e, task) => {
+  const dropHandler = (e, task, colId) => {
     e.preventDefault();
-    console.log('drop', task);
-    console.log('drop', columnId);
-    console.log('drop 111', dragTask);
-    
-    e.target.style.background = 'white';
+    e.target.style.opacity = '100%';
+    setNewColumn(colId);
   };
 
   // Считает количество выполненных subtasks
@@ -52,7 +48,7 @@ const Task = ({ data }) => {
       onDragLeave={e => dragLeaveHandler(e)}
       onDragEnd={e => dragEndHandler(e)}
       onDragOver={e => dragOverHandler(e)}
-      onDrop={e => dropHandler(e, data)}
+      onDrop={e => dropHandler(e, data, columnId)}
     >
       <p className={'task__title'}>{title}</p>
       <p className={'task__subscribe'}>{`${complitedSubtasks} of ${subtasks.length} subtasks`}</p>

@@ -13,6 +13,10 @@ export const tasksSlice = createSlice({
     addNewTask: (state, action) => {
       state.tasks.push(action.payload);
     },
+    updateTask: (state, action) => {
+      console.log(action.payload)
+      state.tasks = state.tasks.map(task => task.id === action.payload.id ? task = action.payload : task);
+    },
     removeTask: (state, action) => {
       state.tasks.filter(task => task.id !== action.payload.task.id);
     }
@@ -20,6 +24,6 @@ export const tasksSlice = createSlice({
   /* eslint-enable no-param-reassign */
 });
 
-export const { addAllTasks, addNewTask } = tasksSlice.actions;
+export const { addAllTasks, addNewTask, updateTask } = tasksSlice.actions;
 
 export default tasksSlice.reducer;
