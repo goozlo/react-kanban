@@ -29,3 +29,14 @@
   --frame: rgba(130, 143, 163, 0.25);
   --option: #20212C;
 }
+
+::-webkit-scrollbar-track {
+	background-color: $main-purple-light; 
+} 
+::-webkit-scrollbar-thumb { 
+	border-radius: 10px; 
+	background-color: #635fc7; 
+} 
+::-webkit-scrollbar { 
+  height: 20px;
+}
