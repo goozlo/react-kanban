@@ -17,7 +17,7 @@
 
   opacity: 0;
   pointer-events: none;
-  @include transition("opacity, background");
+  // @include transition("opacity, background");
 
   &.active {
     opacity: 1;
