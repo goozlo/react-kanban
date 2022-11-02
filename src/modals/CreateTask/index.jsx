@@ -63,11 +63,7 @@ const CreateTask = ({ mainTitle = 'Add New Task' }) => {
     e.preventDefault()
   }
 
-  const [showDrop, setShowDrop] = React.useState(false);
-  const clickOnDropdown = e => {
-    stopPropagation(e);
-    setShowDrop(prev => !prev);
-  };
+
   return (
     <form className='task-form' onSubmit={handleSubmit}>
       <h2 className='task-form__heading'>{mainTitle}</h2>
@@ -108,8 +104,8 @@ const CreateTask = ({ mainTitle = 'Add New Task' }) => {
       </div>
       <Dropdown
         data={activeBoard.columns}
-        clickToShow={clickOnDropdown}
-        show={showDrop}
+        
+       
         label='Status'
         setColumn={setColumn}
       />

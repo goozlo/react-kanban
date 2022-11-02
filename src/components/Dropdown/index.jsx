@@ -3,17 +3,18 @@ import { useSelector } from 'react-redux';
 import { useLocalStorage } from '@utils/hooks/useLocalStorage';
 import './Dropdown.scss';
 
-export const Dropdown = ({ data, clickToShow, show, label, setColumn }) => {
+export const Dropdown = ({ data, label, setColumn }) => {
   const getLabelById = id => data.find(item => item.columnId === id).name;
 
   const [selectedId, setSelectedId] = useState(data[0].columnId);
 
   const pickOption = id => {
     setSelectedId(id);
+    setShowDrop(false)
   };
 
   const getTransition = i => {
-    if (show) {
+    if (showDrop) {
       return { transition: `all .4s ${i * 240}ms linear` };
     }
     return { transition: `all .4s ${(data.length - i) * 240}ms linear` };
@@ -32,6 +33,12 @@ export const Dropdown = ({ data, clickToShow, show, label, setColumn }) => {
     setColumn(status);
   }, [selectedId]);
 
+  const [showDrop, setShowDrop] = React.useState(false);
+  const clickOnDropdown = e => {
+    // stopPropagation(e);
+    setShowDrop(prev => !prev);
+  };
+
   return (
     <label className='dropdown'>
       <select className='dropdown__select' defaultValue={getDefaultValue}>
@@ -44,14 +51,13 @@ export const Dropdown = ({ data, clickToShow, show, label, setColumn }) => {
       <span className='dropdown__label'>{label}</span>
 
       <div className='dropdown__fake-select' aria-hidden>
-        <span className='dropdown__fake-select__picker' onClick={clickToShow}>
+        <span className='dropdown__fake-select__picker' onClick={clickOnDropdown}>
           {getLabelById(selectedId)}
         </span>
-
         <ul className='dropdown__fake-select__options'>
           {data.map((option, index) => (
             <li
-              className={`dropdown__fake-select__option option-${index} ${show && 'open'}`}
+              className={`dropdown__fake-select__option option-${index} ${showDrop && 'open'}`}
               style={getTransition(index)}
               onClick={() => pickOption(option.columnId)}
               key={option.columnId}
