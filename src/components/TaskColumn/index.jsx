@@ -46,7 +46,12 @@ const TaskColumn = ({ column, setCurrentTask, setNewColumn, currentTask, newColu
   };
 
   return (
-    <div className='column'>
+    <div
+      className='column'
+      onDragEnd={e => dragEndHandler(e)}
+      onDragOver={e => dropOverHandler(e)}
+      onDrop={e => dropTaskHandler(e, column.columnId)}
+    >
       <div className='column__header'>
         <div className='column__header-circle' style={{ backgroundColor: `${color}` }} />
         <h3 className='column__header-title'>{`${column.name.toUpperCase()} (${tasks.length})`}</h3>
