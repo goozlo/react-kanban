@@ -4,6 +4,7 @@ import sideBarReducer from './slices/sideBarSlice';
 import boardsReducer from './slices/boardsSlice';
 import tasksReducer from './slices/tasksSlice';
 import activeBoardIdReducer from './slices/activeBoardId';
+import activeTaskReducer from './slices/activeTask';
 
 const store = configureStore({
   reducer: {
@@ -11,7 +12,8 @@ const store = configureStore({
     sideBar: sideBarReducer,
     boards: boardsReducer,
     tasks: tasksReducer,
-    activeBoardId: activeBoardIdReducer
+    activeBoardId: activeBoardIdReducer,
+    activeTask: activeTaskReducer
   }
 });
 

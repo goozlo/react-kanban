@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { stopPropagation } from '@utils/hooks/usePropagination';
-
 import { EditMenu } from '@components/EditMenu';
 import { Dropdown } from '@components/Dropdown';
 import Dots from '@assets/images/dots.svg';
@@ -68,6 +67,7 @@ export const EditTask = () => {
   const [showEdit, setShowEdit] = React.useState(false);
   const [showDrop, setShowDrop] = React.useState(false);
   const isVisibleModal = useSelector(state => state.modal.isVisible);
+  const activeTask = useSelector(state => state.activeTask.activeTask);
 
   const clickOnModal = () => {
     setShowEdit(false);
@@ -92,15 +92,15 @@ export const EditTask = () => {
   return (
     <div className='edit-task' onClick={clickOnModal}>
       <div className='edit-task__wrapper'>
-        <h3 className='edit-task__title'>{TEMP_DATA.title}</h3>
+        <h3 className='edit-task__title'>{activeTask.title}</h3>
         <div className='action-menu'>
           <img className='action-menu__dots' onClick={clickOnEditMenu} src={Dots} alt='action-menu' />
           <EditMenu options={TEMP_DATA_FOR_POPUP} width='200px' show={showEdit} />
         </div>
       </div>
-      <p className='edit-task__body'>{TEMP_DATA.body}</p>
-      <AgreementList agreements={TEMP_DATA.agreements} />
-      <Dropdown data={TEMP_DATA.select} clickToShow={clickOnDropdown} show={showDrop} />
+      <p className='edit-task__body'>{activeTask.description}</p>
+      <AgreementList agreements={activeTask.subtasks} />
+      {/* <Dropdown data={TEMP_DATA.select} clickToShow={clickOnDropdown} show={showDrop} /> */}
     </div>
   );
 };
