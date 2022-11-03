@@ -32,9 +32,6 @@
   --last-column-dark: linear-gradient(180deg, rgba(43, 44, 55, 0.25) 0%, rgba(43, 44, 55, 0.125) 100%);
 }
 
-::-webkit-scrollbar-track {
-	background-color: $main-purple-light; 
-} 
 ::-webkit-scrollbar-thumb { 
 	border-radius: 10px; 
 	background-color: $medium-grey; 
