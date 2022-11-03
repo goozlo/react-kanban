@@ -10,6 +10,7 @@
     border-color: var(--line);
     position: relative;
     overflow-y: hidden;
+    flex-grow: 1;
 }
 
 .board_type_with-columns {
@@ -22,6 +23,7 @@
     flex-direction: column;
     row-gap: 32px;
     align-items: center;
+    min-width: 100%;
 }
 
 .board__container_type_with-columns {
@@ -29,7 +31,7 @@
     column-gap: 24px;
     min-width: 100%;
     min-height: 100%;
-    padding: 24px 0 0 24px;
+    padding: 24px 24px 0 24px;
     align-self: flex-start;
     align-items: flex-start;
     overflow-x: auto;
