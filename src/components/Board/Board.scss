@@ -64,11 +64,12 @@
 .board__last-column {
     margin-top: 40px;
     min-width: 280px;
-    background:  rgba(233, 239, 250, 0.5);
+    background: var(--last-column);
     border-radius: 6px;
     height: 70vh;
     display: flex;
     align-items: center;
+    box-shadow: (0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .board__add-column {

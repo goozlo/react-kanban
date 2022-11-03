@@ -28,6 +28,8 @@
   --line: #E4EBFA;
   --frame: rgba(130, 143, 163, 0.25);
   --option: #20212C;
+  --last-column-light: linear-gradient(180deg, #E9EFFA 0%, rgba(233, 239, 250, 0.5) 100%);
+  --last-column-dark: linear-gradient(180deg, rgba(43, 44, 55, 0.25) 0%, rgba(43, 44, 55, 0.125) 100%);
 }
 
 ::-webkit-scrollbar-track {
