@@ -17,12 +17,13 @@ export const EditBoard = () => {
 
   const dispatch = useDispatch();
 
+  console.log(columnName)
   const handleSaveClick = e => {
     e.preventDefault();
     ///надо подумать над редактированием колонок
-    const newNamedBoard = { ...activeBoard, name: boardName.bordName};
+    const boardData = { ...activeBoard, name: boardName.bordName, columns: [{ name: columnName.name }] };
     mainApi
-      .updateBoard(newNamedBoard)
+      .updateBoard(boardData)
       .then(res => {
         dispatch(updateBoard(res));
         dispatch(showModal());
@@ -58,7 +59,8 @@ export const EditBoard = () => {
                   placeholder='Columns'
                   type='text'
                   style={{ width: '100%' }}
-                  name='columnName'
+                  name='name'
+                  columnId={column.columnId}
                   setResult={setColumnName}
                   initialValue={column.name}
                 />
