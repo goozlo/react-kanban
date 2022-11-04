@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Checkbox.scss';
 
-export const Checkbox = ({ label = "label wasn't provided", toggle, isDone }) => {
+export const Checkbox = ({ label = "label wasn't provided", toggle, isDone, subTask }) => {
   const [checked, setChecked] = React.useState(isDone);
 
   const toggleCheckbox = () => {
     setChecked(prev => !prev);
-    toggle({ type: checked ? 'decrement' : 'increment' });
+    const subTs = { ...subTask, done: !isDone };
+    toggle(subTs);
   };
 
   return (

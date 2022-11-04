@@ -99,7 +99,7 @@ export const EditTask = () => {
         </div>
       </div>
       <p className='edit-task__body'>{activeTask.description}</p>
-      <AgreementList agreements={activeTask.subtasks} />
+      <AgreementList agreements={activeTask.subtasks} task={activeTask} />
       {/* <Dropdown data={TEMP_DATA.select} clickToShow={clickOnDropdown} show={showDrop} /> */}
     </div>
   );

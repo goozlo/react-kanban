@@ -58,7 +58,11 @@ const Task = ({ data, setCurrentTask, setNewColumn, columnId, handleDropTask }) 
       onClick={() => handleOnTaskClick(data)}
     >
       <p className={'task__title'}>{title}</p>
-      <p className={'task__subscribe'}>{`${complitedSubtasks} of ${subtasks.length} subtasks`}</p>
+      {subtasks.length === 0 ? (
+        <p className={'task__subscribe'}>Subtasks weren't set</p>
+      ) : (
+        <p className={'task__subscribe'}>{`${complitedSubtasks} of ${subtasks.length} subtasks`}</p>
+      )}
     </div>
   );
 };
