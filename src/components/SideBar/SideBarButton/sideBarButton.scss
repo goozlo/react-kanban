@@ -1,0 +1,24 @@
+@import "../../../styles/@variables";
+@import "../../../styles/@mixins";
+
+.hidden-sidebar {
+    display: none;
+    z-index: 1;
+  
+  &.open-sideBar {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 32px;
+    height: 48px;
+    width: 56px;
+    background-color: $main-purple;
+    border: none;
+    border-radius: 0px 100px 100px 0px;
+    cursor: pointer;
+  }
+  }
+  
+  .open-sideBar-img {
+    padding-right: 7px;
+  }

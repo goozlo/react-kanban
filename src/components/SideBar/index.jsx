@@ -4,14 +4,21 @@ import './sideBar.scss';
 import { BoardsList } from './BoardsList';
 import SideBarStatus from './SideBarStatus';
 import { NewBoardBtn } from '../../modals/AddBoard/NewBoardBtn';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import SideBarButton from './SideBarButton';
+import useMediaQuery from '../../utils/hooks/useMediaQuery'
+import { useEffect } from 'react';
 import { hideSideBar } from '@store/slices/sideBarSlice';
-import open from '@assets/images/eye.svg'
-
 const SideBar = ({ boards, handleClickProperBoard }) => {
-
+  const isMobile = useMediaQuery('(max-width: 696px)');
   const { isHidden } = useSelector(state => state.sideBar);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (isMobile) {
+      dispatch(hideSideBar())
+    }
+  }, [isMobile]);
   return (
     <>
       <div className={`sidebar ${isHidden && 'hidden'}`}>
@@ -19,13 +26,11 @@ const SideBar = ({ boards, handleClickProperBoard }) => {
           <BoardsList boards={boards} handleClickProperBoard={handleClickProperBoard} />
           <NewBoardBtn />
           <Toggle />
-          <SideBarStatus />
+          {isMobile ? '' : <SideBarStatus />}
         </div>
       </div>
+      {isMobile ? '' : <SideBarButton />}
 
-      <button className={`hidden-sidebar ${isHidden && 'open-sideBar'}`} onClick={() => dispatch(hideSideBar())}>
-<img className='open-sideBar-img' src={open}/>
-      </button>
     </>
   );
 };
