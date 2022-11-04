@@ -8,7 +8,8 @@ import { updateBoard } from '../../store/slices/boardsSlice';
 import { showModal } from '../../store/slices/modalSlice';
 
 export const EditBoard = () => {
-  const [result, setResult] = React.useState();
+  const [boardName, setBoardName] = React.useState();
+  const [columnName, setColumnName] = React.useState();
 
   const activeBoardId = useSelector(state => state.activeBoardId.activeBoardId);
   const boards = useSelector(state => state.boards.boards);
@@ -18,7 +19,8 @@ export const EditBoard = () => {
 
   const handleSaveClick = e => {
     e.preventDefault();
-    const newNamedBoard = { ...activeBoard, name: result.bordName };
+    ///надо подумать над редактированием колонок
+    const newNamedBoard = { ...activeBoard, name: boardName.bordName, columns: [{ ...columns, name: columnName }] };
     mainApi
       .updateBoard(newNamedBoard)
       .then(res => {
@@ -33,15 +35,35 @@ export const EditBoard = () => {
       <h3 className='edit-board__title'>Edit Board</h3>
       <form className='edit-board__form' onSubmit={handleSaveClick}>
         <label className='edit-board__board-name'>
-          <p className='edit-board__input-title'>Name</p>
+          <p className='edit-board__input-title'>Board name</p>
           <TextField
             placeholder='Name'
             type='text'
             style={{ width: '100%' }}
             name='bordName'
-            setResult={setResult}
+            setResult={setBoardName}
             initialValue={activeBoard.name}
           />
+          <p className='edit-board__input-title'>Edit columns</p>
+          <div className='add-board__column-name'>
+            {activeBoard.columns.map(column => (
+              <div className='add-board__column'
+                key={column.columnId} >
+                <TextField
+                  placeholder='Columns'
+                  type='text'
+                  style={{ width: '100%' }}
+                  name='columnName'
+                  setResult={setColumnName}
+                  initialValue={column.name}
+                />
+                <div
+                  className='add-board__column-field-delete'
+                  onClick={() => alert('Удаление колонки')}
+                />
+              </div>
+            ))}
+          </div>
         </label>
         <Button label='Save Changes' isFullWidth fnSubmit={handleSaveClick} />
       </form>

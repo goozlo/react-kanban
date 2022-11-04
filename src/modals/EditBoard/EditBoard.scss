@@ -1,7 +1,5 @@
 .edit-board {
-  &__title {
-    margin-bottom: 20px;
-  }
+ 
 
   &__board-name {
     display: block;
@@ -9,6 +7,7 @@
   }
 
   &__input-title {
+    margin-top: 20px;
     margin-bottom: 20px;
   }
 
