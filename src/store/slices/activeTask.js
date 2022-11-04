@@ -8,7 +8,6 @@ export const activeTaskSlice = createSlice({
   },
   reducers: {
     setActiveTask: (state, action) => {
-        console.log(action.payload);
       state.activeTask = action.payload;
     }
   }

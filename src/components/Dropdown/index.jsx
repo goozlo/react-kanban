@@ -3,14 +3,15 @@ import { useSelector } from 'react-redux';
 import { useLocalStorage } from '@utils/hooks/useLocalStorage';
 import './Dropdown.scss';
 
-export const Dropdown = ({ data, label, setColumn }) => {
+export const Dropdown = ({ data, label, setColumn = Function.prototype, taskColumnId }) => {
+  const [showDrop, setShowDrop] = React.useState(false);
   const getLabelById = id => data.find(item => item.columnId === id).name;
 
-  const [selectedId, setSelectedId] = useState(data[0].columnId);
+  const [selectedId, setSelectedId] = useState(taskColumnId ? taskColumnId : data[0].columnId);
 
   const pickOption = id => {
     setSelectedId(id);
-    setShowDrop(false)
+    setShowDrop(false);
   };
 
   const getTransition = i => {
@@ -33,7 +34,6 @@ export const Dropdown = ({ data, label, setColumn }) => {
     setColumn(status);
   }, [selectedId]);
 
-  const [showDrop, setShowDrop] = React.useState(false);
   const clickOnDropdown = e => {
     // stopPropagation(e);
     setShowDrop(prev => !prev);

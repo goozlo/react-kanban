@@ -50,7 +50,7 @@ export const AddBoard = () => {
   // Создаем объект доски для отправки на бэк
   const createNewBoardObj = data => {
     // Генерируем уникальный id для доски используя библиотеку
-    const boardId = uniqid();
+    const boardId = boards.length + 1;
     let newBoardObj = {};
     // Проверяем на заполненность поля названия колонки
     if (data.columnsName) {
