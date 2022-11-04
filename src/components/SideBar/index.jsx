@@ -19,9 +19,15 @@ const SideBar = ({ boards, handleClickProperBoard }) => {
       dispatch(hideSideBar())
     }
   }, [isMobile]);
+
+  const handleCloseSidebar= () => {
+    if (isMobile) {
+      dispatch(hideSideBar())
+    }
+  }
   return (
     <>
-      <div className={`sidebar ${isHidden && 'hidden'}`}>
+      <div className={`sidebar ${isHidden && 'hidden'}`} onClick={handleCloseSidebar} >
         <div className='sidebar__container'>
           <BoardsList boards={boards} handleClickProperBoard={handleClickProperBoard} />
           <NewBoardBtn />
@@ -29,7 +35,7 @@ const SideBar = ({ boards, handleClickProperBoard }) => {
           {isMobile ? '' : <SideBarStatus />}
         </div>
       </div>
-      {isMobile ? '' : <SideBarButton />}
+      { isMobile ? '' : <SideBarButton /> }
 
     </>
   );
