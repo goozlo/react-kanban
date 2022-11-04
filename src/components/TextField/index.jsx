@@ -9,16 +9,16 @@ export const TextField = ({
   setResult = Function.prototype,
   name = '',
   initialValue = '',
-  setIsDisabled = Function.prototype,
+  setIsDisabled = Function.prototype
 }) => {
   const [value, setValue] = useState(initialValue);
   const [inputName, setInputName] = useState(name);
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    if (value.length == 0) {
+    if (value.length === 0) {
       setError(true);
-    } else setError(false)
+    } else setError(false);
   }, [value]);
 
   const onChangeInput = e => {
@@ -28,11 +28,21 @@ export const TextField = ({
   };
 
   useEffect(() => {
-    setResult(state => ({ ...state, [inputName]: value }));
-    if (value.length == 0) {
-      setIsDisabled(true)}
-      else setIsDisabled(false)
+    setResult(state => {
+      const data = state;
+      const s = data.find(item => Object.keys(item)[0] === inputName);
+
+      if (!s) {
+        return [...state, { [inputName]: value }];
+      } else {
+        return data.map(item => (Object.keys(item)[0] === Object.keys(s)[0] ? { [inputName]: value } : item));
+      }
+
+    });
     
+    if (value.length === 0) {
+      setIsDisabled(true);
+    } else setIsDisabled(false);
   }, [value]);
 
   return (

@@ -12,7 +12,7 @@ import { setActiveBoardId } from '../../store/slices/activeBoardId';
 import { generateRandomColor } from '../../utils/randomColor';
 
 export const AddBoard = () => {
-  const [result, setResult] = React.useState();
+  const [result, setResult] = React.useState([]);
   const [isDisabled, setIsDisabled] = React.useState(true);
   const [columnsFields, setColumnsFields] = React.useState(1);
 
@@ -25,6 +25,8 @@ export const AddBoard = () => {
     setColumnsFields(columnsFields + 1);
   };
 
+  console.log(result);
+
   //  Отрисовывает неообходимое количество элементов с полями для названий колонок
   const columnFieldsElements = () => {
     const content = [];
@@ -35,7 +37,7 @@ export const AddBoard = () => {
             placeholder='Columns'
             type='text'
             style={{ width: '100%' }}
-            name='columnsName'
+            name={`columnName ${i}`}
             setResult={setResult}
           />
           <div
@@ -53,18 +55,24 @@ export const AddBoard = () => {
     // Генерируем уникальный id для доски используя библиотеку
     const boardId = boards.length + 1;
     let newBoardObj = {};
+    const columnsArray = [];
     // Проверяем на заполненность поля названия колонки
-    if (data.columnsName) {
-      newBoardObj = {
-        name: data.boardName,
-        id: boardId,
-        columns: [
-          {
-            name: data.columnsName,
-            columnId: `${boardId}_1`,
+    if (data.length > 1) {
+      data.map((item, index) => {
+        if (Object.keys(item)[0] !== 'boardName') {
+          columnsArray.push({
+            name: Object.values(item)[0],
+            columnId: `${boardId}_${index}`,
             color: generateRandomColor()
-          }
-        ]
+          });
+        }
+        return;
+      });
+
+      newBoardObj = {
+        name: data[0].boardName,
+        id: boardId,
+        columns: columnsArray
       };
     } else {
       newBoardObj = {
@@ -99,15 +107,24 @@ export const AddBoard = () => {
       <form className='add-board__form'>
         <label className='add-board__board-name'>
           <p className='add-board__input-title'>Name</p>
-          <TextField placeholder='Name' type='text' name='boardName' setResult={setResult} setIsDisabled={setIsDisabled} />
+          <TextField
+            placeholder='Name'
+            type='text'
+            name='boardName'
+            setResult={setResult}
+            setIsDisabled={setIsDisabled}
+          />
         </label>
         <label className='add-board__create-column'>
           <p className='add-board__input-title'>Columns</p>
           <div className='add-board__column-name'>{columnFieldsElements()}</div>
         </label>
         <Button label='+ Add New Column' isFullWidth isSecondary fn={handelColumnAddClick} />
-        {isDisabled ? <Button label='Create New Board' isFullWidth disabled/> : <Button label='Create New Board' isFullWidth fn={handleNewBoard}/>}
-          
+        {isDisabled ? (
+          <Button label='Create New Board' isFullWidth disabled />
+        ) : (
+          <Button label='Create New Board' isFullWidth fn={handleNewBoard} />
+        )}
       </form>
     </div>
   );
