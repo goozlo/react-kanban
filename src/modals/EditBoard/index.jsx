@@ -20,7 +20,7 @@ export const EditBoard = () => {
   const handleSaveClick = e => {
     e.preventDefault();
     ///надо подумать над редактированием колонок
-    const newNamedBoard = { ...activeBoard, name: boardName.bordName, columns: [{ ...columns, name: columnName }] };
+    const newNamedBoard = { ...activeBoard, name: boardName.bordName};
     mainApi
       .updateBoard(newNamedBoard)
       .then(res => {
@@ -29,6 +29,11 @@ export const EditBoard = () => {
       })
       .catch(err => console.log(err));
   };
+
+  function handelColumnAddClick(e) {
+    e.preventDefault();
+    alert('add new column')
+  }
 
   return (
     <div className='edit-board'>
@@ -63,6 +68,7 @@ export const EditBoard = () => {
                 />
               </div>
             ))}
+            <Button label='+ Add New Column' isFullWidth isSecondary fn={handelColumnAddClick} />
           </div>
         </label>
         <Button label='Save Changes' isFullWidth fnSubmit={handleSaveClick} />
