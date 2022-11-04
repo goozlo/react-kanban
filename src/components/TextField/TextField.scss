@@ -4,7 +4,7 @@
 .input {
   display: block;
   padding: 8px 16px 8px;
-  background: $white;
+  background-color: var(--bg2);
   border: 1px solid rgba(130, 143, 163, 0.25);
   border-radius: 4px;
   width: 100%;
@@ -19,6 +19,7 @@
     color: var(--black);
     cursor: text;
     width: 100%;
+    background-color: var(--bg2);
 
     &::placeholder {
       color: #000112;
@@ -29,13 +30,13 @@
   &.error {
     position: relative;
     border: 1px solid $red;
+    background-color: var(--bg2);
 
     &::after {
       content: "Can't be empty";
-
+      background-color: var(--bg2);
       position: absolute;
       right: 16px;
-
       font-weight: 500;
       font-size: 13px;
       line-height: 23px;

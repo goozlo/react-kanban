@@ -14,9 +14,6 @@ const TaskColumn = ({ column, setCurrentTask, setNewColumn, currentTask, newColu
   // Отфильтровываем из всех тасок таски для конкретной колонки
   const tasks = tasksStore.filter(task => task.columnId === column.columnId);
 
-  // Генерация случайного цвета для кружочка
-  const color = generateRandomColor();
-
   // DragAndDrop Обработка создания нового объекта при перетаскивании и сохранение его в Store
   const handleDropTask = () => {
     const droppedTask = { ...currentTask, columnId: newColumn };
@@ -53,7 +50,7 @@ const TaskColumn = ({ column, setCurrentTask, setNewColumn, currentTask, newColu
       onDrop={e => dropTaskHandler(e, column.columnId)}
     >
       <div className='column__header'>
-        <div className='column__header-circle' style={{ backgroundColor: `${color}` }} />
+        <div className='column__header-circle' style={{ backgroundColor: `${column.color}` }} />
         <h3 className='column__header-title'>{`${column.name.toUpperCase()} (${tasks.length})`}</h3>
       </div>
 

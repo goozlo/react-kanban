@@ -6,14 +6,13 @@ import Button from '../../components/Button/index';
 import { showModal } from '../../store/slices/modalSlice';
 import { updateBoard } from '../../store/slices/boardsSlice';
 import { mainApi } from '../../utils/api/mainApi';
+import { generateRandomColor } from '../../utils/randomColor';
 
 const AddColumn = () => {
   const [newColumn, setNewColumn] = useState('');
-  console.log(newColumn);
   const dispatch = useDispatch();
   const boards = useSelector(state => state.boards.boards);
   const activeBoardId = useSelector(state => state.activeBoardId.activeBoardId);
-  console.log(boards, activeBoardId);
 
   // Создание id для колонки
   const createNewColumnId = () => {
@@ -29,7 +28,8 @@ const AddColumn = () => {
   const createNewColumn = () => {
     const newColumnObj = {
       name: newColumn.name,
-      columnId: `${activeBoardId}_${createNewColumnId()}`
+      columnId: `${activeBoardId}_${createNewColumnId()}`,
+      color: generateRandomColor()
     };
     return newColumnObj;
   };
