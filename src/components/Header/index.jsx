@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import Dots from '@assets/images/dots.svg';
 import { EditMenu } from '@components/EditMenu';
 import { showModal } from '../../store/slices/modalSlice';
+import useMediaQuery from '../../utils/hooks/useMediaQuery'
+import MobileMenu from './mobileMenu/MobileMenu';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -12,6 +14,8 @@ const Header = () => {
   const activeBoardId = useSelector(state => state.activeBoardId.activeBoardId);
   const boards = useSelector(state => state.boards.boards);
   const [activeBoard, setActiveBoard] = useState();
+
+  const isMobile = useMediaQuery('(max-width: 696px)');
 
   const TEMP_DATA_FOR_POPUP = [
     {
@@ -49,19 +53,23 @@ const Header = () => {
         <h1 className='header__title'>kanban</h1>
       </div>
       <div className='header__main'>
-        <h2 className='header__desk-title'>Platform Launch</h2>
+        <div className='header__desk'>
+                  <h2 className='header__desk-title'>Platform Launch</h2>
+        {isMobile ? <MobileMenu /> : ''}
+      </div>
 
-        <div className='header__buttons'>
-          <button className='header__new-task' onClick={handleClickAddTaskBtn}>
-            + Add New Task
-          </button>
-          <div className='action-menu'>
-            <img className='action-menu__dots' onClick={clickOnEditBordMenu} src={Dots} alt='action-menu' />
-            <EditMenu options={TEMP_DATA_FOR_POPUP} width='200px' show={showEdit} setShowEdit={setShowEdit} />
-          </div>
+
+      <div className='header__buttons'>
+        <button className='header__new-task' onClick={handleClickAddTaskBtn}> {isMobile ? `+` : '+ Add New Task'}
+
+        </button>
+        <div className='action-menu'>
+          <img className='action-menu__dots' onClick={clickOnEditBordMenu} src={Dots} alt='action-menu' />
+          <EditMenu options={TEMP_DATA_FOR_POPUP} width='200px' show={showEdit} setShowEdit={setShowEdit} />
         </div>
       </div>
-    </header>
+    </div>
+    </header >
   );
 };
 

@@ -10,7 +10,7 @@
 
 .header__logo {
   min-width: 300px;
-  border-right: 1px solid ;
+  border-right: 1px solid;
   border-color: var(--line);
   padding-top: 33px;
   padding-bottom: 37px;
@@ -34,9 +34,15 @@
   border-color: var(--line);
 }
 
+.header__desk {
+  display: flex;
+  flex-direction: row;
+}
+
 .header__desk-title {
   margin-left: 24px;
-  color: var(--typography)
+  color: var(--typography);
+  padding-right: 12px;
 }
 
 .header__buttons {
@@ -58,9 +64,38 @@
   width: 200px;
   cursor: pointer;
   height: 40px;
+  max-width: 164px;
 }
 
 .header__board-settings {
   margin-left: 24px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 769px) {
+  .header__desk-title {
+    @include heading-l
+  }
+}
+
+@media screen and (max-width: 696px) {
+  .header__main {
+    padding: 20px 0 20px 0;
+  }
+
+  .header__new-task {
+    max-width: 48px;
+  }
+
+  .header__logo {
+    display: none;
+    border: none;
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+  .header__desk-title {
+    @include heading-l
+  }
 }
