@@ -15,7 +15,6 @@ import './CreateTask.scss';
 import { mainApi } from '../../utils/api/mainApi';
 import { addNewTask } from '../../store/slices/tasksSlice';
 
-
 const CreateTask = ({ mainTitle = 'Add New Task' }) => {
   const [data, setData] = useState({
     title: '',
@@ -23,15 +22,32 @@ const CreateTask = ({ mainTitle = 'Add New Task' }) => {
     status: '',
     boardId: '',
     columnId: '',
+    subtasks: [],
     id: ''
   });
 
   const [column, setColumn] = useState({});
-
+  const [subTs, setSubTs] = useState([]);
+  const [subTasksNumbers, setSubTasksNumbers] = useState(1);
   const dispatch = useDispatch();
   const activeBoardId = useSelector(state => state.activeBoardId.activeBoardId);
   const boards = useSelector(state => state.boards.boards);
   const activeBoard = boards.find(board => board.id === activeBoardId);
+
+  // Обрабатываем клик по кнопке добавление еще одной субтаски
+  const handelSubTasksAddClick = e => {
+    e.preventDefault();
+    setSubTasksNumbers(subTasksNumbers + 1);
+  };
+
+  //  Отрисовывает неообходимое количество элементов с полями для названий subtasks
+  const subtasksFieldsElements = () => {
+    const content = [];
+    for (let i = 1; i <= subTasksNumbers; i++) {
+      content.push(<Subtask key={i} placeholder='e.g. Drink coffee & smile' id={i} setSubTs={setSubTs} subTs={subTs} />);
+    }
+    return content;
+  };
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -46,6 +62,7 @@ const CreateTask = ({ mainTitle = 'Add New Task' }) => {
       boardId: activeBoardId,
       title: data.title,
       description: data.description,
+      subtasks: subTs
     };
 
     mainApi
@@ -59,10 +76,7 @@ const CreateTask = ({ mainTitle = 'Add New Task' }) => {
     dispatch(showModal());
   };
 
-  function handelSubtaskAddClick(e) {
-    e.preventDefault()
-  }
-
+  console.log(subTs);
 
   return (
     <form className='task-form' onSubmit={handleSubmit}>
@@ -91,24 +105,11 @@ const CreateTask = ({ mainTitle = 'Add New Task' }) => {
       </label>
       <div className='task-form__subtasks-wrapper'>
         <p className='task-form__subtasks-title'>Subtasks</p>
-        
-        <Subtask placeholder='e.g. Drink coffee & smile' i='2' />
-        <Button
-          fn={handelSubtaskAddClick}
-          type='button'
-          label='+ Add New Subtask'
-          isLarge
-          isSecondary
-          isFullWidth
-        />
+
+        <div>{subtasksFieldsElements()}</div>
+        <Button fn={handelSubTasksAddClick} type='button' label='+ Add New Subtask' isLarge isSecondary isFullWidth />
       </div>
-      <Dropdown
-        data={activeBoard.columns}
-        
-       
-        label='Status'
-        setColumn={setColumn}
-      />
+      <Dropdown data={activeBoard.columns} label='Status' setColumn={setColumn} />
       <Button
         fnSumbit={handleSubmit}
         type='submit'
