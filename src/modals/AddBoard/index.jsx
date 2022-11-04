@@ -25,7 +25,6 @@ export const AddBoard = () => {
     setColumnsFields(columnsFields + 1);
   };
 
-  console.log(result);
 
   //  Отрисовывает неообходимое количество элементов с полями для названий колонок
   const columnFieldsElements = () => {

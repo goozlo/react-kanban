@@ -8,8 +8,8 @@ import { updateBoard } from '../../store/slices/boardsSlice';
 import { showModal } from '../../store/slices/modalSlice';
 
 export const EditBoard = () => {
-  const [boardName, setBoardName] = React.useState();
-  const [columnName, setColumnName] = React.useState();
+  const [boardName, setBoardName] = React.useState([]);
+  const [columnName, setColumnName] = React.useState([]);
 
   const activeBoardId = useSelector(state => state.activeBoardId.activeBoardId);
   const boards = useSelector(state => state.boards.boards);
@@ -62,7 +62,7 @@ export const EditBoard = () => {
                   name='name'
                   columnId={column.columnId}
                   setResult={setColumnName}
-                  initialValue={column.name}
+                  initialValue={column.name} 
                 />
                 <div
                   className='add-board__column-field-delete'
