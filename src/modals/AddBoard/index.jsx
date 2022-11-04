@@ -9,6 +9,7 @@ import { TextField } from '../../components/TextField';
 import { mainApi } from '../../utils/api/mainApi';
 import { addNewBoard } from '../../store/slices/boardsSlice';
 import { setActiveBoardId } from '../../store/slices/activeBoardId';
+import { generateRandomColor } from '../../utils/randomColor';
 
 export const AddBoard = () => {
   const [result, setResult] = React.useState();
@@ -60,7 +61,8 @@ export const AddBoard = () => {
         columns: [
           {
             name: data.columnsName,
-            columnId: `${boardId}_1`
+            columnId: `${boardId}_1`,
+            color: generateRandomColor()
           }
         ]
       };

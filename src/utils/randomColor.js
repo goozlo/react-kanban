@@ -8,8 +8,8 @@ const generateRandomColor = () => {
   const g = Math.floor(Math.random() * 256);
   const b = Math.floor(Math.random() * 256);
   color = `#${r.toString(16)}${g.toString(16)}${b.toString(16)}`;
-
-  // Проверяем ссгенерированный цвет на совпадение с цветами фона
+ 
+  // Проверяем сгенерированный цвет на совпадение с цветами фона
   if (color === 'rgb(244,247,253)' || color === 'rgb(43,44,55)') {
     color = `#${(r + random).toString(16)}${(g + random).toString(16)}${(b + random).toString(16)}`;
   }
