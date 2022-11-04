@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useLocalStorage } from '@utils/hooks/useLocalStorage';
 import './Dropdown.scss';
 
 export const Dropdown = ({ data, label, setColumn = Function.prototype, taskColumnId }) => {

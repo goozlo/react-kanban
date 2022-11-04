@@ -19,8 +19,6 @@ export const AgreementList = ({ agreements, task }) => {
     // Обновляем таску
     const newTask = { ...task, subtasks: newSubTasks };
 
-    console.log(newTask)
-
     // Обновляем таску на бэке
     mainApi
       .updateTask(newTask)

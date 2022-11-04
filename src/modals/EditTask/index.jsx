@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { stopPropagation } from '@utils/hooks/usePropagination';
+import { mainApi } from '../../utils/api/mainApi';
 import { EditMenu } from '@components/EditMenu';
 import { Dropdown } from '@components/Dropdown';
 import Dots from '@assets/images/dots.svg';
@@ -29,7 +30,6 @@ export const EditTask = () => {
   const activeBoardId = useSelector(state => state.activeBoardId.activeBoardId);
   const boards = useSelector(state => state.boards.boards);
   const activeBoard = boards.find(board => board.id === activeBoardId);
-  console.log(taskColumn, '111');
 
   const clickOnModal = () => {
     setShowEdit(false);
@@ -51,13 +51,21 @@ export const EditTask = () => {
     setShowDrop(false);
   }, [isVisibleModal]);
 
+  // При изменении колнки мы проверяем совпадает ли новая колонка с текущей колонкой
+  // Если колонки изменилась, то изменяем таску (обновляем в ней колонку) и отправляем на бэк
   React.useEffect(() => {
+    // Проверяем объект на пустоту
     if (!taskColumn.columnId) {
       return;
     }
+    // Проверяем изменилась ли колонка или нет
     if (taskColumn.columnId !== activeTask.columnId) {
       const newTask = { ...activeTask, status: taskColumn.status, columnId: taskColumn.columnId };
-      dispatch(updateTask(newTask));
+      // Отправляем на бэк новую таску (обновляем)
+      mainApi
+        .updateTask(newTask)
+        .then(res => dispatch(updateTask(res)))
+        .catch(err => console.log(err));
     }
   }, [taskColumn]);
 
