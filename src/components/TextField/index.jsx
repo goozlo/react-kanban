@@ -29,17 +29,18 @@ export const TextField = ({
 
   useEffect(() => {
     setResult(state => {
+      // Каждый элемент стейта проверяем на наличие такого же объекта с таким же ключом
       const data = state;
       const s = data.find(item => Object.keys(item)[0] === inputName);
-
+      // Если в массиве уже есть объект с таким же ключом то меняем у этого ключа значение
+      // если нет то мы добавляем новый объект с новым занчением
       if (!s) {
         return [...state, { [inputName]: value }];
       } else {
         return data.map(item => (Object.keys(item)[0] === Object.keys(s)[0] ? { [inputName]: value } : item));
       }
-
     });
-    
+
     if (value.length === 0) {
       setIsDisabled(true);
     } else setIsDisabled(false);
